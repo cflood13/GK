@@ -1,0 +1,293 @@
+<!-- Quote Hero -->
+<section class="page-hero" style="background-image: url('/images/services/construction.jpg');">
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+        <h1 class="animate-on-scroll">Request a Free Quote</h1>
+        <p class="animate-on-scroll">Get Your Project Started Today</p>
+    </div>
+</section>
+
+<!-- Quote Form -->
+<section class="section">
+    <div class="container">
+        <div class="quote-wrapper">
+            <div class="quote-intro">
+                <h2>Let's Discuss Your Project</h2>
+                <p>Fill out the form below with your project details, and we'll provide you with a comprehensive quote within 24-48 hours. Our estimates are always free and come with no obligation.</p>
+            </div>
+            
+            <form id="quote-form" class="quote-form">
+                <div class="form-section">
+                    <h3>Contact Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Project Address *</label>
+                        <input type="text" id="address" name="address" placeholder="Street Address" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City *</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State *</label>
+                            <input type="text" id="state" name="state" value="TX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="zip">ZIP Code *</label>
+                            <input type="text" id="zip" name="zip" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>Project Details</h3>
+                    <div class="form-group">
+                        <label for="projectType">Project Type *</label>
+                        <select id="projectType" name="projectType" required>
+                            <option value="">Select Project Type</option>
+                            <option value="roof-repair">Roof Repair</option>
+                            <option value="roof-replacement">Roof Replacement</option>
+                            <option value="solar-roofing">Solar Roofing Installation</option>
+                            <option value="kitchen-remodel">Kitchen Remodeling</option>
+                            <option value="bathroom-remodel">Bathroom Remodeling</option>
+                            <option value="home-addition">Home Addition</option>
+                            <option value="new-construction">New Construction</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="timeframe">Project Timeframe</label>
+                        <select id="timeframe" name="timeframe">
+                            <option value="">Select Timeframe</option>
+                            <option value="asap">As Soon As Possible</option>
+                            <option value="1-month">Within 1 Month</option>
+                            <option value="3-months">Within 3 Months</option>
+                            <option value="6-months">Within 6 Months</option>
+                            <option value="planning">Just Planning</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="budget">Estimated Budget</label>
+                        <select id="budget" name="budget">
+                            <option value="">Select Budget Range</option>
+                            <option value="5k-10k">$5,000 - $10,000</option>
+                            <option value="10k-25k">$10,000 - $25,000</option>
+                            <option value="25k-50k">$25,000 - $50,000</option>
+                            <option value="50k-100k">$50,000 - $100,000</option>
+                            <option value="100k+">$100,000+</option>
+                            <option value="unsure">Not Sure</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="projectDetails">Project Description *</label>
+                        <textarea id="projectDetails" name="projectDetails" rows="6" placeholder="Please describe your project in detail..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="insuranceClaim">Is this an insurance claim?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="insuranceClaim" value="yes">
+                                <span>Yes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="insuranceClaim" value="no" checked>
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>Additional Information</h3>
+                    <div class="form-group">
+                        <label for="howHeard">How did you hear about us?</label>
+                        <select id="howHeard" name="howHeard">
+                            <option value="">Select an Option</option>
+                            <option value="google">Google Search</option>
+                            <option value="referral">Friend/Family Referral</option>
+                            <option value="social">Social Media</option>
+                            <option value="angi">Angi/HomeAdvisor</option>
+                            <option value="bbb">Better Business Bureau</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="additionalInfo">Additional Comments</label>
+                        <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Any other information you'd like us to know?"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary btn-large">Submit Quote Request</button>
+                    <p class="form-note">* Required fields</p>
+                </div>
+                
+                <div id="form-message" class="form-message"></div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="section" style="background-color: var(--light-color);">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 3rem;">What Happens Next?</h2>
+        <div class="process-steps">
+            <div class="step animate-on-scroll">
+                <div class="step-number">1</div>
+                <h3>Quote Review</h3>
+                <p>We'll review your project details and prepare a comprehensive estimate</p>
+            </div>
+            <div class="step animate-on-scroll">
+                <div class="step-number">2</div>
+                <h3>Site Visit</h3>
+                <p>If needed, we'll schedule a convenient time to visit and assess your project</p>
+            </div>
+            <div class="step animate-on-scroll">
+                <div class="step-number">3</div>
+                <h3>Detailed Estimate</h3>
+                <p>You'll receive a detailed quote with pricing, timeline, and scope of work</p>
+            </div>
+            <div class="step animate-on-scroll">
+                <div class="step-number">4</div>
+                <h3>No Pressure</h3>
+                <p>Take your time to review. We're here to answer any questions you have</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.quote-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quote-intro {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.quote-intro h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.quote-form {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.form-section {
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px solid #eee;
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-section h3 {
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+}
+
+.radio-group {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.radio-label input {
+    margin-right: 8px;
+}
+
+.form-submit {
+    text-align: center;
+}
+
+.btn-large {
+    padding: 16px 40px;
+    font-size: 1.1rem;
+}
+
+.form-note {
+    margin-top: var(--spacing-sm);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.step {
+    text-align: center;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto var(--spacing-md);
+}
+
+.step h3 {
+    margin-bottom: var(--spacing-sm);
+}
+
+@media (max-width: 768px) {
+    .quote-form {
+        padding: var(--spacing-lg);
+    }
+    
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+}
+</style> 

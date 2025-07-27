@@ -1,0 +1,243 @@
+<!-- Project Detail Hero -->
+<section class="page-hero" style="background-image: url('<%= project.images && project.images[0] ? project.images[0] : project.thumbnail %>');">
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+        <h1 class="animate-on-scroll"><%= project.title %></h1>
+        <p class="animate-on-scroll"><%= project.category.charAt(0).toUpperCase() + project.category.slice(1) %> Project</p>
+    </div>
+</section>
+
+<!-- Project Details -->
+<section class="section">
+    <div class="container">
+        <div class="project-detail-wrapper">
+            <div class="project-gallery animate-on-scroll">
+                <% if (project.images && project.images.length > 0) { %>
+                    <div class="main-image">
+                        <img id="main-image" src="<%= project.images[0] %>" alt="<%= project.title %>">
+                    </div>
+                    <div class="thumbnail-grid">
+                        <% project.images.forEach((image, index) => { %>
+                            <div class="thumbnail <%= index === 0 ? 'active' : '' %>" onclick="changeMainImage('<%= image %>', this)">
+                                <img src="<%= image %>" alt="<%= project.title %> - Image <%= index + 1 %>">
+                            </div>
+                        <% }) %>
+                    </div>
+                <% } else { %>
+                    <div class="main-image">
+                        <img src="<%= project.thumbnail %>" alt="<%= project.title %>">
+                    </div>
+                <% } %>
+            </div>
+            
+            <div class="project-info animate-on-scroll">
+                <h2><%= project.title %></h2>
+                <p class="project-description"><%= project.description %></p>
+                
+                <% if (project.details) { %>
+                    <div class="project-details">
+                        <h3>Project Details</h3>
+                        <ul>
+                            <% if (project.details.duration) { %>
+                                <li><strong>Duration:</strong> <%= project.details.duration %></li>
+                            <% } %>
+                            <% if (project.details.scope) { %>
+                                <li><strong>Scope:</strong> <%= project.details.scope %></li>
+                            <% } %>
+                            <% if (project.details.location) { %>
+                                <li><strong>Location:</strong> <%= project.details.location %></li>
+                            <% } %>
+                            <% if (project.details.services) { %>
+                                <li><strong>Services:</strong> <%= project.details.services %></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                <% } %>
+                
+                <div class="project-highlights">
+                    <h3>Project Highlights</h3>
+                    <ul>
+                        <li>Professional installation by certified technicians</li>
+                        <li>High-quality materials with manufacturer warranties</li>
+                        <li>Completed on time and within budget</li>
+                        <li>Minimal disruption to daily activities</li>
+                    </ul>
+                </div>
+                
+                <div class="project-cta">
+                    <h3>Start Your Project Today</h3>
+                    <p>Ready to transform your property? Let's discuss your project needs.</p>
+                    <a href="/contact/quote" class="btn btn-primary">Get Free Quote</a>
+                    <a href="/projects" class="btn btn-secondary">View More Projects</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Projects -->
+<section class="section" style="background-color: var(--light-color);">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 3rem;">Related Projects</h2>
+        <div class="related-projects">
+            <% const relatedProjects = [
+                { id: 1, title: "Residential Roof Replacement", category: "roofing", thumbnail: "/images/gallery1.jpg" },
+                { id: 2, title: "Kitchen Remodel", category: "remodeling", thumbnail: "/images/services/remodeling.jpg" },
+                { id: 3, title: "Solar Installation", category: "solar", thumbnail: "/images/services/solar.jpg" }
+            ].filter(p => p.category === project.category && p.id != project.id).slice(0, 3); %>
+            
+            <% relatedProjects.forEach(relProject => { %>
+                <div class="project-card animate-on-scroll">
+                    <div class="project-image">
+                        <img src="<%= relProject.thumbnail %>" alt="<%= relProject.title %>">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3><%= relProject.title %></h3>
+                                <a href="/projects/<%= relProject.id %>" class="btn btn-outline">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</section>
+
+<style>
+.project-detail-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: start;
+}
+
+.project-gallery {
+    position: sticky;
+    top: 100px;
+}
+
+.main-image {
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.main-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-sm);
+}
+
+.thumbnail {
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.thumbnail.active,
+.thumbnail:hover {
+    opacity: 1;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+}
+
+.project-info h2 {
+    margin-bottom: var(--spacing-md);
+    color: var(--dark-color);
+}
+
+.project-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-secondary);
+}
+
+.project-details,
+.project-highlights {
+    margin-bottom: var(--spacing-lg);
+}
+
+.project-details h3,
+.project-highlights h3,
+.project-cta h3 {
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+}
+
+.project-details ul,
+.project-highlights ul {
+    list-style: none;
+}
+
+.project-details ul li,
+.project-highlights ul li {
+    padding: 8px 0;
+    position: relative;
+    padding-left: 25px;
+}
+
+.project-highlights ul li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.project-cta {
+    background: var(--light-color);
+    padding: var(--spacing-lg);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.project-cta p {
+    margin-bottom: var(--spacing-md);
+}
+
+.project-cta .btn {
+    margin: 5px;
+}
+
+.related-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .project-detail-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-gallery {
+        position: static;
+    }
+    
+    .thumbnail-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+</style>
+
+<script>
+function changeMainImage(src, thumbnail) {
+    document.getElementById('main-image').src = src;
+    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+    thumbnail.classList.add('active');
+}
+</script> 

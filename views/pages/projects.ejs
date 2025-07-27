@@ -1,0 +1,112 @@
+<!-- Projects Hero -->
+<section class="page-hero" style="background-image: url('/images/projects/anderson-mill-thumb.jpg');">
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+        <h1 class="animate-on-scroll">Our Projects</h1>
+        <p class="animate-on-scroll">Excellence in Every Detail</p>
+    </div>
+</section>
+
+<!-- Projects Introduction -->
+<section class="section">
+    <div class="container">
+        <div class="section-intro">
+            <h2>We Take Pride In The Projects We've Done</h2>
+            <p>While our clients' satisfaction is our primary metric for excellence, we have also been recognized with numerous awards over the years for safety, business practices, and design excellence. We understand that projects represent not only buildings, but the plans for the future of our clients.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Filter -->
+<section class="section" style="padding-top: 0;">
+    <div class="container">
+        <div class="projects-filter animate-on-scroll">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="roofing">Roofing</button>
+            <button class="filter-btn" data-filter="construction">Construction</button>
+            <button class="filter-btn" data-filter="remodeling">Remodeling</button>
+            <button class="filter-btn" data-filter="solar">Solar</button>
+        </div>
+        
+        <div class="projects-grid">
+            <% projects.forEach(project => { %>
+                <div class="project-card animate-on-scroll" data-category="<%= project.category %>">
+                    <div class="project-image">
+                        <img src="<%= project.thumbnail %>" alt="<%= project.title %>">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3><%= project.title %></h3>
+                                <p><%= project.description %></p>
+                                <a href="/projects/<%= project.id %>" class="btn btn-outline">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+            
+            <!-- Additional Projects -->
+            <div class="project-card animate-on-scroll" data-category="roofing">
+                <div class="project-image">
+                    <img src="/images/gallery1.jpg" alt="Residential Roofing">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h3>Residential Roofing</h3>
+                            <p>Complete roof replacement with GAF Timberline HDZ shingles</p>
+                            <a href="/projects/5" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card animate-on-scroll" data-category="construction">
+                <div class="project-image">
+                    <img src="/images/projects/project1.jpg" alt="Commercial Construction">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h3>Commercial Construction</h3>
+                            <p>New commercial building construction</p>
+                            <a href="/projects/6" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card animate-on-scroll" data-category="construction">
+                <div class="project-image">
+                    <img src="/images/projects/project2.jpg" alt="Custom Home Build">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h3>Custom Home Build</h3>
+                            <p>Luxury custom home construction</p>
+                            <a href="/projects/7" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card animate-on-scroll" data-category="roofing">
+                <div class="project-image">
+                    <img src="/images/gallery2.jpg" alt="Metal Roofing Installation">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h3>Metal Roofing Installation</h3>
+                            <p>Standing seam metal roof installation</p>
+                            <a href="/projects/8" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Let's discuss how we can bring your vision to life</p>
+            <a href="/contact" class="btn btn-primary">Get In Touch</a>
+        </div>
+    </div>
+</section> 

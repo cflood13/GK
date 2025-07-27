@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <meta name="description" content="<%= description %>">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Additional CSS if needed -->
+    <%- typeof additionalStyles !== 'undefined' ? additionalStyles : '' %>
+</head>
+<body>
+    <%- include('partials/header') %>
+    
+    <main>
+        <%- body %>
+    </main>
+    
+    <%- include('partials/footer') %>
+    
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Chatbot -->
+    <div id="chatbot-container" class="chatbot-container">
+        <div id="chatbot-toggle" class="chatbot-toggle">
+            <i class="fas fa-comments"></i>
+            <span class="chatbot-notification">Have a question?</span>
+        </div>
+        
+        <div id="chatbot-widget" class="chatbot-widget">
+            <div class="chatbot-header">
+                <div class="chatbot-title">
+                    <i class="fas fa-headset"></i>
+                    <span>GK Assistant</span>
+                </div>
+                <button id="chatbot-close" class="chatbot-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div id="chatbot-messages" class="chatbot-messages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        Hi! I'm here to help you learn about our roofing and construction services. What can I help you with today?
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chatbot-input-area">
+                <input type="text" id="chatbot-input" placeholder="Ask about our services..." maxlength="500">
+                <button id="chatbot-send" type="button">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main JavaScript -->
+    <script src="/js/main.js"></script>
+    <script src="/js/chatbot.js"></script>
+    
+    <!-- Additional scripts if needed -->
+    <%- typeof additionalScripts !== 'undefined' ? additionalScripts : '' %>
+</body>
+</html> 
