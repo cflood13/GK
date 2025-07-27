@@ -541,35 +541,38 @@ nav .container {
 
 .section-title {
     text-align: center;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: 3rem;
     position: relative;
 }
 
 .section-title h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: var(--spacing-md);
-    color: var(--text-primary);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    margin-bottom: 1rem;
+    color: #111827;
     position: relative;
+    font-weight: 600;
+    letter-spacing: -0.025em;
 }
 
 .section-title h2:after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    border-radius: var(--radius-full);
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, #f97316, #ea580c);
+    border-radius: 1px;
 }
 
 .section-title p {
     font-size: 1.125rem;
-    color: var(--text-secondary);
-    max-width: 700px;
+    color: #6b7280;
+    max-width: 600px;
     margin: 0 auto;
-    line-height: var(--lh-relaxed);
+    line-height: 1.6;
+    font-weight: 400;
 }
 
 .section-intro {
@@ -631,28 +634,28 @@ nav .container {
     color: rgba(255,255,255,0.9);
 }
 
-/* Services Grid */
+/* Services Grid - Modern Minimal Design */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: var(--spacing-lg);
+    gap: 2rem;
     margin-top: var(--spacing-lg);
 }
 
 .service-card {
     background-color: var(--white);
-    border-radius: var(--radius-lg);
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    transition: var(--transition-slow);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    border: 1px solid var(--gray-200);
+    border: 1px solid rgba(0,0,0,0.04);
 }
 
 .service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--primary-color);
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    border-color: transparent;
 }
 
 .service-card .service-image {
@@ -716,18 +719,56 @@ nav .container {
     margin-top: var(--spacing-md);
 }
 
-/* Service Image Container with Overlay */
+/* Service Card Content - Modern Minimal Styling */
+.service-card-content {
+    padding: 2rem 1.5rem;
+    position: relative;
+}
+
+.service-card-content p {
+    color: #6b7280;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.service-card-content .btn {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+.service-card-content .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(249, 115, 22, 0.4);
+    background: linear-gradient(135deg, #ea580c 0%, #dc2626 100%);
+    text-decoration: none;
+    color: white;
+}
+
+/* Service Image Container with Overlay - Modern Minimal */
 .service-image-container {
     position: relative;
     overflow: hidden;
-    height: 250px;
+    height: 280px;
 }
 
 .service-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: var(--transition);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .service-overlay {
@@ -735,26 +776,28 @@ nav .container {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4), transparent);
+    background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.3), transparent);
     color: white;
-    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
-    transition: var(--transition);
+    padding: 2rem 1.5rem 1.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(2px);
 }
 
 .service-overlay h3 {
     margin: 0;
     font-size: 1.5rem;
-    font-weight: 600;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
     color: white;
 }
 
 .service-card:hover .service-overlay {
-    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.5), transparent);
+    background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.4), transparent);
 }
 
 .service-card:hover .service-image-container img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 /* Service feature cards for homepage */
@@ -1167,6 +1210,24 @@ footer {
         margin-bottom: var(--spacing-md);
     }
     
+    /* Modern Tablet Service Cards */
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.75rem;
+    }
+    
+    .service-card {
+        border-radius: 18px;
+    }
+    
+    .service-image-container {
+        height: 260px;
+    }
+    
+    .service-card-content {
+        padding: 1.75rem 1.25rem;
+    }
+    
     .certifications-showcase {
         grid-template-columns: 1fr 1fr;
         gap: var(--spacing-md);
@@ -1215,8 +1276,18 @@ footer {
         font-size: 1.5rem;
     }
     
+    /* Modern Mobile Service Cards */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .service-card {
+        border-radius: 16px;
+    }
+    
     .service-image-container {
-        height: 200px;
+        height: 220px;
     }
     
     .service-overlay h3 {
@@ -1224,7 +1295,22 @@ footer {
     }
     
     .service-overlay {
-        padding: var(--spacing-md) var(--spacing-sm) var(--spacing-sm);
+        padding: 1.5rem 1rem 1rem;
+    }
+    
+    .service-card-content {
+        padding: 1.5rem 1rem;
+    }
+    
+    .service-card-content p {
+        font-size: 0.9rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .service-card-content .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.875rem 1rem;
     }
     
     .certifications-showcase {
