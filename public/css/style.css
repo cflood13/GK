@@ -1116,9 +1116,84 @@ footer {
         grid-template-columns: 1fr;
     }
     
+    .services-showcase {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .service-feature {
+        max-width: 100%;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .certifications-showcase {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .cert-item {
+        padding: var(--spacing-sm);
+    }
+    
+    .cert-item img {
+        height: 60px;
+    }
+    
     .contact-info {
         flex-direction: column;
         gap: var(--spacing-xs);
+    }
+}
+
+/* Mobile Optimization - Smaller screens */
+@media (max-width: 480px) {
+    .services-showcase {
+        gap: var(--spacing-md);
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .service-feature {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .service-feature h3 {
+        font-size: 1.25rem;
+    }
+    
+    .service-feature p {
+        font-size: 0.9rem;
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .service-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .certifications-showcase {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .cert-item {
+        padding: var(--spacing-xs);
+    }
+    
+    .cert-item img {
+        height: 50px;
+    }
+    
+    .cert-item h4 {
+        font-size: 1rem;
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .cert-item p {
+        font-size: 0.85rem;
     }
 }
 
@@ -1182,9 +1257,25 @@ footer {
 
 .service-feature {
     text-align: center;
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
     flex: 0 1 280px;
     max-width: 320px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+    border: 2px solid transparent;
+}
+
+.service-feature:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+    text-decoration: none;
+    color: inherit;
 }
 
 .service-icon {
@@ -1213,6 +1304,7 @@ footer {
     font-size: 1.5rem;
     margin-bottom: var(--spacing-sm);
     font-weight: 600;
+    color: var(--dark-color);
 }
 
 .service-feature p {
