@@ -13,6 +13,24 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Dynamically offset the hero so the fixed header never overlaps the top text
+  const headerEl = document.querySelector('header');
+  const heroEl = document.querySelector('.hero');
+  const heroStats = document.querySelector('.hero-stats');
+  const applyHeroOffsets = () => {
+    if (!heroEl || !headerEl) return;
+    const headerH = headerEl.getBoundingClientRect().height || 0;
+    const topPadding = Math.ceil(headerH + 40); // header + breathing room
+    heroEl.style.paddingTop = `${topPadding}px`;
+    // ensure stats never collide with the scroll indicator
+    const indicatorH = indicator ? indicator.getBoundingClientRect().height : 30;
+    if (heroStats) {
+      heroStats.style.marginBottom = `${indicatorH + 80}px`;
+    }
+  };
+  applyHeroOffsets();
+  window.addEventListener('resize', applyHeroOffsets);
 });
 
 document.addEventListener('DOMContentLoaded', function() {
