@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const subline = heroEl.querySelector('.hero-text h6');
     const sublineH = subline ? subline.getBoundingClientRect().height : 0;
     // Ensure the tiny subline above H1 is fully visible below the fixed header
-    const topPadding = Math.ceil(headerH + sublineH + 40); // header + subline + breathing room
+    const topPadding = Math.ceil(headerH + sublineH + 60); // header + subline + breathing room
     heroEl.style.paddingTop = `${topPadding}px`;
     // ensure stats never collide with the scroll indicator
     const indicatorH = indicator ? indicator.getBoundingClientRect().height : 30;
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // add bottom padding to the hero to guarantee space for stats + indicator
     const statsH = heroStats ? heroStats.getBoundingClientRect().height : 0;
-    const bottomPadding = Math.max(140, statsH + indicatorH + 60);
+    const bottomPadding = Math.max(180, statsH + indicatorH + 100);
     heroEl.style.paddingBottom = `${bottomPadding}px`;
   };
   applyHeroOffsets();

@@ -309,7 +309,8 @@ nav .container {
     height: 100vh;
     min-height: 700px;
     display: flex;
-    align-items: center;
+    /* Place hero content from the top (not vertically centered) to avoid header overlap */
+    align-items: flex-start;
     justify-content: center;
     background-size: cover;
     background-position: center;
@@ -336,7 +337,7 @@ nav .container {
     color: var(--white);
     width: 100%;
     max-width: 1200px;
-    padding: var(--spacing-xl);
+    padding: 0 var(--spacing-xl) var(--spacing-xl) var(--spacing-xl);
 }
 
 .hero-text {
@@ -394,7 +395,7 @@ nav .container {
 
 /* Hero Stats - Responsive Design */
 .hero-stats {
-    margin-top: 4rem;
+    margin-top: 2.5rem;
     display: grid;
     /* Center two stats (19+ / 100%) instead of leaving a blank third column */
     grid-template-columns: repeat(2, 1fr);
@@ -403,7 +404,7 @@ nav .container {
     margin-left: auto;
     margin-right: auto;
     /* leave extra space above the scroll indicator to avoid overlap */
-    margin-bottom: 120px;
+    margin-bottom: 140px;
 }
 
 .hero-stat {
