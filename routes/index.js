@@ -23,10 +23,11 @@ const locations = [
 
 locations.forEach(loc => {
     router.get(loc.path, (req, res) => {
-        res.render('pages/services/roofing', {
+        res.render('pages/locations/location', {
             title: loc.title,
             description: loc.description,
-            page: 'services'
+            page: 'services',
+            city: loc.title.split(' Roofing')[0]
         });
     });
 });
