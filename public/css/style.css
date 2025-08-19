@@ -316,7 +316,7 @@ nav .container {
     background-attachment: fixed;
     margin-top: 0;
     /* Offset for fixed header + top bar to prevent hero title from being clipped */
-    padding-top: 120px;
+    padding-top: 160px;
 }
 
 .hero-overlay {
@@ -342,6 +342,12 @@ nav .container {
 .hero-text {
     max-width: 900px;
     margin: 0 auto;
+}
+
+/* Ensure the small "trusted since" line has breathing room above the large H1 */
+.hero-text h6 {
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
 .hero-title {
@@ -1300,7 +1306,7 @@ footer {
     .hero {
         margin-top: 90px;
         min-height: 500px;
-        padding: 100px var(--spacing-sm) var(--spacing-lg) var(--spacing-sm);
+        padding: 140px var(--spacing-sm) var(--spacing-lg) var(--spacing-sm);
     }
     
     .hero h1 {
@@ -1476,7 +1482,7 @@ footer {
     
     /* Mobile Hero Optimizations */
     .hero {
-        padding: 90px 12px var(--spacing-sm) 12px; /* add top padding to avoid clipping */
+        padding: 120px 12px var(--spacing-sm) 12px; /* add top padding to avoid clipping */
         min-height: 100vh;
         max-height: 100vh;
         overflow: visible;
