@@ -24,6 +24,7 @@ app.use(helmet({
                 "https://view.ceros.com",
                 // Owens Corning widgets
                 "https://apis.owenscorning.com",
+                "https://www.owenscorning.com",
                 // GuildQuality widgets (allow common domains)
                 "https://www.guildquality.com",
                 "https://cdn.guildquality.com"
@@ -36,9 +37,16 @@ app.use(helmet({
                 "https://360.supersale3d.com",
                 // GuildQuality embeds can render in iframes
                 "https://www.guildquality.com",
-                "https://cdn.guildquality.com"
+                "https://cdn.guildquality.com",
+                "https://www.owenscorning.com"
             ],
-            connectSrc: ["'self'", "https://apis.owenscorning.com", "https://www.guildquality.com", "https://cdn.guildquality.com"]
+            connectSrc: [
+                "'self'",
+                "https://apis.owenscorning.com",
+                "https://www.owenscorning.com",
+                "https://www.guildquality.com",
+                "https://cdn.guildquality.com"
+            ]
         }
     }
 }));
