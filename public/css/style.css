@@ -315,6 +315,8 @@ nav .container {
     background-position: center;
     background-attachment: fixed;
     margin-top: 0;
+    /* Offset for fixed header + top bar to prevent hero title from being clipped */
+    padding-top: 120px;
 }
 
 .hero-overlay {
@@ -1291,11 +1293,11 @@ footer {
         display: flex;
     }
     
-    /* Fixed Hero Margin - Account for ~90px header */
+    /* Fixed Hero Margin - Account for ~90px header; add padding to prevent title clipping */
     .hero {
         margin-top: 90px;
         min-height: 500px;
-        padding: var(--spacing-lg) var(--spacing-sm);
+        padding: 100px var(--spacing-sm) var(--spacing-lg) var(--spacing-sm);
     }
     
     .hero h1 {
@@ -1471,7 +1473,7 @@ footer {
     
     /* Mobile Hero Optimizations */
     .hero {
-        padding: var(--spacing-sm) 12px;
+        padding: 90px 12px var(--spacing-sm) 12px; /* add top padding to avoid clipping */
         min-height: 100vh;
         max-height: 100vh;
         overflow: visible;
@@ -1540,25 +1542,18 @@ footer {
         padding: 8px;
         background: rgba(255,255,255,0.15);
         border-radius: 6px;
-        backdrop-filter: blur(8px);
+        backdrop-filter: blur(10px);
         text-align: center;
     }
     
     .hero-stat-number {
-        font-size: 1.4rem;
-        margin-bottom: 0.125rem;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-        font-weight: var(--fw-bold);
-        color: var(--secondary-color);
-        line-height: 1;
+        font-size: 2rem;
+        margin-bottom: 0.25rem;
     }
     
     .hero-stat-label {
-        font-size: 0.6rem;
-        letter-spacing: 0.25px;
-        line-height: 1.1;
-        color: rgba(255,255,255,0.9);
-        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
     }
     
     .services-showcase {
