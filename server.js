@@ -17,11 +17,28 @@ app.use(helmet({
         directives: {
             defaultSrc: ["'self'"],
             styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com"],
-            scriptSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com", "https://view.ceros.com"],
+            scriptSrc: [
+                "'self'",
+                "'unsafe-inline'",
+                "https://cdnjs.cloudflare.com",
+                "https://view.ceros.com",
+                // Owens Corning widgets
+                "https://apis.owenscorning.com",
+                // GuildQuality widgets (allow common domains)
+                "https://www.guildquality.com",
+                "https://cdn.guildquality.com"
+            ],
             fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
             imgSrc: ["'self'", "data:", "https:", "blob:"],
-            frameSrc: ["'self'", "https://view.ceros.com", "https://360.supersale3d.com"],
-            connectSrc: ["'self'"]
+            frameSrc: [
+                "'self'",
+                "https://view.ceros.com",
+                "https://360.supersale3d.com",
+                // GuildQuality embeds can render in iframes
+                "https://www.guildquality.com",
+                "https://cdn.guildquality.com"
+            ],
+            connectSrc: ["'self'", "https://apis.owenscorning.com", "https://www.guildquality.com", "https://cdn.guildquality.com"]
         }
     }
 }));
@@ -57,7 +74,7 @@ app.use('/api/chatbot', chatbotRoute);
 // 404 handler
 app.use((req, res, next) => {
     res.status(404).render('pages/404', { 
-        title: '404 - Page Not Found | GK Roofing & Construction',
+        title: '404 - Page Not Found | GK Homes and Roofing',
         description: 'The page you are looking for could not be found.',
         page: '404'
     });
@@ -67,7 +84,7 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).render('pages/error', { 
-        title: 'Error | GK Roofing & Construction',
+        title: 'Error | GK Homes and Roofing',
         description: 'An error occurred while processing your request.',
         page: 'error',
         error: process.env.NODE_ENV === 'development' ? err : {}

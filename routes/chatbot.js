@@ -9,13 +9,13 @@ const openai = new OpenAI({
 
 // Company information for context
 const companyInfo = `
-GK Roofing & Construction - Professional roofing and construction services in Austin, TX
+GK Homes and Roofing - Professional roofing and construction services in Central Texas
 
 About Us:
-- Family-owned business serving Austin, TX since 1974
+- Family-owned business serving Central Texas since 2017
 - Specializing in roofing, solar, remodeling, and construction
-- GAF Certified Contractor and BBB Accredited
-- Contact: (512) 497-1714 or Garett@GK-Homes.com
+- GAF & Owens Corning Certified; BBB Accredited
+- Contact: (512) 564-3679 or Garett@GK-Homes.com
 
 Services:
 - Roofing: Residential and commercial roof installation, repair, replacement
@@ -25,13 +25,13 @@ Services:
 
 Key Pages:
 - Home: / (main page with overview)
-- About: /about (company history and team)
+- About: /about (company history and values)
 - Services: /services (all service details)
 - Projects: /projects (portfolio and case studies)
 - Contact: /contact (contact form and info)
-- Get Quote: /quote (request free estimate)
+- Get Quote: /contact/quote (request free estimate)
 
-Service Areas: Austin, Leander, Cedar Park, Round Rock, Georgetown, and surrounding areas
+Service Areas: Leander, Liberty Hill, Georgetown, Cedar Park, Round Rock, Jonestown, Lago Vista, Burnet, Pflugerville, Lake Travis
 `;
 
 router.post('/chat', async (req, res) => {
@@ -48,7 +48,7 @@ router.post('/chat', async (req, res) => {
         const messages = [
             {
                 role: 'system',
-                content: `You are a helpful customer service representative for GK Roofing & Construction. 
+                content: `You are a helpful customer service representative for GK Homes and Roofing. 
                 
 ${companyInfo}
 
@@ -59,7 +59,7 @@ Instructions:
 4. Keep responses concise but informative
 5. Always be helpful and professional
 6. If you don't know something specific, offer to connect them with our team at (512) 497-1714
-7. For pricing questions, encourage them to get a free quote at /quote`
+7. For pricing questions, encourage them to get a free quote at /contact/quote`
             },
             ...conversationHistory,
             {
@@ -99,7 +99,7 @@ Instructions:
     } catch (error) {
         console.error('Chatbot error:', error);
         res.status(500).json({ 
-            error: 'Sorry, I\'m having trouble right now. Please call us at (512) 497-1714 for immediate assistance.',
+            error: 'Sorry, I\'m having trouble right now. Please call us at (512) 564-3679 for immediate assistance.',
             details: error.message
         });
     }

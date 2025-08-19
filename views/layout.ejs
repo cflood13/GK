@@ -24,6 +24,27 @@
     <%- typeof additionalStyles !== 'undefined' ? additionalStyles : '' %>
 </head>
 <body>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "GK Homes and Roofing",
+      "url": "https://gk-roofing.com",
+      "telephone": "+1-512-564-3679",
+      "areaServed": [
+        "Leander", "Liberty Hill", "Georgetown", "Cedar Park", "Round Rock",
+        "Jonestown", "Lago Vista", "Burnet", "Pflugerville", "Lake Travis"
+      ],
+      "image": "https://gk-roofing.com/images/logos/gk-logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Austin",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      },
+      "sameAs": []
+    }
+    </script>
     <%- include('partials/header') %>
     
     <main>
@@ -75,6 +96,8 @@
     <!-- Main JavaScript -->
     <script src="/js/main.js"></script>
     <script src="/js/chatbot.js"></script>
+    <!-- Owens Corning Widget Script (available site-wide for widget placement) -->
+    <script src="https://apis.owenscorning.com/client/widget.js" async></script>
     
     <!-- Additional scripts if needed -->
     <%- typeof additionalScripts !== 'undefined' ? additionalScripts : '' %>

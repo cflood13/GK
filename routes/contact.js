@@ -4,8 +4,8 @@ const router = express.Router();
 // Contact page
 router.get('/', (req, res) => {
     res.render('pages/contact', {
-        title: 'Contact Us | GK Roofing & Construction',
-        description: 'Get in touch with GK Roofing & Construction for your roofing and construction needs in Austin, TX. Free estimates available.',
+        title: 'Contact Us | GK Homes and Roofing',
+        description: 'Get in touch with GK Homes and Roofing for your roofing and construction needs in Central Texas. Free estimates available.',
         page: 'contact'
     });
 });
@@ -47,8 +47,8 @@ router.post('/submit', async (req, res) => {
 // Request quote page
 router.get('/quote', (req, res) => {
     res.render('pages/quote', {
-        title: 'Request a Quote | GK Roofing & Construction',
-        description: 'Get a free quote for roofing, remodeling, or construction services in Austin, TX.',
+        title: 'Request a Quote | GK Homes and Roofing',
+        description: 'Get a free quote for roofing, remodeling, or construction services in Central Texas.',
         page: 'contact'
     });
 });

@@ -1,7 +1,7 @@
 {
   "name": "gk-website",
   "version": "1.0.0",
-  "description": "GK Roofing & Construction - Professional roofing and construction services in Austin, TX",
+  "description": "GK Homes and Roofing - Professional roofing and construction services in Central Texas",
   "main": "server.js",
   "engines": {
     "node": ">=18.0.0",
@@ -14,7 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["roofing", "construction", "remodeling", "austin", "texas"],
-  "author": "GK Roofing & Construction",
+  "author": "GK Homes and Roofing",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^2.2.0",

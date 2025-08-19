@@ -1,4 +1,4 @@
-// Main JavaScript for GK Roofing & Construction
+// Main JavaScript for GK Homes and Roofing
 
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile Navigation Toggle

@@ -105,7 +105,7 @@ class Chatbot {
         } catch (error) {
             console.error('Chatbot error:', error);
             this.hideTyping();
-            this.addMessage('Sorry, I\'m having trouble right now. Please call us at (512) 497-1714 for immediate assistance.', 'bot');
+            this.addMessage('Sorry, I\'m having trouble right now. Please call us at (512) 564-3679 for immediate assistance.', 'bot');
         }
     }
     

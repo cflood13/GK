@@ -1,6 +1,6 @@
-# GK Roofing & Construction Website
+# GK Homes and Roofing Website
 
-Professional website for GK Roofing & Construction - Austin's trusted roofing and construction specialists since 1974.
+Professional website for GK Homes and Roofing - Central Texas roofing and construction specialists since 2017.
 
 ## 🚀 Live Demo
 
@@ -119,7 +119,7 @@ gk-website/
 
 ## 📞 Contact Information
 
-- **Phone**: (512) 497-1714
+- **Phone**: (512) 564-3679
 - **Email**: Garett@GK-Homes.com
 - **Service Area**: Austin, Leander, Cedar Park, Round Rock, Georgetown, TX
 
@@ -132,8 +132,8 @@ gk-website/
 
 ## 📄 License
 
-© 2025 GK Roofing & Construction. All rights reserved.
+© 2025 GK Homes LLC. All rights reserved.
 
 ---
 
-**Built with ❤️ for GK Roofing & Construction** 
+**Built with ❤️ for GK Homes and Roofing** 

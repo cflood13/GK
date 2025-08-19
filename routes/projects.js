@@ -55,8 +55,8 @@ const router = express.Router();
         ];
 
     res.render('pages/projects', {
-        title: 'Our Projects | GK Roofing & Construction',
-        description: 'View our portfolio of completed roofing, remodeling, and construction projects in Austin, TX.',
+        title: 'Our Projects | GK Homes and Roofing',
+        description: 'View our portfolio of completed roofing, remodeling, and construction projects across Central Texas.',
         page: 'projects',
         projects: projects
     });
@@ -82,7 +82,7 @@ router.get('/:id', (req, res) => {
     };
 
     res.render('pages/project-detail', {
-        title: `${project.title} | GK Roofing & Construction`,
+        title: `${project.title} | GK Homes and Roofing`,
         description: project.description,
         page: 'projects',
         project: project
