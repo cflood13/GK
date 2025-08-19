@@ -731,6 +731,24 @@ nav .container {
     position: relative;
 }
 
+/* Ensure Learn More buttons align across cards */
+.services-grid .service-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.services-grid .service-card .service-content,
+.services-grid .service-card .service-card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+.services-grid .service-card .service-content .btn,
+.services-grid .service-card .service-card-content .btn {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
 .service-card h3 {
     margin-bottom: var(--spacing-sm);
     color: var(--text-primary);
