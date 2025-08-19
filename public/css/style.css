@@ -385,11 +385,14 @@ nav .container {
 .hero-stats {
     margin-top: 4rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* Center two stats (19+ / 100%) instead of leaving a blank third column */
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    max-width: 600px;
+    max-width: 420px;
     margin-left: auto;
     margin-right: auto;
+    /* leave space above the scroll indicator */
+    margin-bottom: 60px;
 }
 
 .hero-stat {

@@ -1,5 +1,20 @@
 // Main JavaScript for GK Homes and Roofing
 
+// Smooth scroll for the "Discover More" indicator
+document.addEventListener('DOMContentLoaded', () => {
+  const indicator = document.querySelector('.scroll-indicator');
+  if (indicator) {
+    indicator.addEventListener('click', () => {
+      const nextSection = document.querySelector('main .section');
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+      }
+    });
+  }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile Navigation Toggle
     const navToggle = document.querySelector('.nav-toggle');
