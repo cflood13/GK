@@ -21,13 +21,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const applyHeroOffsets = () => {
     if (!heroEl || !headerEl) return;
     const headerH = headerEl.getBoundingClientRect().height || 0;
-    const topPadding = Math.ceil(headerH + 40); // header + breathing room
+    const subline = heroEl.querySelector('.hero-text h6');
+    const sublineH = subline ? subline.getBoundingClientRect().height : 0;
+    // Ensure the tiny subline above H1 is fully visible below the fixed header
+    const topPadding = Math.ceil(headerH + sublineH + 40); // header + subline + breathing room
     heroEl.style.paddingTop = `${topPadding}px`;
     // ensure stats never collide with the scroll indicator
     const indicatorH = indicator ? indicator.getBoundingClientRect().height : 30;
     if (heroStats) {
-      heroStats.style.marginBottom = `${indicatorH + 80}px`;
+      heroStats.style.marginBottom = `${indicatorH + 100}px`;
     }
+    // add bottom padding to the hero to guarantee space for stats + indicator
+    const statsH = heroStats ? heroStats.getBoundingClientRect().height : 0;
+    const bottomPadding = Math.max(140, statsH + indicatorH + 60);
+    heroEl.style.paddingBottom = `${bottomPadding}px`;
   };
   applyHeroOffsets();
   window.addEventListener('resize', applyHeroOffsets);

@@ -376,6 +376,11 @@ nav .container {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
+/* Reserve clear space for subtitle to avoid cut-off at various viewport heights */
+.hero-text {
+    padding-top: 10px;
+}
+
 .hero-description {
     font-size: 1.1rem;
     line-height: 1.8;
