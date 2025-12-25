@@ -1,232 +1,1300 @@
-<section class="page-hero" style="background-image: url('/images/services/roofing-aerial.jpg');">
-    <div class="page-hero-overlay"></div>
-    <div class="page-hero-content">
-        <h1 class="animate-on-scroll"><%= city %> Roofing & Construction</h1>
-        <p class="animate-on-scroll">GAF & Owens Corning certified roofing in <%= city %> with free estimates</p>
-    </div>
-</section>
+<!-- Local Pride Location Template -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap');
 
-<!-- Location Map Section -->
-<section class="location-map-section">
-    <div class="container">
-        <div class="section-title animate-on-scroll">
-            <h2>Serving <%= city %> & Central Texas</h2>
-            <p>Click the card to explore our service area</p>
+:root {
+    --lp-slate: #1E293B;
+    --lp-slate-light: #334155;
+    --lp-sky: #0EA5E9;
+    --lp-sky-light: #38BDF8;
+    --lp-sky-dark: #0284C7;
+    --lp-terracotta: #B45309;
+    --lp-terracotta-light: #D97706;
+    --lp-sand: #FEF3C7;
+    --lp-sand-light: #FFFBEB;
+    --lp-white: #FFFFFF;
+    --lp-gray: #F1F5F9;
+    --lp-text: #475569;
+    --lp-text-light: #64748B;
+    --lp-shadow: 0 25px 50px -12px rgba(30, 41, 59, 0.25);
+    --lp-shadow-sm: 0 10px 25px -5px rgba(30, 41, 59, 0.1);
+}
+
+/* ========================================
+   HERO SECTION
+======================================== */
+.location-hero {
+    position: relative;
+    min-height: 70vh;
+    background: linear-gradient(135deg, var(--lp-slate) 0%, #0F172A 100%);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 8rem 2rem 5rem;
+}
+
+/* Topographic map pattern */
+.hero-topo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.08;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='1' d='M0 200 Q100 150 200 200 T400 200 M0 100 Q100 50 200 100 T400 100 M0 300 Q100 250 200 300 T400 300 M0 50 Q100 100 200 50 T400 50 M0 350 Q100 300 200 350 T400 350'/%3E%3C/svg%3E");
+    background-size: 400px 400px;
+    animation: topoMove 60s linear infinite;
+}
+
+@keyframes topoMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 400px 400px; }
+}
+
+/* Gradient orbs */
+.hero-orbs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+}
+
+.hero-orb-1 {
+    width: 500px;
+    height: 500px;
+    background: rgba(14, 165, 233, 0.15);
+    top: -200px;
+    right: -100px;
+    animation: orbFloat 20s ease-in-out infinite;
+}
+
+.hero-orb-2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(180, 83, 9, 0.1);
+    bottom: -150px;
+    left: -100px;
+    animation: orbFloat 25s ease-in-out infinite reverse;
+}
+
+@keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -30px) scale(1.1); }
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    animation: heroFadeIn 1s ease-out;
+}
+
+@keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(14, 165, 233, 0.15);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    color: var(--lp-sky-light);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.hero-badge i {
+    color: var(--lp-terracotta-light);
+}
+
+.hero-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: var(--lp-white);
+    line-height: 1.1;
+    margin: 0 0 1rem;
+}
+
+.hero-title .city-name {
+    display: block;
+    background: linear-gradient(135deg, var(--lp-sky-light) 0%, var(--lp-terracotta-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    margin: 0 0 2rem;
+    max-width: 500px;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary-hero {
+    background: linear-gradient(135deg, var(--lp-sky) 0%, var(--lp-sky-dark) 100%);
+    color: var(--lp-white);
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+}
+
+.btn-primary-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(14, 165, 233, 0.5);
+}
+
+.btn-secondary-hero {
+    background: rgba(255,255,255,0.1);
+    color: var(--lp-white);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-secondary-hero:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.3);
+}
+
+/* Map Card */
+.hero-map-card {
+    position: relative;
+    animation: heroFadeIn 1s ease-out 0.3s both;
+}
+
+.map-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.map-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--lp-sky), var(--lp-terracotta-light));
+}
+
+/* Map visualization */
+.map-visual {
+    height: 280px;
+    background: linear-gradient(135deg, #1a365d 0%, #0c4a6e 100%);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.map-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.map-roads {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.map-roads svg {
+    width: 100%;
+    height: 100%;
+}
+
+.map-road {
+    stroke: rgba(255,255,255,0.15);
+    stroke-width: 2;
+}
+
+.map-road-main {
+    stroke: rgba(217, 119, 6, 0.4);
+    stroke-width: 3;
+}
+
+/* Animated pin */
+.map-pin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    z-index: 10;
+}
+
+.pin-marker {
+    width: 48px;
+    height: 48px;
+    animation: pinBounce 2s ease-in-out infinite;
+}
+
+.pin-marker svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 8px rgba(180, 83, 9, 0.4));
+}
+
+@keyframes pinBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.pin-pulse {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 8px;
+    background: rgba(180, 83, 9, 0.3);
+    border-radius: 50%;
+    animation: pinPulse 2s ease-in-out infinite;
+}
+
+@keyframes pinPulse {
+    0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+    50% { transform: translateX(-50%) scale(1.5); opacity: 0.3; }
+}
+
+.map-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.map-location {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.map-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--lp-terracotta) 0%, var(--lp-terracotta-light) 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--lp-white);
+}
+
+.map-text h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--lp-white);
+    margin: 0;
+}
+
+.map-text p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    margin: 0.25rem 0 0;
+}
+
+.map-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    color: #34D399;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #34D399;
+    border-radius: 50%;
+    animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* ========================================
+   TRUST BAR
+======================================== */
+.trust-bar {
+    background: var(--lp-white);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    position: relative;
+    z-index: 10;
+}
+
+.trust-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.trust-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--lp-sand);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--lp-terracotta);
+    font-size: 1.25rem;
+}
+
+.trust-text strong {
+    display: block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--lp-slate);
+}
+
+.trust-text span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    color: var(--lp-text-light);
+}
+
+/* ========================================
+   SERVICES SECTION
+======================================== */
+.services-section {
+    background: var(--lp-gray);
+    padding: 5rem 2rem;
+}
+
+.services-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-label {
+    display: inline-block;
+    background: var(--lp-sand);
+    color: var(--lp-terracotta);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: var(--lp-slate);
+    margin: 0 0 0.75rem;
+}
+
+.section-subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.1rem;
+    color: var(--lp-text);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Service Cards */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.service-card {
+    background: var(--lp-white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--lp-shadow-sm);
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--lp-shadow);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--lp-sky), var(--lp-sky-dark));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-image {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.service-card:hover .service-image img {
+    transform: scale(1.08);
+}
+
+.service-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(30, 41, 59, 0.8) 100%);
+}
+
+.service-content {
+    padding: 1.75rem;
+}
+
+.service-content h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--lp-slate);
+    margin: 0 0 0.75rem;
+}
+
+.service-content p {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--lp-text);
+    margin: 0 0 1.25rem;
+    line-height: 1.6;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+}
+
+.service-features li {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--lp-text);
+    padding: 0.4rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.service-features li i {
+    color: var(--lp-sky);
+    font-size: 0.85rem;
+}
+
+.btn-service {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--lp-slate);
+    color: var(--lp-white);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.875rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-service:hover {
+    background: var(--lp-sky);
+    transform: translateX(4px);
+}
+
+/* ========================================
+   WHY CHOOSE US
+======================================== */
+.benefits-section {
+    background: var(--lp-white);
+    padding: 5rem 2rem;
+}
+
+.benefits-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.benefit-card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    background: var(--lp-gray);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.benefit-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.benefit-card:hover {
+    background: var(--lp-sand-light);
+    transform: translateY(-5px);
+}
+
+.benefit-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--lp-sky) 0%, var(--lp-sky-dark) 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+    color: var(--lp-white);
+    font-size: 1.5rem;
+    transition: all 0.4s ease;
+}
+
+.benefit-card:hover .benefit-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, var(--lp-terracotta) 0%, var(--lp-terracotta-light) 100%);
+}
+
+.benefit-card h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--lp-slate);
+    margin: 0 0 0.5rem;
+}
+
+.benefit-card p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--lp-text);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ========================================
+   MATERIALS SECTION
+======================================== */
+.materials-section {
+    background: var(--lp-sand-light);
+    padding: 5rem 2rem;
+}
+
+.materials-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.materials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.material-card {
+    background: var(--lp-white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--lp-shadow-sm);
+    display: flex;
+    transition: all 0.4s ease;
+}
+
+.material-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--lp-shadow);
+}
+
+.material-image {
+    width: 200px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.material-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.material-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--lp-terracotta);
+    color: var(--lp-white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.material-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.material-content h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--lp-slate);
+    margin: 0 0 0.5rem;
+}
+
+.material-content p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--lp-text);
+    margin: 0 0 1rem;
+    line-height: 1.5;
+}
+
+.material-features {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.material-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    color: var(--lp-text);
+}
+
+.material-feature i {
+    color: var(--lp-sky);
+}
+
+/* ========================================
+   CTA SECTION
+======================================== */
+.cta-section {
+    background: linear-gradient(135deg, var(--lp-slate) 0%, #0F172A 100%);
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.cta-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: var(--lp-white);
+    margin: 0 0 1rem;
+}
+
+.cta-subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.8);
+    margin: 0 0 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, var(--lp-terracotta) 0%, var(--lp-terracotta-light) 100%);
+    color: var(--lp-white);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 1.25rem 2.5rem;
+    border-radius: 14px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(180, 83, 9, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(180, 83, 9, 0.5);
+}
+
+.btn-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--lp-white);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-cta-secondary:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.5);
+}
+
+/* ========================================
+   LOCATION PILLS
+======================================== */
+.locations-section {
+    background: var(--lp-white);
+    padding: 4rem 2rem;
+}
+
+.locations-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.locations-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--lp-slate);
+    margin: 0 0 1.5rem;
+}
+
+.location-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.location-pill {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--lp-text);
+    background: var(--lp-gray);
+    padding: 0.65rem 1.25rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.location-pill:hover {
+    background: var(--lp-sand);
+    color: var(--lp-terracotta);
+}
+
+.location-pill.active {
+    background: var(--lp-slate);
+    color: var(--lp-white);
+    border-color: var(--lp-slate);
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+@media (max-width: 900px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .hero-map-card {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .materials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .material-card {
+        flex-direction: column;
+    }
+
+    .material-image {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .location-hero {
+        padding: 6rem 1.5rem 4rem;
+        min-height: 60vh;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+    }
+
+    .btn-hero {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .trust-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .btn-cta-primary,
+    .btn-cta-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+}
+</style>
+
+<!-- Hero Section -->
+<section class="location-hero">
+    <div class="hero-topo"></div>
+    <div class="hero-orbs">
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+    </div>
+
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-map-marker-alt"></i>
+                Proudly Serving <%= city %>
+            </div>
+            <h1 class="hero-title">
+                <span class="city-name"><%= city %></span>
+                Roofing & Construction
+            </h1>
+            <p class="hero-subtitle">GAF & Owens Corning certified roofing experts delivering quality craftsmanship to <%= city %> homeowners. Free inspections, honest estimates, and industry-leading warranties.</p>
+            <div class="hero-cta">
+                <a href="/contact/quote" class="btn-hero btn-primary-hero">
+                    <i class="fas fa-file-alt"></i>
+                    Get Free Estimate
+                </a>
+                <a href="tel:512-564-3679" class="btn-hero btn-secondary-hero">
+                    <i class="fas fa-phone-alt"></i>
+                    (512) 564-3679
+                </a>
+            </div>
         </div>
 
-        <div class="location-map-card" data-location="<%= city %>, TX" data-coordinates="<%= typeof coordinates !== 'undefined' ? coordinates : '30.5083° N, 97.8530° W' %>">
-            <div class="location-map-inner">
-                <!-- Grid pattern (collapsed) -->
-                <div class="map-grid-pattern">
-                    <svg width="100%" height="100%">
-                        <defs>
-                            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="white" stroke-width="0.5" />
-                            </pattern>
-                        </defs>
-                        <rect width="100%" height="100%" fill="url(#grid)" />
-                    </svg>
-                </div>
-
-                <!-- Map visualization (expanded) -->
-                <div class="map-visualization">
-                    <div class="map-background"></div>
-
-                    <!-- Roads -->
+        <div class="hero-map-card">
+            <div class="map-card">
+                <div class="map-visual">
+                    <div class="map-grid"></div>
                     <div class="map-roads">
-                        <svg width="100%" height="100%" preserveAspectRatio="none">
-                            <line class="map-road main" x1="0%" y1="35%" x2="100%" y2="35%" />
-                            <line class="map-road main" x1="0%" y1="65%" x2="100%" y2="65%" />
-                            <line class="map-road secondary" x1="30%" y1="0%" x2="30%" y2="100%" />
-                            <line class="map-road secondary" x1="70%" y1="0%" x2="70%" y2="100%" />
-                            <line class="map-road secondary" x1="0%" y1="20%" x2="100%" y2="20%" />
-                            <line class="map-road secondary" x1="0%" y1="50%" x2="100%" y2="50%" />
-                            <line class="map-road secondary" x1="0%" y1="80%" x2="100%" y2="80%" />
-                            <line class="map-road secondary" x1="15%" y1="0%" x2="15%" y2="100%" />
-                            <line class="map-road secondary" x1="50%" y1="0%" x2="50%" y2="100%" />
-                            <line class="map-road secondary" x1="85%" y1="0%" x2="85%" y2="100%" />
+                        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <line class="map-road map-road-main" x1="0" y1="40" x2="100" y2="40" />
+                            <line class="map-road map-road-main" x1="60" y1="0" x2="60" y2="100" />
+                            <line class="map-road" x1="0" y1="25" x2="100" y2="25" />
+                            <line class="map-road" x1="0" y1="65" x2="100" y2="65" />
+                            <line class="map-road" x1="30" y1="0" x2="30" y2="100" />
+                            <line class="map-road" x1="85" y1="0" x2="85" y2="100" />
                         </svg>
                     </div>
-
-                    <!-- Buildings -->
-                    <div class="map-buildings">
-                        <div class="map-building"></div>
-                        <div class="map-building"></div>
-                        <div class="map-building"></div>
-                        <div class="map-building"></div>
-                        <div class="map-building"></div>
-                    </div>
-
-                    <!-- Location Pin -->
                     <div class="map-pin">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#ff6600" />
-                            <circle cx="12" cy="9" r="2.5" fill="white" />
-                        </svg>
-                    </div>
-
-                    <!-- Fade overlay -->
-                    <div class="map-fade"></div>
-                </div>
-
-                <!-- Content -->
-                <div class="map-content">
-                    <div class="map-top">
-                        <div class="map-icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" />
-                                <line x1="9" x2="9" y1="3" y2="18" />
-                                <line x1="15" x2="15" y1="6" y2="21" />
+                        <div class="pin-marker">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#B45309"/>
+                                <circle cx="12" cy="9" r="3" fill="#FEF3C7"/>
                             </svg>
                         </div>
-                        <div class="map-status">
-                            <div class="status-dot"></div>
-                            <span class="status-text">Serving</span>
+                        <div class="pin-pulse"></div>
+                    </div>
+                </div>
+                <div class="map-info">
+                    <div class="map-location">
+                        <div class="map-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="map-text">
+                            <h4><%= city %>, Texas</h4>
+                            <p><%= typeof coordinates !== 'undefined' ? coordinates : '30.5083° N, 97.8530° W' %></p>
                         </div>
                     </div>
-
-                    <div class="map-bottom">
-                        <h3 class="map-location-name"><%= city %>, TX</h3>
-                        <p class="map-coordinates"><%= typeof coordinates !== 'undefined' ? coordinates : '30.5083° N, 97.8530° W' %></p>
-                        <div class="map-underline"></div>
+                    <div class="map-status">
+                        <div class="status-dot"></div>
+                        <span>Now Serving</span>
                     </div>
                 </div>
             </div>
-            <p class="map-hint">Click to expand</p>
-        </div>
-
-        <!-- Service Area Pills -->
-        <div class="service-area-pills">
-            <a href="/locations/leander" class="area-pill<%= city === 'Leander' ? ' active' : '' %>">Leander</a>
-            <a href="/locations/liberty-hill" class="area-pill<%= city === 'Liberty Hill' ? ' active' : '' %>">Liberty Hill</a>
-            <a href="/locations/georgetown" class="area-pill<%= city === 'Georgetown' ? ' active' : '' %>">Georgetown</a>
-            <a href="/locations/cedar-park" class="area-pill<%= city === 'Cedar Park' ? ' active' : '' %>">Cedar Park</a>
-            <a href="/locations/round-rock" class="area-pill<%= city === 'Round Rock' ? ' active' : '' %>">Round Rock</a>
-            <a href="/locations/pflugerville" class="area-pill<%= city === 'Pflugerville' ? ' active' : '' %>">Pflugerville</a>
-            <a href="/locations/jonestown" class="area-pill<%= city === 'Jonestown' ? ' active' : '' %>">Jonestown</a>
-            <a href="/locations/lago-vista" class="area-pill<%= city === 'Lago Vista' ? ' active' : '' %>">Lago Vista</a>
-            <a href="/locations/burnet" class="area-pill<%= city === 'Burnet' ? ' active' : '' %>">Burnet</a>
-            <a href="/locations/lake-travis" class="area-pill<%= city === 'Lake Travis' ? ' active' : '' %>">Lake Travis</a>
         </div>
     </div>
 </section>
 
-<section class="section">
-    <div class="container">
-        <div class="section-intro">
-            <h2>Roofing Company in <%= city %></h2>
-            <p class="lead">GK Homes and Roofing provides professional roof replacement, repairs, and maintenance for homeowners and businesses in <%= city %>. With 19+ years of experience and certifications from GAF and Owens Corning, we deliver durable, beautiful roofs backed by strong warranties.</p>
+<!-- Trust Bar -->
+<div class="trust-bar">
+    <div class="trust-container">
+        <div class="trust-item">
+            <div class="trust-icon">
+                <i class="fas fa-certificate"></i>
+            </div>
+            <div class="trust-text">
+                <strong>GAF Certified</strong>
+                <span>Factory-trained installers</span>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">
+                <i class="fas fa-award"></i>
+            </div>
+            <div class="trust-text">
+                <strong>19+ Years Experience</strong>
+                <span>Central Texas experts</span>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">
+                <i class="fas fa-map-pin"></i>
+            </div>
+            <div class="trust-text">
+                <strong>Local Business</strong>
+                <span>Your neighbors trust us</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Services Section -->
+<section class="services-section">
+    <div class="services-container">
+        <div class="section-header">
+            <span class="section-label">Our Services</span>
+            <h2 class="section-title">Roofing Solutions in <%= city %></h2>
+            <p class="section-subtitle">From storm damage repairs to complete roof replacements, we deliver quality craftsmanship backed by industry-leading warranties.</p>
         </div>
 
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-image">
-                    <img src="/images/projects/roof-aerial-1.jpg" alt="Roof Replacement <%= city %>">
+                    <img src="/images/projects/roof-aerial-1.jpg" alt="Roof Replacement in <%= city %>">
+                    <div class="service-image-overlay"></div>
                 </div>
                 <div class="service-content">
                     <h3>Roof Replacement</h3>
-                    <p>Architectural shingles, Owens Corning TruDefinition® Duration®, metal roofing, and designer options.</p>
-                    <ul>
-                        <li>Free inspections & estimates</li>
-                        <li>Storm damage specialists</li>
-                        <li>Financing available</li>
+                    <p>Premium architectural shingles, Owens Corning TruDefinition Duration, metal roofing, and designer options for <%= city %> homes.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Free inspections & estimates</li>
+                        <li><i class="fas fa-check-circle"></i> Storm damage specialists</li>
+                        <li><i class="fas fa-check-circle"></i> Financing available</li>
                     </ul>
-                    <a href="/contact/quote" class="btn btn-primary">Get Free Quote</a>
+                    <a href="/contact/quote" class="btn-service">
+                        Get Free Quote <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
 
             <div class="service-card">
                 <div class="service-image">
-                    <img src="/images/projects/roof-aerial-2.jpg" alt="Roof Repair <%= city %>">
+                    <img src="/images/projects/roof-aerial-2.jpg" alt="Roof Repair in <%= city %>">
+                    <div class="service-image-overlay"></div>
                 </div>
                 <div class="service-content">
                     <h3>Roof Repair</h3>
-                    <p>Leak detection and repair, flashing, vents, valley repairs, and emergency service.</p>
-                    <ul>
-                        <li>Same/next-day scheduling</li>
-                        <li>Insurance claim assistance</li>
-                        <li>Workmanship warranty</li>
+                    <p>Expert leak detection, flashing repairs, vent replacements, valley repairs, and emergency service for <%= city %> homeowners.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Same/next-day scheduling</li>
+                        <li><i class="fas fa-check-circle"></i> Insurance claim assistance</li>
+                        <li><i class="fas fa-check-circle"></i> Workmanship warranty</li>
                     </ul>
-                    <a href="/contact" class="btn btn-primary">Schedule Inspection</a>
+                    <a href="/contact" class="btn-service">
+                        Schedule Inspection <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
-
-        <section class="section" style="padding-top: 0;">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Why Choose Us in <%= city %>?</h2>
-                    <p>Trusted, certified, and local</p>
-                </div>
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <i class="fas fa-certificate"></i>
-                        <h4>Certified Installers</h4>
-                        <p>GAF & Owens Corning certified for quality and warranty eligibility.</p>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-clock"></i>
-                        <h4>19+ Years Experience</h4>
-                        <p>Central Texas roofing and construction experts since 2017.</p>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <h4>Strong Warranties</h4>
-                        <p>Manufacturer and workmanship coverage for peace of mind.</p>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-handshake"></i>
-                        <h4>Local & Reliable</h4>
-                        <p>Responsive service, transparent pricing, and clean jobsites.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" style="background:#f8f9fa;">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Premium Roofing Materials</h2>
-                    <p>GAF & Owens Corning certified products for lasting protection</p>
-                </div>
-                <div class="shingle-showcase" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                    <div class="shingle-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                        <img src="/images/hero-aerial.jpg" alt="Premium GAF Roofing Installation" style="width: 100%; height: 220px; object-fit: cover;">
-                        <div style="padding: 1.5rem;">
-                            <h3 style="margin-bottom: 0.5rem; color: #1a1a1a;">GAF Timberline HDZ®</h3>
-                            <p style="color: #666; margin-bottom: 1rem;">America's #1 selling shingle with LayerLock™ technology and StainGuard Plus™ protection.</p>
-                            <ul style="list-style: none; padding: 0; margin: 0;">
-                                <li style="padding: 0.25rem 0;"><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>130 MPH Wind Warranty</li>
-                                <li style="padding: 0.25rem 0;"><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Lifetime Limited Warranty</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="shingle-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                        <img src="/images/projects/lakedillon-roof.jpg" alt="Owens Corning Duration Shingles" style="width: 100%; height: 220px; object-fit: cover;">
-                        <div style="padding: 1.5rem;">
-                            <h3 style="margin-bottom: 0.5rem; color: #1a1a1a;">Owens Corning Duration®</h3>
-                            <p style="color: #666; margin-bottom: 1rem;">TruDefinition® color technology with SureNail® strip for superior holding power.</p>
-                            <ul style="list-style: none; padding: 0; margin: 0;">
-                                <li style="padding: 0.25rem 0;"><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>130 MPH Wind Resistance</li>
-                                <li style="padding: 0.25rem 0;"><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Limited Lifetime Warranty</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="/contact/quote" class="btn btn-primary">Get Your Free Estimate</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section cta-section">
-            <div class="container">
-                <div class="cta-content">
-                    <h2>Need a Roofer in <%= city %>?</h2>
-                    <p>Call 512-564-3679 or request a free estimate today</p>
-                    <a href="/contact/quote" class="btn btn-primary">Free Estimate</a>
-                </div>
-            </div>
-        </section>
     </div>
 </section>
+
+<!-- Benefits Section -->
+<section class="benefits-section">
+    <div class="benefits-container">
+        <div class="section-header">
+            <span class="section-label">Why Us</span>
+            <h2 class="section-title">Why Choose Us in <%= city %>?</h2>
+            <p class="section-subtitle">Trusted by homeowners across Central Texas for quality, reliability, and exceptional service.</p>
+        </div>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h4>Certified Installers</h4>
+                <p>GAF & Owens Corning certified for quality and warranty eligibility</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h4>19+ Years Experience</h4>
+                <p>Central Texas roofing and construction experts since 2017</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4>Strong Warranties</h4>
+                <p>Manufacturer and workmanship coverage for peace of mind</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h4>Local & Reliable</h4>
+                <p>Responsive service, transparent pricing, and clean jobsites</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Materials Section -->
+<section class="materials-section">
+    <div class="materials-container">
+        <div class="section-header">
+            <span class="section-label">Premium Products</span>
+            <h2 class="section-title">Quality Roofing Materials</h2>
+            <p class="section-subtitle">We use only the best products from industry-leading manufacturers.</p>
+        </div>
+
+        <div class="materials-grid">
+            <div class="material-card">
+                <div class="material-image">
+                    <img src="/images/hero-aerial.jpg" alt="GAF Timberline HDZ Shingles">
+                    <span class="material-badge">Popular</span>
+                </div>
+                <div class="material-content">
+                    <h3>GAF Timberline HDZ</h3>
+                    <p>America's #1 selling shingle with LayerLock technology and StainGuard Plus protection.</p>
+                    <div class="material-features">
+                        <span class="material-feature"><i class="fas fa-wind"></i> 130 MPH Wind</span>
+                        <span class="material-feature"><i class="fas fa-infinity"></i> Lifetime Warranty</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="material-card">
+                <div class="material-image">
+                    <img src="/images/projects/lakedillon-roof.jpg" alt="Owens Corning Duration Shingles">
+                    <span class="material-badge">Premium</span>
+                </div>
+                <div class="material-content">
+                    <h3>Owens Corning Duration</h3>
+                    <p>TruDefinition color technology with SureNail strip for superior holding power.</p>
+                    <div class="material-features">
+                        <span class="material-feature"><i class="fas fa-wind"></i> 130 MPH Resistance</span>
+                        <span class="material-feature"><i class="fas fa-infinity"></i> Limited Lifetime</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="cta-container">
+        <h2 class="cta-title">Need a Roofer in <%= city %>?</h2>
+        <p class="cta-subtitle">Get your free inspection and estimate today. No obligation, no pressure - just honest advice from local experts.</p>
+        <div class="cta-buttons">
+            <a href="/contact/quote" class="btn-cta-primary">
+                <i class="fas fa-file-alt"></i>
+                Request Free Estimate
+            </a>
+            <a href="tel:512-564-3679" class="btn-cta-secondary">
+                <i class="fas fa-phone-alt"></i>
+                Call (512) 564-3679
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Other Locations -->
+<section class="locations-section">
+    <div class="locations-container">
+        <h3 class="locations-title">We Also Serve These Central Texas Communities</h3>
+        <div class="location-pills">
+            <a href="/locations/leander" class="location-pill<%= city === 'Leander' ? ' active' : '' %>">Leander</a>
+            <a href="/locations/liberty-hill" class="location-pill<%= city === 'Liberty Hill' ? ' active' : '' %>">Liberty Hill</a>
+            <a href="/locations/georgetown" class="location-pill<%= city === 'Georgetown' ? ' active' : '' %>">Georgetown</a>
+            <a href="/locations/cedar-park" class="location-pill<%= city === 'Cedar Park' ? ' active' : '' %>">Cedar Park</a>
+            <a href="/locations/round-rock" class="location-pill<%= city === 'Round Rock' ? ' active' : '' %>">Round Rock</a>
+            <a href="/locations/pflugerville" class="location-pill<%= city === 'Pflugerville' ? ' active' : '' %>">Pflugerville</a>
+            <a href="/locations/jonestown" class="location-pill<%= city === 'Jonestown' ? ' active' : '' %>">Jonestown</a>
+            <a href="/locations/lago-vista" class="location-pill<%= city === 'Lago Vista' ? ' active' : '' %>">Lago Vista</a>
+            <a href="/locations/burnet" class="location-pill<%= city === 'Burnet' ? ' active' : '' %>">Burnet</a>
+            <a href="/locations/lake-travis" class="location-pill<%= city === 'Lake Travis' ? ' active' : '' %>">Lake Travis</a>
+        </div>
+    </div>
+</section>
+
+<script>
+(function() {
+    // Benefits animation on scroll
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 100);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.benefit-card').forEach(card => {
+        observer.observe(card);
+    });
+})();
+</script>

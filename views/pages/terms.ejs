@@ -1,0 +1,882 @@
+<style>
+    /* Terms of Service Page Styles */
+    /* Legal Document Aesthetic - Matching Privacy Policy */
+
+    @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+    :root {
+        --terms-navy: #1E3A5F;
+        --terms-navy-light: #2A4A73;
+        --terms-gold: #B8860B;
+        --terms-gold-light: #D4A017;
+        --terms-cream: #FFFBF5;
+        --terms-cream-dark: #F5EFE6;
+        --terms-text: #374151;
+        --terms-text-light: #6B7280;
+        --terms-border: #E5E7EB;
+        --terms-white: #FFFFFF;
+    }
+
+    .terms-page {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--terms-cream);
+        color: var(--terms-text);
+        line-height: 1.7;
+    }
+
+    /* Hero Section */
+    .terms-hero {
+        background: linear-gradient(135deg, var(--terms-navy) 0%, var(--terms-navy-light) 100%);
+        padding: 100px 20px 80px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .terms-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.5;
+    }
+
+    .terms-hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .terms-icon {
+        width: 90px;
+        height: 90px;
+        background: linear-gradient(135deg, var(--terms-gold) 0%, var(--terms-gold-light) 100%);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 30px;
+        box-shadow: 0 10px 40px rgba(184, 134, 11, 0.3);
+        animation: iconFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes iconFloat {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-8px) rotate(2deg); }
+    }
+
+    .terms-icon i {
+        font-size: 40px;
+        color: var(--terms-white);
+    }
+
+    .terms-hero h1 {
+        font-family: 'Crimson Pro', Georgia, serif;
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 700;
+        color: var(--terms-white);
+        margin: 0 0 20px;
+        letter-spacing: -0.02em;
+    }
+
+    .terms-hero-subtitle {
+        font-size: 1.125rem;
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 600px;
+        margin: 0 auto 25px;
+    }
+
+    .terms-effective-date {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 12px 24px;
+        border-radius: 50px;
+        color: var(--terms-gold-light);
+        font-size: 0.95rem;
+        font-weight: 500;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .terms-effective-date i {
+        font-size: 1rem;
+    }
+
+    /* Main Content Container */
+    .terms-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 60px 20px 80px;
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 50px;
+        align-items: start;
+    }
+
+    @media (max-width: 900px) {
+        .terms-container {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+    }
+
+    /* Table of Contents - Sidebar */
+    .terms-toc {
+        position: sticky;
+        top: 100px;
+        background: var(--terms-white);
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 4px 20px rgba(30, 58, 95, 0.08);
+        border: 1px solid var(--terms-border);
+    }
+
+    @media (max-width: 900px) {
+        .terms-toc {
+            position: static;
+        }
+    }
+
+    .terms-toc-title {
+        font-family: 'Crimson Pro', Georgia, serif;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--terms-navy);
+        margin: 0 0 20px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid var(--terms-gold);
+    }
+
+    .terms-toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .terms-toc-list li {
+        margin-bottom: 0;
+    }
+
+    .terms-toc-list a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 15px;
+        color: var(--terms-text);
+        text-decoration: none;
+        font-size: 0.9rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        border-left: 3px solid transparent;
+        margin-left: -15px;
+        padding-left: 12px;
+    }
+
+    .terms-toc-list a:hover {
+        background: var(--terms-cream);
+        color: var(--terms-navy);
+        border-left-color: var(--terms-gold);
+    }
+
+    .terms-toc-list .toc-number {
+        width: 26px;
+        height: 26px;
+        background: var(--terms-cream-dark);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--terms-navy);
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+    }
+
+    .terms-toc-list a:hover .toc-number {
+        background: var(--terms-gold);
+        color: var(--terms-white);
+    }
+
+    /* Content Area */
+    .terms-content {
+        background: var(--terms-white);
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 4px 20px rgba(30, 58, 95, 0.08);
+        border: 1px solid var(--terms-border);
+    }
+
+    @media (max-width: 768px) {
+        .terms-content {
+            padding: 30px 20px;
+        }
+    }
+
+    .terms-intro {
+        padding: 25px 30px;
+        background: linear-gradient(135deg, var(--terms-cream) 0%, var(--terms-cream-dark) 100%);
+        border-radius: 12px;
+        margin-bottom: 40px;
+        border-left: 4px solid var(--terms-gold);
+    }
+
+    .terms-intro p {
+        margin: 0;
+        color: var(--terms-text);
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .terms-section {
+        margin-bottom: 45px;
+        padding-bottom: 45px;
+        border-bottom: 1px solid var(--terms-border);
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .terms-section:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .terms-section:nth-child(1) { animation-delay: 0.1s; }
+    .terms-section:nth-child(2) { animation-delay: 0.15s; }
+    .terms-section:nth-child(3) { animation-delay: 0.2s; }
+    .terms-section:nth-child(4) { animation-delay: 0.25s; }
+    .terms-section:nth-child(5) { animation-delay: 0.3s; }
+    .terms-section:nth-child(6) { animation-delay: 0.35s; }
+    .terms-section:nth-child(7) { animation-delay: 0.4s; }
+    .terms-section:nth-child(8) { animation-delay: 0.45s; }
+    .terms-section:nth-child(9) { animation-delay: 0.5s; }
+    .terms-section:nth-child(10) { animation-delay: 0.55s; }
+
+    .terms-section-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .terms-section-number {
+        width: 45px;
+        height: 45px;
+        background: linear-gradient(135deg, var(--terms-navy) 0%, var(--terms-navy-light) 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Crimson Pro', Georgia, serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--terms-white);
+        flex-shrink: 0;
+    }
+
+    .terms-section h2 {
+        font-family: 'Crimson Pro', Georgia, serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--terms-navy);
+        margin: 0;
+    }
+
+    .terms-section p {
+        margin: 0 0 15px;
+        color: var(--terms-text);
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .terms-section p:last-child {
+        margin-bottom: 0;
+    }
+
+    .terms-section ul {
+        margin: 15px 0;
+        padding-left: 0;
+        list-style: none;
+    }
+
+    .terms-section ul li {
+        position: relative;
+        padding-left: 28px;
+        margin-bottom: 12px;
+        color: var(--terms-text);
+        line-height: 1.7;
+    }
+
+    .terms-section ul li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 8px;
+        height: 8px;
+        background: var(--terms-gold);
+        border-radius: 50%;
+    }
+
+    .terms-section strong {
+        color: var(--terms-navy);
+        font-weight: 600;
+    }
+
+    /* Highlight Box */
+    .terms-highlight {
+        background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+        padding: 20px 25px;
+        border-radius: 10px;
+        margin: 20px 0;
+        border-left: 4px solid var(--terms-gold);
+    }
+
+    .terms-highlight p {
+        margin: 0;
+        color: #92400E;
+        font-weight: 500;
+    }
+
+    .terms-highlight i {
+        margin-right: 8px;
+        color: var(--terms-gold);
+    }
+
+    /* Warning Box */
+    .terms-warning {
+        background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%);
+        padding: 20px 25px;
+        border-radius: 10px;
+        margin: 20px 0;
+        border-left: 4px solid #DC2626;
+    }
+
+    .terms-warning p {
+        margin: 0;
+        color: #991B1B;
+        font-weight: 500;
+    }
+
+    .terms-warning i {
+        margin-right: 8px;
+        color: #DC2626;
+    }
+
+    /* Contact Card */
+    .terms-contact-card {
+        background: linear-gradient(135deg, var(--terms-navy) 0%, var(--terms-navy-light) 100%);
+        border-radius: 16px;
+        padding: 35px;
+        margin-top: 40px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .terms-contact-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(184, 134, 11, 0.2) 0%, transparent 70%);
+        border-radius: 50%;
+    }
+
+    .terms-contact-card h3 {
+        font-family: 'Crimson Pro', Georgia, serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--terms-white);
+        margin: 0 0 15px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .terms-contact-card p {
+        color: rgba(255, 255, 255, 0.85);
+        margin: 0 0 25px;
+        position: relative;
+        z-index: 1;
+        line-height: 1.7;
+    }
+
+    .terms-contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .terms-contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--terms-white);
+        text-decoration: none;
+        padding: 12px 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .terms-contact-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }
+
+    .terms-contact-item i {
+        font-size: 1.1rem;
+        color: var(--terms-gold-light);
+    }
+
+    /* Print Styles */
+    @media print {
+        .terms-hero {
+            background: var(--terms-navy) !important;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .terms-toc {
+            display: none;
+        }
+
+        .terms-container {
+            grid-template-columns: 1fr;
+        }
+
+        .terms-section {
+            page-break-inside: avoid;
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+        .terms-hero {
+            padding: 80px 15px 60px;
+        }
+
+        .terms-icon {
+            width: 70px;
+            height: 70px;
+        }
+
+        .terms-icon i {
+            font-size: 32px;
+        }
+
+        .terms-section-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .terms-section-number {
+            width: 38px;
+            height: 38px;
+            font-size: 1.1rem;
+        }
+
+        .terms-contact-info {
+            flex-direction: column;
+        }
+
+        .terms-contact-item {
+            justify-content: center;
+        }
+    }
+</style>
+
+<div class="terms-page">
+    <!-- Hero Section -->
+    <section class="terms-hero">
+        <div class="terms-hero-content">
+            <div class="terms-icon">
+                <i class="fas fa-file-contract"></i>
+            </div>
+            <h1>Terms of Service</h1>
+            <p class="terms-hero-subtitle">
+                Please read these terms carefully before using our services. By engaging GK Homes and Roofing, you agree to these terms.
+            </p>
+            <div class="terms-effective-date">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Effective Date: January 1, 2024</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="terms-container">
+        <!-- Table of Contents - Sidebar -->
+        <aside class="terms-toc">
+            <h2 class="terms-toc-title">Table of Contents</h2>
+            <ul class="terms-toc-list">
+                <li>
+                    <a href="#acceptance">
+                        <span class="toc-number">1</span>
+                        <span>Acceptance of Terms</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#services">
+                        <span class="toc-number">2</span>
+                        <span>Our Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#estimates">
+                        <span class="toc-number">3</span>
+                        <span>Estimates & Contracts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#payment">
+                        <span class="toc-number">4</span>
+                        <span>Payment Terms</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#responsibilities">
+                        <span class="toc-number">5</span>
+                        <span>Customer Responsibilities</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#warranty">
+                        <span class="toc-number">6</span>
+                        <span>Warranty & Guarantees</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#liability">
+                        <span class="toc-number">7</span>
+                        <span>Limitation of Liability</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#insurance">
+                        <span class="toc-number">8</span>
+                        <span>Insurance Claims</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#disputes">
+                        <span class="toc-number">9</span>
+                        <span>Dispute Resolution</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact">
+                        <span class="toc-number">10</span>
+                        <span>Contact Us</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Content -->
+        <div class="terms-content">
+            <div class="terms-intro">
+                <p>
+                    Welcome to GK Homes and Roofing. These Terms of Service govern your use of our roofing, construction, and remodeling services throughout Central Texas. We are committed to providing quality workmanship and transparent business practices.
+                </p>
+            </div>
+
+            <!-- Section 1: Acceptance of Terms -->
+            <section id="acceptance" class="terms-section">
+                <div class="terms-section-header">
+                    <div class="terms-section-number">1</div>
+                    <h2>Acceptance of Terms</h2>
+                </div>
+                <p>
+                    By requesting a quote, signing a contract, or engaging our services in any way, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please do not use our services.
+                </p>
+                <p>
+                    These terms apply to all services provided by GK Homes and Roofing, including but not limited to roofing installation, roof repair, GAF solar roofing, home remodeling, new construction, and emergency services.
+                </p>
+                <div class="terms-highlight">
+                    <p><i class="fas fa-info-circle"></i> We reserve the right to modify these terms at any time. Changes will be effective upon posting to our website.</p>
+                </div>
+            </section>
+
+            <!-- Section 2: Our Services -->
+            <section id="services" class="terms-section">
+                <div class="terms-section-header">
+                    <div class="terms-section-number">2</div>
+                    <h2>Our Services</h2>
+                </div>
+                <p>
+                    GK Homes and Roofing provides professional roofing, construction, and remodeling services to residential and commercial customers throughout Central Texas. Our services include:
+                </p>
+                <ul>
+                    <li><strong>Roofing Services:</strong> New roof installation, roof replacement, roof repair, maintenance, and inspections</li>
+                    <li><strong>GAF Solar Roofing:</strong> Integrated solar roofing systems with energy-efficient solutions</li>
+                    <li><strong>Home Remodeling:</strong> Kitchen renovations, bathroom upgrades, room additions, and interior improvements</li>
+                    <li><strong>New Construction:</strong> Custom home building and commercial construction projects</li>
+                    <li><strong>Emergency Services:</strong> Storm damage repair, emergency tarping, and urgent roof repairs</li>
+                </ul>
+                <p>
+                    All work is performed by licensed, insured, and certified professionals. We are GAF and Owens Corning certified contractors with 19+ years of combined experience.
+                </p>
+            </section>
+
+            <!-- Section 3: Estimates & Contracts -->
+            <section id="estimates" class="terms-section">
+                <div class="terms-section-header">
+                    <div class="terms-section-number">3</div>
+                    <h2>Estimates & Contracts</h2>
+                </div>
+                <p>
+                    <strong>Free Estimates:</strong> We provide free, no-obligation estimates for all projects. Estimates are valid for 30 days from the date of issue unless otherwise specified.
+                </p>
+                <p>
+                    <strong>Written Contracts:</strong> All projects over $500 require a signed written contract before work begins. The contract will include:
+                </p>
+                <ul>
+                    <li>Detailed scope of work and materials to be used</li>
+                    <li>Total project cost and payment schedule</li>
+                    <li>Estimated project timeline and completion date</li>
+                    <li>Warranty information and coverage details</li>
+                    <li>Any applicable permits and inspection requirements</li>
+                </ul>
+                <p>
+                    <strong>Change Orders:</strong> Any changes to the original scope of work must be documented in writing and signed by both parties. Change orders may affect the project timeline and total cost.
+                </p>
+            </section>
+
+            <!-- Section 4: Payment Terms -->
+            <section id="payment" class="terms-section">
+                <div class="terms-section-header">
+                    <div class="terms-section-number">4</div>
+                    <h2>Payment Terms</h2>
+                </div>
+                <p>
+                    We accept multiple forms of payment including cash, check, credit cards, and financing options. Payment terms vary by project size:
+                </p>
+                <ul>
+                    <li><strong>Small Projects (Under $5,000):</strong> Payment due upon completion</li>
+                    <li><strong>Medium Projects ($5,000 - $25,000):</strong> 50% deposit, balance due upon completion</li>
+                    <li><strong>Large Projects (Over $25,000):</strong> 33% deposit, 33% at midpoint, balance upon completion</li>
+                    <li><strong>Insurance Claims:</strong> Payment terms per insurance company requirements</li>
+                </ul>
+                <div class="terms-warning">
+                    <p><i class="fas fa-exclamation-triangle"></i> Late payments may incur a 1.5% monthly interest charge. Failure to pay may result in a mechanic's lien on the property.</p>
+                </div>
+                <p>
+                    <strong>Financing:</strong> We offer flexible financing options through our lending partners. Subject to credit approval. See our Financing page for details.
+                </p>
+            </section>
+
+            <!-- Section 5: Customer Responsibilities -->
+            <section id="responsibilities" class="terms-section">
+                <div class="terms-section-header">
+                    <div class="terms-section-number">5</div>
+                    <h2>Customer Responsibilities</h2>
+                </div>
+                <p>
+                    To ensure successful project completion, customers agree to:
+                </p>
+                <ul>
+                    <li>Provide accurate information about the property and project requirements</li>
+                    <li>Ensure safe and accessible work areas for our crew</li>
+                    <li>Secure pets and move vehicles as needed during construction</li>
+                    <li>Obtain any required homeowner association (HOA) approvals</li>
+                    <li>Make timely decisions on material selections and change orders</li>
+                    <li>Notify us of any known issues such as electrical problems, water damage, or structural concerns</li>
+                    <li>Be available or designate a representative for project communications</li>
+                </ul>
+                <p>
+                    Delays caused by customer unavailability or failure to meet these responsibilities may result in schedule changes and additional charges.
+                </p>
+            </section>
+
+            <!-- Section 6: Warranty & Guarantees -->
+            <section id="warranty" class="terms-section">
+                <div class="terms-section-header">
+                    <div class="terms-section-number">6</div>
+                    <h2>Warranty & Guarantees</h2>
+                </div>
+                <p>
+                    We stand behind our work with comprehensive warranty coverage:
+                </p>
+                <ul>
+                    <li><strong>Workmanship Warranty:</strong> 5-year warranty on all labor and installation</li>
+                    <li><strong>GAF Golden Pledge:</strong> Up to 50-year non-prorated coverage (when applicable)</li>
+                    <li><strong>Owens Corning Platinum:</strong> Lifetime limited warranty (when applicable)</li>
+                    <li><strong>Manufacturer Warranties:</strong> All materials covered by respective manufacturer warranties</li>
+                </ul>
+                <p>
+                    Warranties are non-transferable unless otherwise specified. Warranty claims must be submitted in writing within the warranty period. See our Warranty page for complete details.
+                </p>
+                <div class="terms-highlight">
+                    <p><i class="fas fa-shield-alt"></i> Warranties do not cover damage from acts of God, improper maintenance, unauthorized modifications, or normal wear and tear.</p>
+                </div>
+            </section>
+
+            <!-- Section 7: Limitation of Liability -->
+            <section id="liability" class="terms-section">
+                <div class="terms-section-header">
+                    <div class="terms-section-number">7</div>
+                    <h2>Limitation of Liability</h2>
+                </div>
+                <p>
+                    To the maximum extent permitted by law, GK Homes and Roofing's total liability for any claim arising from our services shall not exceed the total amount paid by the customer for the specific project in question.
+                </p>
+                <p>
+                    We shall not be liable for:
+                </p>
+                <ul>
+                    <li>Indirect, incidental, or consequential damages</li>
+                    <li>Loss of use, revenue, or profits</li>
+                    <li>Pre-existing conditions not disclosed before project commencement</li>
+                    <li>Delays caused by weather, material shortages, or circumstances beyond our control</li>
+                    <li>Damage to landscaping, driveways, or other property from normal construction activities</li>
+                </ul>
+                <p>
+                    We carry comprehensive general liability insurance and workers' compensation coverage for all employees. Proof of insurance is available upon request.
+                </p>
+            </section>
+
+            <!-- Section 8: Insurance Claims -->
+            <section id="insurance" class="terms-section">
+                <div class="terms-section-header">
+                    <div class="terms-section-number">8</div>
+                    <h2>Insurance Claims</h2>
+                </div>
+                <p>
+                    We specialize in working with insurance companies for storm damage and other covered repairs. When working with insurance claims:
+                </p>
+                <ul>
+                    <li>We provide free inspections and damage assessments</li>
+                    <li>We work directly with your insurance adjuster</li>
+                    <li>We prepare detailed documentation and supplemental claims as needed</li>
+                    <li>Final cost is determined by insurance company approval</li>
+                </ul>
+                <p>
+                    <strong>Customer Responsibility:</strong> You are responsible for paying your insurance deductible. We cannot waive, discount, or pay your deductible as this is considered insurance fraud under Texas law.
+                </p>
+                <p>
+                    <strong>Claim Disputes:</strong> We will advocate on your behalf for fair claim settlements, but we cannot guarantee any specific insurance outcome. You remain responsible for any costs not covered by your insurance policy.
+                </p>
+            </section>
+
+            <!-- Section 9: Dispute Resolution -->
+            <section id="disputes" class="terms-section">
+                <div class="terms-section-header">
+                    <div class="terms-section-number">9</div>
+                    <h2>Dispute Resolution</h2>
+                </div>
+                <p>
+                    We are committed to resolving any disputes fairly and efficiently. In the event of a disagreement:
+                </p>
+                <ul>
+                    <li><strong>Step 1:</strong> Contact our office to discuss the issue. Many concerns can be resolved through direct communication.</li>
+                    <li><strong>Step 2:</strong> If unresolved, we will arrange for a management review and site visit if necessary.</li>
+                    <li><strong>Step 3:</strong> For continuing disputes, we agree to non-binding mediation before any legal action.</li>
+                    <li><strong>Step 4:</strong> Any legal proceedings shall be conducted in Williamson County, Texas under Texas state law.</li>
+                </ul>
+                <p>
+                    <strong>Governing Law:</strong> These Terms of Service shall be governed by and construed in accordance with the laws of the State of Texas. You consent to the exclusive jurisdiction of the courts of Williamson County, Texas.
+                </p>
+            </section>
+
+            <!-- Section 10: Contact Us -->
+            <section id="contact" class="terms-section">
+                <div class="terms-section-header">
+                    <div class="terms-section-number">10</div>
+                    <h2>Contact Us</h2>
+                </div>
+                <p>
+                    If you have any questions about these Terms of Service, please contact us. We're happy to explain any provisions and discuss how they apply to your specific project.
+                </p>
+
+                <div class="terms-contact-card">
+                    <h3>GK Homes and Roofing</h3>
+                    <p>
+                        Our team is available to answer your questions during normal business hours. For emergencies, our 24/7 line is always available.
+                    </p>
+                    <div class="terms-contact-info">
+                        <a href="tel:512-564-3679" class="terms-contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>512-564-3679</span>
+                        </a>
+                        <a href="mailto:info@gkhomesandroofing.com" class="terms-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@gkhomesandroofing.com</span>
+                        </a>
+                        <a href="/contact" class="terms-contact-item">
+                            <i class="fas fa-comments"></i>
+                            <span>Contact Form</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Smooth scroll for TOC links
+    document.querySelectorAll('.terms-toc-list a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const headerOffset = 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Highlight active TOC item on scroll
+    const sections = document.querySelectorAll('.terms-section[id]');
+    const tocLinks = document.querySelectorAll('.terms-toc-list a');
+
+    function highlightTOC() {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 150;
+            if (window.pageYOffset >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        tocLinks.forEach(link => {
+            link.style.background = '';
+            link.style.borderLeftColor = 'transparent';
+            if (link.getAttribute('href') === '#' + current) {
+                link.style.background = 'var(--terms-cream)';
+                link.style.borderLeftColor = 'var(--terms-gold)';
+            }
+        });
+    }
+
+    window.addEventListener('scroll', highlightTOC);
+    highlightTOC();
+</script>

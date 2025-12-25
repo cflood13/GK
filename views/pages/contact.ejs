@@ -1,98 +1,1056 @@
-<!-- Contact Hero -->
-<section class="page-hero" style="background-image: url('/images/services/construction.jpg');">
-    <div class="page-hero-overlay"></div>
-    <div class="page-hero-content">
-        <h1 class="animate-on-scroll">Contact Us</h1>
-        <p class="animate-on-scroll">Get In Touch With Our Team</p>
-    </div>
-</section>
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   CONTACT PAGE - "Warm Connection" Aesthetic
+   Welcoming, personal design that makes reaching out feel easy and human
+   ═══════════════════════════════════════════════════════════════════════════ */
 
-<!-- Contact Information -->
-<section class="section">
-    <div class="container">
-        <div class="contact-wrapper">
-            <div class="contact-info-section animate-on-scroll">
-                <h2>Let's Discuss Your Project</h2>
-                <p class="lead">Whether you need a simple repair or a complete construction project, our team is ready to help. Contact us today for a free consultation and estimate.</p>
-                
-                <!-- Quick Response Promise -->
-                <div style="background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); color: white; padding: 1.5rem; border-radius: var(--radius-lg); margin: 2rem 0; text-align: center;">
-                    <i class="fas fa-clock" style="font-size: 2rem; margin-bottom: 1rem; color: var(--secondary-color);"></i>
-                    <h4 style="color: white; margin-bottom: 0.5rem;">Quick Response Guarantee</h4>
-                    <p style="margin: 0; color: rgba(255,255,255,0.9);">We respond to all inquiries within 24 hours</p>
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Karla:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --contact-charcoal: #292524;
+    --contact-charcoal-light: #44403C;
+    --contact-terracotta: #C2410C;
+    --contact-terracotta-light: #EA580C;
+    --contact-sand: #F5F5DC;
+    --contact-cream: #FFFBEB;
+    --contact-orange: #FB923C;
+    --contact-orange-light: #FDBA74;
+    --contact-white: #FFFFFF;
+    --contact-gray: #78716C;
+}
+
+.contact-page {
+    font-family: 'Karla', sans-serif;
+    background: var(--contact-cream);
+    color: var(--contact-charcoal);
+    overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.contact-hero {
+    position: relative;
+    min-height: 60vh;
+    background: var(--contact-charcoal);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.contact-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 70% 30%, rgba(194, 65, 12, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(251, 146, 60, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+/* Decorative warm shape */
+.contact-hero::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 60%;
+    height: 160%;
+    background: linear-gradient(135deg, rgba(194, 65, 12, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.contact-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 120px 5%;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.contact-hero-text {
+    animation: heroFadeIn 0.8s ease-out;
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(251, 146, 60, 0.15);
+    border: 1px solid rgba(251, 146, 60, 0.3);
+    padding: 10px 20px;
+    border-radius: 50px;
+    margin-bottom: 25px;
+}
+
+.contact-hero-badge i {
+    color: var(--contact-orange);
+    font-size: 0.9rem;
+}
+
+.contact-hero-badge span {
+    color: var(--contact-orange);
+    font-family: 'Karla', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.contact-hero h1 {
+    font-family: 'Merriweather', serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 900;
+    color: var(--contact-white);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.contact-hero h1 span {
+    color: var(--contact-orange);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.contact-hero-description {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    max-width: 500px;
+}
+
+/* Quick Response Badge */
+.contact-response-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(135deg, var(--contact-terracotta), var(--contact-terracotta-light));
+    padding: 20px 30px;
+    border-radius: 16px;
+    margin-top: 35px;
+    box-shadow: 0 10px 30px rgba(194, 65, 12, 0.3);
+    animation: badgePulse 3s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.contact-response-badge i {
+    font-size: 2rem;
+    color: var(--contact-cream);
+}
+
+.contact-response-badge-text h4 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.1rem;
+    color: var(--contact-white);
+    margin-bottom: 3px;
+}
+
+.contact-response-badge-text span {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Hero Contact Methods */
+.contact-hero-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: heroMethodsSlide 0.8s ease-out 0.2s both;
+}
+
+@keyframes heroMethodsSlide {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.contact-method-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 25px 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.contact-method-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--contact-orange);
+    transform: translateX(-10px);
+}
+
+.contact-method-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--contact-terracotta), var(--contact-orange));
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--contact-white);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.contact-method-card:hover .contact-method-icon {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.contact-method-text h4 {
+    font-family: 'Merriweather', serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.contact-method-text a,
+.contact-method-text p {
+    font-size: 1.2rem;
+    color: var(--contact-white);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-method-text a:hover {
+    color: var(--contact-orange);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MAIN CONTACT SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.contact-main {
+    padding: 100px 5%;
+    background: var(--contact-cream);
+}
+
+.contact-main-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+/* Contact Info Side */
+.contact-info-side {
+    position: sticky;
+    top: 120px;
+}
+
+.contact-info-header {
+    margin-bottom: 40px;
+}
+
+.contact-section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--contact-terracotta);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.contact-section-tag::before {
+    content: '';
+    width: 25px;
+    height: 2px;
+    background: var(--contact-terracotta);
+    border-radius: 2px;
+}
+
+.contact-info-header h2 {
+    font-family: 'Merriweather', serif;
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    color: var(--contact-charcoal);
+    margin-bottom: 15px;
+}
+
+.contact-info-header p {
+    font-size: 1.1rem;
+    color: var(--contact-gray);
+    line-height: 1.7;
+}
+
+/* Business Hours Card */
+.contact-hours-card {
+    background: var(--contact-white);
+    border-radius: 20px;
+    padding: 35px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 40px rgba(41, 37, 36, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-hours-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--contact-terracotta), var(--contact-orange));
+}
+
+.contact-hours-card h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.3rem;
+    color: var(--contact-charcoal);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.contact-hours-card h3 i {
+    color: var(--contact-terracotta);
+}
+
+.contact-hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-hours-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--contact-sand);
+}
+
+.contact-hours-item:last-child {
+    border-bottom: none;
+}
+
+.contact-hours-item span:first-child {
+    color: var(--contact-gray);
+}
+
+.contact-hours-item span:last-child {
+    font-weight: 600;
+    color: var(--contact-charcoal);
+}
+
+.contact-hours-item.highlight span:last-child {
+    color: var(--contact-terracotta);
+}
+
+/* Certifications */
+.contact-certifications {
+    background: var(--contact-sand);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.contact-certifications h4 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.1rem;
+    color: var(--contact-charcoal);
+    margin-bottom: 20px;
+}
+
+.contact-cert-logos {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.contact-cert-logos img {
+    height: 50px;
+    width: auto;
+    filter: grayscale(20%);
+    transition: all 0.3s ease;
+}
+
+.contact-cert-logos img:hover {
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CONTACT FORM
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.contact-form-side {
+    background: var(--contact-white);
+    border-radius: 24px;
+    padding: 50px;
+    box-shadow: 0 20px 60px rgba(41, 37, 36, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form-side::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--contact-terracotta), var(--contact-orange), var(--contact-orange-light));
+}
+
+.contact-form-header {
+    margin-bottom: 35px;
+}
+
+.contact-form-header h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.8rem;
+    color: var(--contact-charcoal);
+    margin-bottom: 10px;
+}
+
+.contact-form-header p {
+    color: var(--contact-gray);
+    font-size: 1rem;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.contact-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.contact-form-group {
+    position: relative;
+}
+
+.contact-form-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--contact-charcoal);
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.contact-form-group label span {
+    color: var(--contact-terracotta);
+}
+
+.contact-form-group input,
+.contact-form-group select,
+.contact-form-group textarea {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid var(--contact-sand);
+    border-radius: 12px;
+    font-family: 'Karla', sans-serif;
+    font-size: 1rem;
+    color: var(--contact-charcoal);
+    background: var(--contact-cream);
+    transition: all 0.3s ease;
+}
+
+.contact-form-group input:focus,
+.contact-form-group select:focus,
+.contact-form-group textarea:focus {
+    outline: none;
+    border-color: var(--contact-terracotta);
+    background: var(--contact-white);
+    box-shadow: 0 0 0 4px rgba(194, 65, 12, 0.1);
+}
+
+.contact-form-group input::placeholder,
+.contact-form-group textarea::placeholder {
+    color: var(--contact-gray);
+}
+
+.contact-form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.contact-form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23292524' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 18px;
+    padding-right: 50px;
+}
+
+.contact-submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 40px;
+    background: linear-gradient(135deg, var(--contact-terracotta), var(--contact-terracotta-light));
+    color: var(--contact-white);
+    font-family: 'Karla', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.contact-submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(194, 65, 12, 0.35);
+}
+
+.contact-submit-btn i {
+    transition: transform 0.3s ease;
+}
+
+.contact-submit-btn:hover i {
+    transform: translateX(5px);
+}
+
+#form-message {
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-weight: 500;
+    display: none;
+}
+
+#form-message.success {
+    display: block;
+    background: #DEF7EC;
+    color: #03543F;
+}
+
+#form-message.error {
+    display: block;
+    background: #FDE8E8;
+    color: #9B1C1C;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SERVICE AREAS SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.contact-areas {
+    padding: 100px 5%;
+    background: var(--contact-charcoal);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-areas::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(194, 65, 12, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 20% 80%, rgba(251, 146, 60, 0.08) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.contact-areas-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-areas-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.contact-areas h2 {
+    font-family: 'Merriweather', serif;
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    color: var(--contact-white);
+    margin-bottom: 15px;
+}
+
+.contact-areas-description {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.contact-areas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.contact-area-column {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 35px;
+    transition: all 0.4s ease;
+}
+
+.contact-area-column:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--contact-orange);
+    transform: translateY(-5px);
+}
+
+.contact-area-column h4 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.2rem;
+    color: var(--contact-orange);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-area-column h4 i {
+    font-size: 1rem;
+}
+
+.contact-area-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-area-list li {
+    padding: 10px 0;
+    color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-area-list li:last-child {
+    border-bottom: none;
+}
+
+.contact-area-list li:hover {
+    color: var(--contact-white);
+    padding-left: 10px;
+}
+
+.contact-area-list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--contact-terracotta);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FAQ SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.contact-faq {
+    padding: 100px 5%;
+    background: var(--contact-sand);
+}
+
+.contact-faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-faq-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-faq h2 {
+    font-family: 'Merriweather', serif;
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    color: var(--contact-charcoal);
+    margin-bottom: 15px;
+}
+
+.contact-faq-description {
+    font-size: 1.1rem;
+    color: var(--contact-gray);
+}
+
+.contact-faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.contact-faq-item {
+    background: var(--contact-white);
+    border-radius: 16px;
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+.contact-faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(41, 37, 36, 0.1);
+}
+
+.contact-faq-item h4 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.1rem;
+    color: var(--contact-charcoal);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.contact-faq-item h4 i {
+    color: var(--contact-terracotta);
+    margin-top: 3px;
+}
+
+.contact-faq-item p {
+    color: var(--contact-gray);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CTA SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.contact-cta {
+    padding: 100px 5%;
+    background: linear-gradient(135deg, var(--contact-terracotta) 0%, var(--contact-terracotta-light) 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5L35 25H55L39 37L44 57L30 45L16 57L21 37L5 25H25L30 5Z' stroke='%23fff' stroke-width='0.5' fill='none' opacity='0.1'/%3E%3C/svg%3E");
+    background-size: 100px 100px;
+    opacity: 0.3;
+}
+
+.contact-cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-cta h2 {
+    font-family: 'Merriweather', serif;
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    color: var(--contact-white);
+    margin-bottom: 20px;
+}
+
+.contact-cta-description {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.contact-cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 36px;
+    font-family: 'Karla', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.contact-cta-btn.primary {
+    background: var(--contact-white);
+    color: var(--contact-terracotta);
+}
+
+.contact-cta-btn.primary:hover {
+    background: var(--contact-cream);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.contact-cta-btn.secondary {
+    background: transparent;
+    color: var(--contact-white);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.contact-cta-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--contact-white);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+    .contact-hero-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .contact-hero-methods {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .contact-main-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .contact-info-side {
+        position: static;
+    }
+
+    .contact-areas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-faq-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .contact-hero {
+        min-height: auto;
+    }
+
+    .contact-hero-content {
+        padding: 100px 5% 80px;
+    }
+
+    .contact-hero-methods {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-method-card {
+        padding: 20px;
+    }
+
+    .contact-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-side {
+        padding: 35px 25px;
+    }
+
+    .contact-main,
+    .contact-areas,
+    .contact-faq,
+    .contact-cta {
+        padding: 70px 5%;
+    }
+
+    .contact-cta-buttons {
+        flex-direction: column;
+    }
+
+    .contact-cta-btn {
+        justify-content: center;
+    }
+
+    .contact-response-badge {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+</style>
+
+<div class="contact-page">
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="contact-hero-content">
+            <div class="contact-hero-text">
+                <div class="contact-hero-badge">
+                    <i class="fas fa-comments"></i>
+                    <span>We're Here to Help</span>
                 </div>
-                
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <a href="tel:512-564-3679">(512) 564-3679</a>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <a href="mailto:Garett@GK-Homes.com">Garett@GK-Homes.com</a>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Service Area</h4>
-                            <p>Austin, TX and surrounding areas</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Business Hours</h4>
-                            <p>Monday - Friday: 8:00 AM - 6:00 PM<br>
-                            Saturday: 9:00 AM - 4:00 PM<br>
-                            Sunday: Emergency Service Only</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="certifications-display">
-                    <h4>Our Certifications</h4>
-                    <div class="cert-logos">
-                        <img src="/images/logos/gaf-certified.png" alt="GAF Certified">
-                        <img src="/images/logos/gaf-solar-certified.png" alt="GAF Solar Certified">
-                        <img src="/images/logos/owens-corning.png" alt="Owens Corning Preferred Contractor">
-                        <img src="/images/logos/bbb.png" alt="BBB Accredited">
-                        <img src="/images/logos/angi-award.png" alt="Angi Award">
+                <h1>
+                    Let's <span>Talk</span>
+                </h1>
+                <p class="contact-hero-description">
+                    Ready to start your project? Have questions about our services?
+                    We'd love to hear from you. Reach out and let's discuss how we
+                    can bring your vision to life.
+                </p>
+                <div class="contact-response-badge">
+                    <i class="fas fa-bolt"></i>
+                    <div class="contact-response-badge-text">
+                        <h4>Quick Response Guarantee</h4>
+                        <span>We respond to all inquiries within 24 hours</span>
                     </div>
                 </div>
             </div>
-            
-            <div class="contact-form-section animate-on-scroll">
-                <form id="contact-form" class="contact-form">
-                    <h3>Send Us a Message</h3>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required>
+            <div class="contact-hero-methods">
+                <a href="tel:512-564-3679" class="contact-method-card">
+                    <div class="contact-method-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-method-text">
+                        <h4>Call Us Directly</h4>
+                        <span>(512) 564-3679</span>
+                    </div>
+                </a>
+                <a href="mailto:Garett@GK-Homes.com" class="contact-method-card">
+                    <div class="contact-method-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-method-text">
+                        <h4>Email Us</h4>
+                        <span>Garett@GK-Homes.com</span>
+                    </div>
+                </a>
+                <div class="contact-method-card">
+                    <div class="contact-method-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-method-text">
+                        <h4>Service Area</h4>
+                        <p>Austin, TX & Central Texas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="contact-main">
+        <div class="contact-main-container">
+            <!-- Info Side -->
+            <div class="contact-info-side">
+                <div class="contact-info-header">
+                    <div class="contact-section-tag">Get in Touch</div>
+                    <h2>We're Ready to Help</h2>
+                    <p>
+                        Whether you need a simple repair or a complete construction project,
+                        our experienced team is ready to deliver exceptional results.
+                    </p>
+                </div>
+
+                <!-- Business Hours -->
+                <div class="contact-hours-card">
+                    <h3><i class="fas fa-clock"></i> Business Hours</h3>
+                    <div class="contact-hours-list">
+                        <div class="contact-hours-item">
+                            <span>Monday - Friday</span>
+                            <span>8:00 AM - 6:00 PM</span>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
+                        <div class="contact-hours-item">
+                            <span>Saturday</span>
+                            <span>9:00 AM - 4:00 PM</span>
+                        </div>
+                        <div class="contact-hours-item highlight">
+                            <span>Sunday</span>
+                            <span>Emergency Only</span>
                         </div>
                     </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone">Phone *</label>
-                            <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <!-- Certifications -->
+                <div class="contact-certifications">
+                    <h4>Trusted & Certified</h4>
+                    <div class="contact-cert-logos">
+                        <img src="/images/logos/gaf-certified.png" alt="GAF Certified">
+                        <img src="/images/logos/gaf-solar-certified.png" alt="GAF Solar Certified">
+                        <img src="/images/logos/owens-corning.png" alt="Owens Corning Preferred">
+                        <img src="/images/logos/bbb.png" alt="BBB Accredited">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Side -->
+            <div class="contact-form-side">
+                <div class="contact-form-header">
+                    <h3>Send Us a Message</h3>
+                    <p>Fill out the form below and we'll get back to you promptly.</p>
+                </div>
+                <form id="contact-form">
+                    <div class="contact-form-row">
+                        <div class="contact-form-group">
+                            <label for="name">Your Name <span>*</span></label>
+                            <input type="text" id="name" name="name" placeholder="John Smith" required>
                         </div>
-                        
-                        <div class="form-group">
+                        <div class="contact-form-group">
+                            <label for="email">Email Address <span>*</span></label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                    </div>
+                    <div class="contact-form-row">
+                        <div class="contact-form-group">
+                            <label for="phone">Phone Number <span>*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="(512) 555-1234" required>
+                        </div>
+                        <div class="contact-form-group">
                             <label for="service">Service Needed</label>
                             <select id="service" name="service">
                                 <option value="">Select a Service</option>
@@ -105,218 +1063,171 @@
                             </select>
                         </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" rows="6" required></textarea>
+                    <div class="contact-form-group">
+                        <label for="message">Your Message <span>*</span></label>
+                        <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
                     </div>
-                    
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                    
+                    <button type="submit" class="contact-submit-btn">
+                        Send Message <i class="fas fa-paper-plane"></i>
+                    </button>
                     <div id="form-message" class="form-message"></div>
                 </form>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Service Areas -->
-<section class="section" style="background-color: var(--light-color);">
-    <div class="container">
-        <h2 style="text-align: center; margin-bottom: 3rem;">Areas We Serve</h2>
-        <div class="service-areas">
-            <div class="area-column">
-                <h4>Primary Service Areas</h4>
-                <ul>
-                    <li>Leander</li>
-                    <li>Liberty Hill</li>
-                    <li>Georgetown</li>
-                    <li>Cedar Park</li>
-                    <li>Round Rock</li>
-                    <li>Pflugerville</li>
-                </ul>
+    <!-- Service Areas Section -->
+    <section class="contact-areas">
+        <div class="contact-areas-content">
+            <div class="contact-areas-header">
+                <div class="contact-section-tag" style="color: rgba(255,255,255,0.7);">Service Coverage</div>
+                <h2>Areas We Serve</h2>
+                <p class="contact-areas-description">
+                    Proudly serving Central Texas communities with professional roofing,
+                    construction, and remodeling services.
+                </p>
             </div>
-            <div class="area-column">
-                <h4>Additional Areas</h4>
-                <ul>
-                    <li>Jonestown</li>
-                    <li>Lago Vista</li>
-                    <li>Burnet</li>
-                    <li>Lake Travis</li>
-                    <li>Austin</li>
-                </ul>
-            </div>
-            <div class="area-column">
-                <h4>Extended Service</h4>
-                <ul>
-                    <li>San Marcos</li>
-                    <li>New Braunfels</li>
-                    <li>Wimberley</li>
-                    <li>Bastrop</li>
-                    <li>Marble Falls</li>
-                    <li>And surrounding areas</li>
-                </ul>
+            <div class="contact-areas-grid">
+                <div class="contact-area-column">
+                    <h4><i class="fas fa-star"></i> Primary Service Areas</h4>
+                    <ul class="contact-area-list">
+                        <li>Leander</li>
+                        <li>Liberty Hill</li>
+                        <li>Georgetown</li>
+                        <li>Cedar Park</li>
+                        <li>Round Rock</li>
+                        <li>Pflugerville</li>
+                    </ul>
+                </div>
+                <div class="contact-area-column">
+                    <h4><i class="fas fa-map-marker-alt"></i> Lake Communities</h4>
+                    <ul class="contact-area-list">
+                        <li>Jonestown</li>
+                        <li>Lago Vista</li>
+                        <li>Lake Travis</li>
+                        <li>Burnet</li>
+                        <li>Marble Falls</li>
+                        <li>Austin</li>
+                    </ul>
+                </div>
+                <div class="contact-area-column">
+                    <h4><i class="fas fa-road"></i> Extended Service</h4>
+                    <ul class="contact-area-list">
+                        <li>San Marcos</li>
+                        <li>New Braunfels</li>
+                        <li>Wimberley</li>
+                        <li>Bastrop</li>
+                        <li>Dripping Springs</li>
+                        <li>And surrounding areas</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Map Section (placeholder) -->
-<section class="section map-section">
-    <div class="container">
-        <h2 style="text-align: center; margin-bottom: 2rem;">Find Us</h2>
-        <div class="map-placeholder">
-            <p>Serving Austin, TX and the surrounding Central Texas area</p>
+    <!-- FAQ Section -->
+    <section class="contact-faq">
+        <div class="contact-faq-container">
+            <div class="contact-faq-header">
+                <div class="contact-section-tag">Common Questions</div>
+                <h2>Frequently Asked</h2>
+                <p class="contact-faq-description">Quick answers to common questions.</p>
+            </div>
+            <div class="contact-faq-grid">
+                <div class="contact-faq-item">
+                    <h4><i class="fas fa-clock"></i> How quickly can you start?</h4>
+                    <p>Most projects can begin within 1-2 weeks of signing. Emergency repairs are typically addressed within 24-48 hours.</p>
+                </div>
+                <div class="contact-faq-item">
+                    <h4><i class="fas fa-file-invoice-dollar"></i> Do you offer free estimates?</h4>
+                    <p>Yes! We provide free, no-obligation estimates for all projects. Just give us a call or fill out the form above.</p>
+                </div>
+                <div class="contact-faq-item">
+                    <h4><i class="fas fa-shield-alt"></i> Are you licensed and insured?</h4>
+                    <p>Absolutely. We're fully licensed, bonded, and insured. We're also GAF Master Elite and Owens Corning certified.</p>
+                </div>
+                <div class="contact-faq-item">
+                    <h4><i class="fas fa-credit-card"></i> What payment options do you accept?</h4>
+                    <p>We accept cash, checks, and all major credit cards. We also offer flexible financing options for qualified customers.</p>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<style>
-.contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl);
-    align-items: start;
-}
+    <!-- CTA Section -->
+    <section class="contact-cta">
+        <div class="contact-cta-content">
+            <h2>Ready to Get Started?</h2>
+            <p class="contact-cta-description">
+                Don't wait any longer to transform your home. Contact us today for
+                a free consultation and let's bring your vision to life.
+            </p>
+            <div class="contact-cta-buttons">
+                <a href="/contact/quote" class="contact-cta-btn primary">
+                    <i class="fas fa-calculator"></i>
+                    Request Free Quote
+                </a>
+                <a href="tel:512-564-3679" class="contact-cta-btn secondary">
+                    <i class="fas fa-phone"></i>
+                    (512) 564-3679
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
 
-.contact-details {
-    margin: var(--spacing-lg) 0;
-}
+<script>
+// Form submission handling
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-.contact-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: var(--spacing-md);
-}
+    const formMessage = document.getElementById('form-message');
+    const submitBtn = this.querySelector('.contact-submit-btn');
+    const originalText = submitBtn.innerHTML;
 
-.contact-item i {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-right: var(--spacing-md);
-    width: 30px;
-}
+    // Show loading state
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitBtn.disabled = true;
 
-.contact-item h4 {
-    margin-bottom: 5px;
-    color: var(--dark-color);
-}
+    // Simulate form submission (replace with actual API call)
+    setTimeout(() => {
+        formMessage.className = 'form-message success';
+        formMessage.textContent = 'Thank you! Your message has been sent. We\'ll get back to you within 24 hours.';
+        formMessage.style.display = 'block';
 
-.contact-item a {
-    color: var(--primary-color);
-    font-size: 1.1rem;
-    font-weight: 500;
-}
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
 
-.certifications-display {
-    margin-top: var(--spacing-lg);
-    padding-top: var(--spacing-lg);
-    border-top: 1px solid #eee;
-}
+        // Reset form
+        this.reset();
 
-.cert-logos {
-    display: flex;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-md);
-    flex-wrap: wrap;
-}
+        // Hide message after 5 seconds
+        setTimeout(() => {
+            formMessage.style.display = 'none';
+        }, 5000);
+    }, 1500);
+});
 
-.cert-logos img {
-    height: 60px;
-    width: auto;
-}
+// Scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
 
-.contact-form {
-    background: var(--white);
-    padding: var(--spacing-lg);
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
+const animateOnScroll = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
 
-.contact-form h3 {
-    margin-bottom: var(--spacing-md);
-    color: var(--dark-color);
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-md);
-}
-
-.form-group {
-    margin-bottom: var(--spacing-md);
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: var(--text-primary);
-    font-weight: 500;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-}
-
-.service-areas {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-lg);
-}
-
-.area-column h4 {
-    margin-bottom: var(--spacing-md);
-    color: var(--primary-color);
-}
-
-.area-column ul {
-    list-style: none;
-}
-
-.area-column ul li {
-    padding: 5px 0;
-    color: var(--text-secondary);
-}
-
-.map-placeholder {
-    background: #f0f0f0;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-}
-
-.map-placeholder p {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-}
-
-@media (max-width: 768px) {
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .service-areas {
-        grid-template-columns: 1fr;
-    }
-}
-</style> 
+// Apply animations
+document.querySelectorAll('.contact-area-column, .contact-faq-item').forEach((el, index) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = `all 0.6s ease ${index * 0.1}s`;
+    animateOnScroll.observe(el);
+});
+</script>

@@ -1,293 +1,1477 @@
-<!-- Quote Hero -->
-<section class="page-hero" style="background-image: url('/images/services/construction.jpg');">
-    <div class="page-hero-overlay"></div>
-    <div class="page-hero-content">
-        <h1 class="animate-on-scroll">Request a Free Quote</h1>
-        <p class="animate-on-scroll">Get Your Project Started Today</p>
-    </div>
-</section>
-
-<!-- Quote Form -->
-<section class="section">
-    <div class="container">
-        <div class="quote-wrapper">
-            <div class="quote-intro">
-                <h2>Let's Discuss Your Project</h2>
-                <p>Fill out the form below with your project details, and we'll provide you with a comprehensive quote within 24-48 hours. Our estimates are always free and come with no obligation.</p>
-            </div>
-            
-            <form id="quote-form" class="quote-form">
-                <div class="form-section">
-                    <h3>Contact Information</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone *</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="address">Project Address *</label>
-                        <input type="text" id="address" name="address" placeholder="Street Address" required>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="city">City *</label>
-                            <input type="text" id="city" name="city" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="state">State *</label>
-                            <input type="text" id="state" name="state" value="TX" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="zip">ZIP Code *</label>
-                            <input type="text" id="zip" name="zip" required>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-section">
-                    <h3>Project Details</h3>
-                    <div class="form-group">
-                        <label for="projectType">Project Type *</label>
-                        <select id="projectType" name="projectType" required>
-                            <option value="">Select Project Type</option>
-                            <option value="roof-repair">Roof Repair</option>
-                            <option value="roof-replacement">Roof Replacement</option>
-                            <option value="solar-roofing">Solar Roofing Installation</option>
-                            <option value="kitchen-remodel">Kitchen Remodeling</option>
-                            <option value="bathroom-remodel">Bathroom Remodeling</option>
-                            <option value="home-addition">Home Addition</option>
-                            <option value="new-construction">New Construction</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="timeframe">Project Timeframe</label>
-                        <select id="timeframe" name="timeframe">
-                            <option value="">Select Timeframe</option>
-                            <option value="asap">As Soon As Possible</option>
-                            <option value="1-month">Within 1 Month</option>
-                            <option value="3-months">Within 3 Months</option>
-                            <option value="6-months">Within 6 Months</option>
-                            <option value="planning">Just Planning</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="budget">Estimated Budget</label>
-                        <select id="budget" name="budget">
-                            <option value="">Select Budget Range</option>
-                            <option value="5k-10k">$5,000 - $10,000</option>
-                            <option value="10k-25k">$10,000 - $25,000</option>
-                            <option value="25k-50k">$25,000 - $50,000</option>
-                            <option value="50k-100k">$50,000 - $100,000</option>
-                            <option value="100k+">$100,000+</option>
-                            <option value="unsure">Not Sure</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="projectDetails">Project Description *</label>
-                        <textarea id="projectDetails" name="projectDetails" rows="6" placeholder="Please describe your project in detail..." required></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="insuranceClaim">Is this an insurance claim?</label>
-                        <div class="radio-group">
-                            <label class="radio-label">
-                                <input type="radio" name="insuranceClaim" value="yes">
-                                <span>Yes</span>
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="insuranceClaim" value="no" checked>
-                                <span>No</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-section">
-                    <h3>Additional Information</h3>
-                    <div class="form-group">
-                        <label for="howHeard">How did you hear about us?</label>
-                        <select id="howHeard" name="howHeard">
-                            <option value="">Select an Option</option>
-                            <option value="google">Google Search</option>
-                            <option value="referral">Friend/Family Referral</option>
-                            <option value="social">Social Media</option>
-                            <option value="angi">Angi/HomeAdvisor</option>
-                            <option value="bbb">Better Business Bureau</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="additionalInfo">Additional Comments</label>
-                        <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Any other information you'd like us to know?"></textarea>
-                    </div>
-                </div>
-                
-                <div class="form-submit">
-                    <button type="submit" class="btn btn-primary btn-large">Submit Quote Request</button>
-                    <p class="form-note">* Required fields</p>
-                </div>
-                
-                <div id="form-message" class="form-message"></div>
-            </form>
-        </div>
-    </div>
-</section>
-
-<!-- Why Choose Us -->
-<section class="section" style="background-color: var(--light-color);">
-    <div class="container">
-        <h2 style="text-align: center; margin-bottom: 3rem;">What Happens Next?</h2>
-        <div class="process-steps">
-            <div class="step animate-on-scroll">
-                <div class="step-number">1</div>
-                <h3>Quote Review</h3>
-                <p>We'll review your project details and prepare a comprehensive estimate</p>
-            </div>
-            <div class="step animate-on-scroll">
-                <div class="step-number">2</div>
-                <h3>Site Visit</h3>
-                <p>If needed, we'll schedule a convenient time to visit and assess your project</p>
-            </div>
-            <div class="step animate-on-scroll">
-                <div class="step-number">3</div>
-                <h3>Detailed Estimate</h3>
-                <p>You'll receive a detailed quote with pricing, timeline, and scope of work</p>
-            </div>
-            <div class="step animate-on-scroll">
-                <div class="step-number">4</div>
-                <h3>No Pressure</h3>
-                <p>Take your time to review. We're here to answer any questions you have</p>
-            </div>
-        </div>
-    </div>
-</section>
-
+<!-- Project Launch Quote Page -->
 <style>
-.quote-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Rubik:wght@400;500;600&display=swap');
+
+:root {
+    --pl-indigo: #312E81;
+    --pl-indigo-dark: #1E1B4B;
+    --pl-blue: #2563EB;
+    --pl-blue-light: #3B82F6;
+    --pl-blue-glow: rgba(37, 99, 235, 0.3);
+    --pl-amber: #F59E0B;
+    --pl-amber-light: #FCD34D;
+    --pl-gray: #F3F4F6;
+    --pl-gray-dark: #9CA3AF;
+    --pl-white: #FFFFFF;
+    --pl-text: #1F2937;
+    --pl-text-light: #6B7280;
+    --pl-success: #10B981;
+    --pl-shadow: 0 25px 50px -12px rgba(49, 46, 129, 0.25);
+    --pl-shadow-sm: 0 10px 25px -5px rgba(49, 46, 129, 0.15);
 }
 
-.quote-intro {
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
-}
-
-.quote-intro h2 {
-    margin-bottom: var(--spacing-md);
-}
-
-.quote-form {
-    background: var(--white);
-    padding: var(--spacing-xl);
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-
-.form-section {
-    margin-bottom: var(--spacing-xl);
-    padding-bottom: var(--spacing-xl);
-    border-bottom: 1px solid #eee;
-}
-
-.form-section:last-of-type {
-    border-bottom: none;
-    margin-bottom: var(--spacing-lg);
-}
-
-.form-section h3 {
-    margin-bottom: var(--spacing-md);
-    color: var(--primary-color);
-}
-
-.radio-group {
-    display: flex;
-    gap: var(--spacing-md);
-}
-
-.radio-label {
+/* ========================================
+   HERO SECTION
+======================================== */
+.quote-hero {
+    position: relative;
+    min-height: 50vh;
+    background: linear-gradient(135deg, var(--pl-indigo) 0%, var(--pl-indigo-dark) 50%, #0F172A 100%);
     display: flex;
     align-items: center;
-    cursor: pointer;
+    justify-content: center;
+    overflow: hidden;
+    padding: 6rem 2rem 4rem;
 }
 
-.radio-label input {
-    margin-right: 8px;
+.quote-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse at 20% 80%, var(--pl-blue-glow) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(245, 158, 11, 0.15) 0%, transparent 40%);
+    pointer-events: none;
 }
 
-.form-submit {
+/* Animated grid pattern */
+.hero-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(60px, 60px); }
+}
+
+/* Floating particles */
+.hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--pl-amber);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float 15s infinite ease-in-out;
+}
+
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+.particle:nth-child(2) { left: 25%; animation-delay: 2s; }
+.particle:nth-child(3) { left: 45%; animation-delay: 4s; }
+.particle:nth-child(4) { left: 65%; animation-delay: 1s; }
+.particle:nth-child(5) { left: 85%; animation-delay: 3s; }
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+        transform: translateY(90vh) scale(1);
+    }
+    90% {
+        opacity: 0.6;
+        transform: translateY(-10vh) scale(1);
+    }
+    100% {
+        transform: translateY(-20vh) scale(0);
+        opacity: 0;
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
     text-align: center;
+    max-width: 800px;
 }
 
-.btn-large {
-    padding: 16px 40px;
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    color: var(--pl-amber);
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    animation: fadeSlideDown 0.8s ease-out;
+}
+
+.hero-badge i {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.hero-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    color: var(--pl-white);
+    line-height: 1.1;
+    margin: 0 0 1rem;
+    animation: fadeSlideUp 0.8s ease-out 0.2s both;
+}
+
+.hero-title span {
+    display: block;
+    background: linear-gradient(90deg, var(--pl-blue-light), var(--pl-amber));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.25rem;
+    color: rgba(255,255,255,0.8);
+    margin: 0 0 2rem;
+    animation: fadeSlideUp 0.8s ease-out 0.4s both;
+}
+
+/* Animated rocket */
+.hero-rocket {
+    display: inline-block;
+    margin-top: 1rem;
+    animation: rocketBounce 2s ease-in-out infinite;
+}
+
+.hero-rocket i {
+    font-size: 2.5rem;
+    color: var(--pl-amber);
+    transform: rotate(-45deg);
+    filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5));
+}
+
+@keyframes rocketBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes fadeSlideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   TRUST BAR
+======================================== */
+.trust-bar {
+    background: var(--pl-white);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 10;
+}
+
+.trust-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Rubik', sans-serif;
+    color: var(--pl-text);
+}
+
+.trust-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--pl-blue) 0%, var(--pl-indigo) 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pl-white);
     font-size: 1.1rem;
 }
 
-.form-note {
-    margin-top: var(--spacing-sm);
-    color: var(--text-secondary);
-    font-size: 0.9rem;
+.trust-text strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--pl-indigo);
 }
 
-.process-steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-lg);
+.trust-text span {
+    font-size: 0.8rem;
+    color: var(--pl-text-light);
 }
 
-.step {
-    text-align: center;
+/* ========================================
+   FORM SECTION
+======================================== */
+.quote-section {
+    background: var(--pl-gray);
+    padding: 5rem 2rem;
+    min-height: 100vh;
 }
 
-.step-number {
-    width: 60px;
-    height: 60px;
-    background: var(--primary-color);
-    color: var(--white);
+.quote-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Progress Indicator */
+.form-progress {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    gap: 0;
+}
+
+.progress-step {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.progress-step:not(:last-child)::after {
+    content: '';
+    width: 80px;
+    height: 3px;
+    background: #E5E7EB;
+    margin: 0 0.5rem;
+    border-radius: 3px;
+    transition: background 0.5s ease;
+}
+
+.progress-step.completed:not(:last-child)::after {
+    background: var(--pl-success);
+}
+
+.step-circle {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    background: var(--pl-white);
+    border: 3px solid #E5E7EB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--pl-text-light);
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.progress-step.active .step-circle {
+    border-color: var(--pl-blue);
+    color: var(--pl-blue);
+    background: rgba(37, 99, 235, 0.1);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+}
+
+.progress-step.completed .step-circle {
+    border-color: var(--pl-success);
+    background: var(--pl-success);
+    color: var(--pl-white);
+}
+
+.step-label {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0.75rem;
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--pl-text-light);
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.progress-step.active .step-label {
+    color: var(--pl-blue);
+    font-weight: 600;
+}
+
+.progress-step.completed .step-label {
+    color: var(--pl-success);
+}
+
+/* Form Card */
+.form-card {
+    background: var(--pl-white);
+    border-radius: 24px;
+    box-shadow: var(--pl-shadow);
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+.form-header {
+    background: linear-gradient(135deg, var(--pl-indigo) 0%, var(--pl-blue) 100%);
+    padding: 2rem 2.5rem;
+    color: var(--pl-white);
+}
+
+.form-header-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.form-header-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0 auto var(--spacing-md);
 }
 
-.step h3 {
-    margin-bottom: var(--spacing-sm);
+.form-header h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
 }
 
-@media (max-width: 768px) {
-    .quote-form {
-        padding: var(--spacing-lg);
-    }
-    
-    .process-steps {
+.form-header p {
+    font-family: 'Rubik', sans-serif;
+    margin: 0.25rem 0 0;
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+/* Form Body */
+.form-body {
+    padding: 2.5rem;
+}
+
+#quote-form {
+    display: block;
+}
+
+/* Form Steps */
+.form-step {
+    display: none;
+    animation: stepFadeIn 0.5s ease-out;
+}
+
+.form-step.active {
+    display: block;
+}
+
+@keyframes stepFadeIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.step-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--pl-indigo);
+    margin: 0 0 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.step-title i {
+    color: var(--pl-blue);
+}
+
+.step-subtitle {
+    font-family: 'Rubik', sans-serif;
+    color: var(--pl-text-light);
+    margin: 0 0 2rem;
+    font-size: 0.95rem;
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.form-grid.three-col {
+    grid-template-columns: 2fr 1fr 1fr;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Labels */
+.form-label {
+    display: block;
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--pl-text);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.form-label .required {
+    color: var(--pl-amber);
+    margin-left: 2px;
+}
+
+/* Inputs */
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1rem;
+    color: var(--pl-text);
+    background: var(--pl-gray);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    background: var(--pl-white);
+    border-color: var(--pl-blue);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--pl-gray-dark);
+}
+
+.form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.25rem;
+    padding-right: 3rem;
+}
+
+.form-textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+/* Radio Group */
+.radio-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.radio-option {
+    flex: 1;
+}
+
+.radio-option input {
+    display: none;
+}
+
+.radio-option label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--pl-gray);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.radio-option input:checked + label {
+    background: rgba(37, 99, 235, 0.1);
+    border-color: var(--pl-blue);
+    color: var(--pl-blue);
+}
+
+.radio-option label i {
+    font-size: 1.1rem;
+}
+
+/* Form Navigation */
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid #E5E7EB;
+}
+
+.btn-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-prev {
+    background: transparent;
+    color: var(--pl-text-light);
+    border: 2px solid #E5E7EB;
+}
+
+.btn-prev:hover {
+    border-color: var(--pl-text-light);
+    color: var(--pl-text);
+}
+
+.btn-next {
+    background: linear-gradient(135deg, var(--pl-blue) 0%, var(--pl-indigo) 100%);
+    color: var(--pl-white);
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+}
+
+.btn-next:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, var(--pl-amber) 0%, #D97706 100%);
+    color: var(--pl-white);
+    padding: 1.25rem 3rem;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+}
+
+.btn-submit i {
+    animation: arrowMove 1s ease-in-out infinite;
+}
+
+@keyframes arrowMove {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+}
+
+/* Form Messages */
+.form-message {
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    font-family: 'Rubik', sans-serif;
+    display: none;
+}
+
+.form-message.success {
+    display: block;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid var(--pl-success);
+    color: #065F46;
+}
+
+.form-message.error {
+    display: block;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid #EF4444;
+    color: #B91C1C;
+}
+
+/* ========================================
+   WHAT HAPPENS NEXT
+======================================== */
+.timeline-section {
+    background: var(--pl-white);
+    padding: 5rem 2rem;
+}
+
+.timeline-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-label {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--pl-blue) 0%, var(--pl-indigo) 100%);
+    color: var(--pl-white);
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: var(--pl-indigo);
+    margin: 0 0 1rem;
+}
+
+.section-subtitle {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.1rem;
+    color: var(--pl-text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Timeline */
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 35px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--pl-blue), var(--pl-indigo), var(--pl-amber));
+    border-radius: 4px;
+}
+
+.timeline-item {
+    text-align: center;
+    padding: 0 1rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-number {
+    width: 70px;
+    height: 70px;
+    background: var(--pl-white);
+    border: 4px solid var(--pl-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--pl-blue);
+    margin: 0 auto 1.5rem;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.2);
+    transition: all 0.4s ease;
+}
+
+.timeline-item:hover .timeline-number {
+    background: var(--pl-blue);
+    color: var(--pl-white);
+    transform: scale(1.1);
+}
+
+.timeline-item:nth-child(2) .timeline-number {
+    border-color: var(--pl-indigo);
+    color: var(--pl-indigo);
+    box-shadow: 0 4px 20px rgba(49, 46, 129, 0.2);
+}
+
+.timeline-item:nth-child(2):hover .timeline-number {
+    background: var(--pl-indigo);
+}
+
+.timeline-item:nth-child(3) .timeline-number {
+    border-color: #7C3AED;
+    color: #7C3AED;
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.2);
+}
+
+.timeline-item:nth-child(3):hover .timeline-number {
+    background: #7C3AED;
+}
+
+.timeline-item:nth-child(4) .timeline-number {
+    border-color: var(--pl-amber);
+    color: var(--pl-amber);
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.2);
+}
+
+.timeline-item:nth-child(4):hover .timeline-number {
+    background: var(--pl-amber);
+}
+
+.timeline-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--pl-indigo);
+    margin: 0 0 0.5rem;
+}
+
+.timeline-desc {
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.9rem;
+    color: var(--pl-text-light);
+    line-height: 1.6;
+}
+
+/* ========================================
+   TESTIMONIAL
+======================================== */
+.testimonial-section {
+    background: linear-gradient(135deg, var(--pl-indigo) 0%, var(--pl-indigo-dark) 100%);
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.testimonial-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+
+.quote-icon {
+    font-size: 3rem;
+    color: var(--pl-amber);
+    opacity: 0.5;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    font-weight: 500;
+    color: var(--pl-white);
+    line-height: 1.7;
+    margin: 0 0 2rem;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.author-avatar {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--pl-blue) 0%, var(--pl-amber) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--pl-white);
+}
+
+.author-info {
+    text-align: left;
+}
+
+.author-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--pl-white);
+    margin: 0;
+}
+
+.author-location {
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    margin: 0.25rem 0 0;
+}
+
+.testimonial-stars {
+    margin-top: 1.5rem;
+    color: var(--pl-amber);
+    font-size: 1.25rem;
+    letter-spacing: 0.25rem;
+}
+
+/* ========================================
+   CTA SECTION
+======================================== */
+.cta-section {
+    background: var(--pl-gray);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.cta-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--pl-indigo);
+    margin: 0 0 1rem;
+}
+
+.cta-text {
+    font-family: 'Rubik', sans-serif;
+    color: var(--pl-text-light);
+    margin: 0 0 2rem;
+}
+
+.cta-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, var(--pl-blue) 0%, var(--pl-indigo) 100%);
+    color: var(--pl-white);
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    padding: 1.25rem 2.5rem;
+    border-radius: 16px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+    transition: all 0.3s ease;
+}
+
+.cta-phone:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(37, 99, 235, 0.5);
+}
+
+.cta-phone i {
+    animation: ringPhone 2s ease-in-out infinite;
+}
+
+@keyframes ringPhone {
+    0%, 100% { transform: rotate(0); }
+    10%, 30% { transform: rotate(-10deg); }
+    20%, 40% { transform: rotate(10deg); }
+    50% { transform: rotate(0); }
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+@media (max-width: 900px) {
+    .form-grid {
         grid-template-columns: 1fr;
     }
+
+    .form-grid.three-col {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .timeline::before {
+        display: none;
+    }
+
+    .progress-step:not(:last-child)::after {
+        width: 40px;
+    }
 }
-</style> 
+
+@media (max-width: 600px) {
+    .quote-hero {
+        padding: 5rem 1.5rem 3rem;
+        min-height: 40vh;
+    }
+
+    .trust-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .form-body {
+        padding: 1.5rem;
+    }
+
+    .form-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .btn-nav {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .form-progress {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .progress-step:not(:last-child)::after {
+        width: 20px;
+    }
+
+    .step-label {
+        display: none;
+    }
+}
+</style>
+
+<!-- Hero Section -->
+<section class="quote-hero">
+    <div class="hero-grid"></div>
+    <div class="hero-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    <div class="hero-content">
+        <div class="hero-badge">
+            <i class="fas fa-bolt"></i>
+            Free Estimate - No Obligation
+        </div>
+        <h1 class="hero-title">
+            Start Your Project
+            <span>Today</span>
+        </h1>
+        <p class="hero-subtitle">Tell us about your vision and we'll bring it to life with precision and care</p>
+        <div class="hero-rocket">
+            <i class="fas fa-rocket"></i>
+        </div>
+    </div>
+</section>
+
+<!-- Trust Bar -->
+<div class="trust-bar">
+    <div class="trust-container">
+        <div class="trust-item">
+            <div class="trust-icon">
+                <i class="fas fa-dollar-sign"></i>
+            </div>
+            <div class="trust-text">
+                <strong>100% Free Estimate</strong>
+                <span>No hidden fees ever</span>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">
+                <i class="fas fa-handshake"></i>
+            </div>
+            <div class="trust-text">
+                <strong>Zero Obligation</strong>
+                <span>No pressure, just information</span>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">
+                <i class="fas fa-clock"></i>
+            </div>
+            <div class="trust-text">
+                <strong>24-Hour Response</strong>
+                <span>We value your time</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quote Form Section -->
+<section class="quote-section">
+    <div class="quote-container">
+        <!-- Progress Indicator -->
+        <div class="form-progress">
+            <div class="progress-step active" data-step="1">
+                <div class="step-circle">1</div>
+                <span class="step-label">Contact Info</span>
+            </div>
+            <div class="progress-step" data-step="2">
+                <div class="step-circle">2</div>
+                <span class="step-label">Project Details</span>
+            </div>
+            <div class="progress-step" data-step="3">
+                <div class="step-circle">3</div>
+                <span class="step-label">Additional Info</span>
+            </div>
+        </div>
+
+        <!-- Form Card -->
+        <div class="form-card">
+            <div class="form-header">
+                <div class="form-header-content">
+                    <div class="form-header-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div>
+                        <h2>Request Your Free Quote</h2>
+                        <p>Complete the form below and we'll get back to you within 24 hours</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-body">
+                <form id="quote-form">
+                    <!-- Step 1: Contact Information -->
+                    <div class="form-step active" data-step="1">
+                        <h3 class="step-title"><i class="fas fa-user-circle"></i> Contact Information</h3>
+                        <p class="step-subtitle">Let us know how to reach you</p>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">First Name <span class="required">*</span></label>
+                                <input type="text" id="firstName" name="firstName" class="form-input" placeholder="John" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Last Name <span class="required">*</span></label>
+                                <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Smith" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="john@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone Number <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" class="form-input" placeholder="(512) 555-1234" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label class="form-label">Project Address <span class="required">*</span></label>
+                                <input type="text" id="address" name="address" class="form-input" placeholder="123 Main Street" required>
+                            </div>
+                        </div>
+
+                        <div class="form-grid three-col" style="margin-top: 1.5rem;">
+                            <div class="form-group">
+                                <label class="form-label">City <span class="required">*</span></label>
+                                <input type="text" id="city" name="city" class="form-input" placeholder="Leander" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">State <span class="required">*</span></label>
+                                <input type="text" id="state" name="state" class="form-input" value="TX" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">ZIP Code <span class="required">*</span></label>
+                                <input type="text" id="zip" name="zip" class="form-input" placeholder="78641" required>
+                            </div>
+                        </div>
+
+                        <div class="form-navigation">
+                            <div></div>
+                            <button type="button" class="btn-nav btn-next" onclick="nextStep(1)">
+                                Continue <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Project Details -->
+                    <div class="form-step" data-step="2">
+                        <h3 class="step-title"><i class="fas fa-clipboard-list"></i> Project Details</h3>
+                        <p class="step-subtitle">Tell us about your project</p>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">Project Type <span class="required">*</span></label>
+                                <select id="projectType" name="projectType" class="form-select" required>
+                                    <option value="">Select Project Type</option>
+                                    <option value="roof-repair">Roof Repair</option>
+                                    <option value="roof-replacement">Roof Replacement</option>
+                                    <option value="solar-roofing">Solar Roofing Installation</option>
+                                    <option value="kitchen-remodel">Kitchen Remodeling</option>
+                                    <option value="bathroom-remodel">Bathroom Remodeling</option>
+                                    <option value="home-addition">Home Addition</option>
+                                    <option value="new-construction">New Construction</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Project Timeframe</label>
+                                <select id="timeframe" name="timeframe" class="form-select">
+                                    <option value="">Select Timeframe</option>
+                                    <option value="asap">As Soon As Possible</option>
+                                    <option value="1-month">Within 1 Month</option>
+                                    <option value="3-months">Within 3 Months</option>
+                                    <option value="6-months">Within 6 Months</option>
+                                    <option value="planning">Just Planning</option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label class="form-label">Estimated Budget</label>
+                                <select id="budget" name="budget" class="form-select">
+                                    <option value="">Select Budget Range</option>
+                                    <option value="5k-10k">$5,000 - $10,000</option>
+                                    <option value="10k-25k">$10,000 - $25,000</option>
+                                    <option value="25k-50k">$25,000 - $50,000</option>
+                                    <option value="50k-100k">$50,000 - $100,000</option>
+                                    <option value="100k+">$100,000+</option>
+                                    <option value="unsure">Not Sure</option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label class="form-label">Project Description <span class="required">*</span></label>
+                                <textarea id="projectDetails" name="projectDetails" class="form-textarea" placeholder="Please describe your project in detail - what work needs to be done, any specific materials or styles you prefer, special requirements, etc." required></textarea>
+                            </div>
+                            <div class="form-group full-width">
+                                <label class="form-label">Is this an insurance claim?</label>
+                                <div class="radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" name="insuranceClaim" id="insurance-yes" value="yes">
+                                        <label for="insurance-yes"><i class="fas fa-check-circle"></i> Yes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" name="insuranceClaim" id="insurance-no" value="no" checked>
+                                        <label for="insurance-no"><i class="fas fa-times-circle"></i> No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn-nav btn-prev" onclick="prevStep(2)">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button type="button" class="btn-nav btn-next" onclick="nextStep(2)">
+                                Continue <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Additional Information -->
+                    <div class="form-step" data-step="3">
+                        <h3 class="step-title"><i class="fas fa-info-circle"></i> Additional Information</h3>
+                        <p class="step-subtitle">Almost done! Just a few more details</p>
+
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label class="form-label">How did you hear about us?</label>
+                                <select id="howHeard" name="howHeard" class="form-select">
+                                    <option value="">Select an Option</option>
+                                    <option value="google">Google Search</option>
+                                    <option value="referral">Friend/Family Referral</option>
+                                    <option value="social">Social Media</option>
+                                    <option value="angi">Angi/HomeAdvisor</option>
+                                    <option value="bbb">Better Business Bureau</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label class="form-label">Additional Comments</label>
+                                <textarea id="additionalInfo" name="additionalInfo" class="form-textarea" placeholder="Any other information you'd like us to know? Questions, concerns, or special requests are welcome here."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn-nav btn-prev" onclick="prevStep(3)">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button type="submit" class="btn-nav btn-submit">
+                                Submit Quote Request <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="form-message" class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What Happens Next -->
+<section class="timeline-section">
+    <div class="timeline-container">
+        <div class="section-header">
+            <span class="section-label">The Process</span>
+            <h2 class="section-title">What Happens Next?</h2>
+            <p class="section-subtitle">After you submit your request, here's exactly what you can expect from our team</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-number">1</div>
+                <h3 class="timeline-title">We Review</h3>
+                <p class="timeline-desc">Your project details are carefully reviewed by our experienced team within hours</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">2</div>
+                <h3 class="timeline-title">We Connect</h3>
+                <p class="timeline-desc">A project specialist reaches out to discuss your vision and answer questions</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">3</div>
+                <h3 class="timeline-title">We Visit</h3>
+                <p class="timeline-desc">If needed, we schedule a convenient time to assess your property on-site</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">4</div>
+                <h3 class="timeline-title">You Decide</h3>
+                <p class="timeline-desc">Review your detailed quote with zero pressure - take all the time you need</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonial -->
+<section class="testimonial-section">
+    <div class="testimonial-container">
+        <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+        </div>
+        <p class="testimonial-text">"From the initial quote to the final inspection, GK Homes exceeded every expectation. The team was professional, the work was impeccable, and they finished ahead of schedule. Best decision we ever made for our home."</p>
+        <div class="testimonial-author">
+            <div class="author-avatar">MJ</div>
+            <div class="author-info">
+                <p class="author-name">Michael J.</p>
+                <p class="author-location">Cedar Park, TX</p>
+            </div>
+        </div>
+        <div class="testimonial-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="cta-container">
+        <h2 class="cta-title">Prefer to Talk?</h2>
+        <p class="cta-text">Call us directly for immediate assistance with your project</p>
+        <a href="tel:512-564-3679" class="cta-phone">
+            <i class="fas fa-phone-alt"></i>
+            (512) 564-3679
+        </a>
+    </div>
+</section>
+
+<script>
+(function() {
+    let currentStep = 1;
+    const totalSteps = 3;
+
+    // Update progress indicator
+    function updateProgress(step) {
+        document.querySelectorAll('.progress-step').forEach((el, index) => {
+            el.classList.remove('active', 'completed');
+            if (index + 1 < step) {
+                el.classList.add('completed');
+            } else if (index + 1 === step) {
+                el.classList.add('active');
+            }
+        });
+    }
+
+    // Show specific step
+    function showStep(step) {
+        document.querySelectorAll('.form-step').forEach(el => {
+            el.classList.remove('active');
+        });
+        document.querySelector(`.form-step[data-step="${step}"]`).classList.add('active');
+        updateProgress(step);
+
+        // Scroll to form
+        document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Validate current step
+    function validateStep(step) {
+        const currentStepEl = document.querySelector(`.form-step[data-step="${step}"]`);
+        const requiredFields = currentStepEl.querySelectorAll('[required]');
+        let valid = true;
+
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                valid = false;
+                field.style.borderColor = '#EF4444';
+            } else {
+                field.style.borderColor = 'transparent';
+            }
+        });
+
+        return valid;
+    }
+
+    // Next step
+    window.nextStep = function(fromStep) {
+        if (validateStep(fromStep)) {
+            currentStep = fromStep + 1;
+            showStep(currentStep);
+        }
+    };
+
+    // Previous step
+    window.prevStep = function(fromStep) {
+        currentStep = fromStep - 1;
+        showStep(currentStep);
+    };
+
+    // Form submission
+    document.getElementById('quote-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        if (!validateStep(3)) return;
+
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+
+        console.log('Quote form submission:', data);
+
+        // Show success message
+        const messageEl = document.getElementById('form-message');
+        messageEl.className = 'form-message success';
+        messageEl.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your quote request has been submitted. We\'ll contact you within 24 hours.';
+
+        // Mark all steps as completed
+        document.querySelectorAll('.progress-step').forEach(el => {
+            el.classList.remove('active');
+            el.classList.add('completed');
+        });
+
+        // Reset form after delay
+        setTimeout(() => {
+            this.reset();
+            currentStep = 1;
+            showStep(1);
+            messageEl.className = 'form-message';
+            messageEl.innerHTML = '';
+        }, 5000);
+    });
+
+    // Timeline animation
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 150);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.timeline-item').forEach(item => {
+        observer.observe(item);
+    });
+
+    // Input focus effects
+    document.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(input => {
+        input.addEventListener('focus', function() {
+            this.style.borderColor = 'var(--pl-blue)';
+        });
+
+        input.addEventListener('blur', function() {
+            if (!this.value.trim() && this.hasAttribute('required')) {
+                // Keep neutral if empty
+            }
+            this.style.borderColor = 'transparent';
+        });
+    });
+})();
+</script>
