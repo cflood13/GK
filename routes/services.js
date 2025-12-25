@@ -46,4 +46,13 @@ router.get('/construction', (req, res) => {
     });
 });
 
+// Emergency services
+router.get('/emergency', (req, res) => {
+    res.render('pages/services/emergency', {
+        title: 'Emergency Roofing Services | GK Homes and Roofing',
+        description: '24/7 emergency roofing services in Central Texas. Storm damage repair, tarping, and rapid response for all roofing emergencies.',
+        page: 'services'
+    });
+});
+
 module.exports = router; 

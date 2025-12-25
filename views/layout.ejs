@@ -9,17 +9,20 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/favicon.png">
     
-    <!-- Fonts -->
+    <!-- Fonts - Modern Craftsman Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Main CSS -->
     <link rel="stylesheet" href="/css/style.css">
-    
+
+    <!-- Tailwind CSS (utility classes + background animations) -->
+    <link rel="stylesheet" href="/css/tailwind.css">
+
     <!-- Additional CSS if needed -->
     <%- typeof additionalStyles !== 'undefined' ? additionalStyles : '' %>
 </head>
@@ -58,44 +61,87 @@
         <i class="fas fa-arrow-up"></i>
     </div>
     
-    <!-- Chatbot -->
-    <div id="chatbot-container" class="chatbot-container">
-        <div id="chatbot-toggle" class="chatbot-toggle">
-            <i class="fas fa-comments"></i>
-            <span class="chatbot-notification">Have a question?</span>
+    <!-- Quick Quote Floating Form -->
+    <div id="quick-quote-container" class="quick-quote-container">
+        <div id="quick-quote-toggle" class="quick-quote-toggle">
+            <div class="toggle-pulse"></div>
+            <i class="fas fa-calculator"></i>
+            <span class="quick-quote-label">Quick Quote</span>
         </div>
-        
-        <div id="chatbot-widget" class="chatbot-widget">
-            <div class="chatbot-header">
-                <div class="chatbot-title">
-                    <i class="fas fa-headset"></i>
-                    <span>GK Assistant</span>
+
+        <div id="quick-quote-widget" class="quick-quote-widget">
+            <div class="quick-quote-header">
+                <div class="quick-quote-title">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Get a Quick Quote</span>
                 </div>
-                <button id="chatbot-close" class="chatbot-close">
+                <button id="quick-quote-close" class="quick-quote-close">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            
-            <div id="chatbot-messages" class="chatbot-messages">
-                <div class="message bot-message">
-                    <div class="message-content">
-                        Hi! I'm here to help you learn about our roofing and construction services. What can I help you with today?
+
+            <div class="quick-quote-body">
+                <p class="quick-quote-subtitle">Fill out this form and we'll get back to you within 24 hours!</p>
+
+                <form id="quick-quote-form" class="quick-quote-form">
+                    <div class="form-field">
+                        <div class="field-icon"><i class="fas fa-user"></i></div>
+                        <input type="text" name="name" placeholder="Your Name" required>
                     </div>
+
+                    <div class="form-field">
+                        <div class="field-icon"><i class="fas fa-envelope"></i></div>
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+
+                    <div class="form-field">
+                        <div class="field-icon"><i class="fas fa-phone"></i></div>
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                    </div>
+
+                    <div class="form-field">
+                        <div class="field-icon"><i class="fas fa-clipboard-list"></i></div>
+                        <select name="service" required>
+                            <option value="">Select Service</option>
+                            <option value="roofing">Roofing</option>
+                            <option value="solar">Solar Roofing</option>
+                            <option value="remodeling">Home Remodeling</option>
+                            <option value="construction">New Construction</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field textarea-field">
+                        <div class="field-icon"><i class="fas fa-comment-alt"></i></div>
+                        <textarea name="message" placeholder="Brief project description..." rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="quick-quote-submit">
+                        <span>Get My Free Quote</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <div id="quick-quote-success" class="quick-quote-success" style="display: none;">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Thank You!</h3>
+                    <p>We've received your request and will contact you within 24 hours.</p>
+                    <button id="quick-quote-reset" class="quick-quote-reset">Submit Another</button>
                 </div>
-            </div>
-            
-            <div class="chatbot-input-area">
-                <input type="text" id="chatbot-input" placeholder="Ask about our services..." maxlength="500">
-                <button id="chatbot-send" type="button">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
             </div>
         </div>
     </div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
     
     <!-- Main JavaScript -->
     <script src="/js/main.js"></script>
-    <script src="/js/chatbot.js"></script>
+    <script src="/js/quick-quote.js"></script>
+    <script src="/js/background-animation.js"></script>
+    <script src="/js/interactive-selector.js"></script>
     <!-- Owens Corning Widget Script (available site-wide for widget placement) -->
     <script src="https://apis.owenscorning.com/client/widget.js" async></script>
     

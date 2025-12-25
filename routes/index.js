@@ -50,4 +50,40 @@ router.get('/about', (req, res) => {
     });
 });
 
+// Warranty page
+router.get('/warranty', (req, res) => {
+    res.render('pages/warranty', {
+        title: 'Warranty Information | GK Homes and Roofing',
+        description: 'Industry-leading warranties from GAF and Owens Corning. Learn about our comprehensive roof coverage, manufacturer guarantees, and workmanship warranties in Central Texas.',
+        page: 'warranty'
+    });
+});
+
+// Financing page
+router.get('/financing', (req, res) => {
+    res.render('pages/financing', {
+        title: 'Financing Options | GK Homes and Roofing',
+        description: 'Flexible financing options for roofing and home improvement projects. Low monthly payments, quick approval, and competitive rates for Central Texas homeowners.',
+        page: 'financing'
+    });
+});
+
+// Privacy Policy page
+router.get('/privacy', (req, res) => {
+    res.render('pages/privacy', {
+        title: 'Privacy Policy | GK Homes and Roofing',
+        description: 'Privacy policy for GK Homes and Roofing. Learn how we collect, use, and protect your personal information.',
+        page: 'privacy'
+    });
+});
+
+// Terms of Service page
+router.get('/terms', (req, res) => {
+    res.render('pages/terms', {
+        title: 'Terms of Service | GK Homes and Roofing',
+        description: 'Terms of service for GK Homes and Roofing. Read our terms and conditions for using our services.',
+        page: 'terms'
+    });
+});
+
 module.exports = router; 

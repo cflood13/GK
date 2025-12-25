@@ -1,112 +1,1113 @@
-<!-- Projects Hero -->
-<section class="page-hero" style="background-image: url('/images/projects/anderson-mill-thumb.jpg');">
-    <div class="page-hero-overlay"></div>
-    <div class="page-hero-content">
-        <h1 class="animate-on-scroll">Our Projects</h1>
-        <p class="animate-on-scroll">Excellence in Every Detail</p>
-    </div>
-</section>
+<!-- Projects Page - "Visual Portfolio" Aesthetic -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<!-- Projects Introduction -->
-<section class="section">
-    <div class="container">
-        <div class="section-intro">
-            <h2>We Take Pride In The Projects We've Done</h2>
-            <p>While our clients' satisfaction is our primary metric for excellence, we have also been recognized with numerous awards over the years for safety, business practices, and design excellence. We understand that projects represent not only buildings, but the plans for the future of our clients.</p>
-        </div>
-    </div>
-</section>
+<style>
+    /* ========================================
+       VISUAL PORTFOLIO - Sophisticated Gallery
+       Elegant, refined, gallery-focused
+    ======================================== */
 
-<!-- Projects Filter -->
-<section class="section" style="padding-top: 0;">
-    <div class="container">
-        <div class="projects-filter animate-on-scroll">
-            <button class="filter-btn active" data-filter="all">All Projects</button>
-            <button class="filter-btn" data-filter="roofing">Roofing</button>
-            <button class="filter-btn" data-filter="construction">Construction</button>
-            <button class="filter-btn" data-filter="remodeling">Remodeling</button>
-            <button class="filter-btn" data-filter="solar">Solar</button>
+    :root {
+        --slate: #1E293B;
+        --slate-light: #334155;
+        --slate-dark: #0F172A;
+        --warm-white: #FEFDFB;
+        --warm-white-dark: #F8F6F3;
+        --gold: #C9A962;
+        --gold-light: #D4B978;
+        --gold-dark: #B89B52;
+        --gold-glow: rgba(201, 169, 98, 0.3);
+        --charcoal: #18181B;
+        --charcoal-light: #27272A;
+        --muted: #71717A;
+        --muted-light: #A1A1AA;
+
+        --font-display: 'Playfair Display', serif;
+        --font-body: 'DM Sans', sans-serif;
+
+        --shadow-subtle: 0 4px 20px rgba(30, 41, 59, 0.08);
+        --shadow-medium: 0 8px 40px rgba(30, 41, 59, 0.12);
+        --shadow-strong: 0 16px 60px rgba(30, 41, 59, 0.18);
+    }
+
+    /* ========================================
+       Reset & Base
+    ======================================== */
+
+    .portfolio-page * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .portfolio-page {
+        font-family: var(--font-body);
+        background: var(--warm-white);
+        color: var(--charcoal);
+        overflow-x: hidden;
+    }
+
+    .portfolio-page h1,
+    .portfolio-page h2,
+    .portfolio-page h3,
+    .portfolio-page h4 {
+        font-family: var(--font-display);
+        font-weight: 600;
+    }
+
+    /* ========================================
+       Hero Section
+    ======================================== */
+
+    .portfolio-hero {
+        position: relative;
+        min-height: 75vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .portfolio-hero-bg {
+        position: absolute;
+        inset: 0;
+        background: url('/images/hero-aerial.jpg') center center/cover no-repeat;
+        transform: scale(1.05);
+        animation: heroScale 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroScale {
+        0% { transform: scale(1.05); }
+        100% { transform: scale(1.0); }
+    }
+
+    .portfolio-hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            180deg,
+            rgba(15, 23, 42, 0.7) 0%,
+            rgba(30, 41, 59, 0.85) 100%
+        );
+    }
+
+    .portfolio-hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 0 40px;
+        max-width: 900px;
+    }
+
+    .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 25px;
+        color: var(--gold);
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        animation: fadeInDown 1s ease-out;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+        content: '';
+        width: 50px;
+        height: 1px;
+        background: var(--gold);
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hero-title {
+        font-size: clamp(3.5rem, 8vw, 6rem);
+        font-weight: 500;
+        color: var(--warm-white);
+        line-height: 1.1;
+        margin-bottom: 25px;
+        animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hero-title em {
+        font-style: italic;
+        color: var(--gold);
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+        font-weight: 300;
+        color: var(--muted-light);
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.8;
+        animation: fadeInUp 1s ease-out 0.4s both;
+    }
+
+    /* ========================================
+       Stats Bar
+    ======================================== */
+
+    .portfolio-stats {
+        background: var(--slate);
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .portfolio-stats::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .stats-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        gap: 80px;
+    }
+
+    .stat-item {
+        text-align: center;
+        position: relative;
+    }
+
+    .stat-item::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: -40px;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 40px;
+        background: var(--slate-light);
+    }
+
+    .stat-item:last-child::after {
+        display: none;
+    }
+
+    .stat-number {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: var(--gold);
+        line-height: 1;
+        margin-bottom: 8px;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        color: var(--muted-light);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+
+    /* ========================================
+       Filter Section
+    ======================================== */
+
+    .portfolio-filter {
+        padding: 60px 40px;
+        background: var(--warm-white);
+        border-bottom: 1px solid rgba(30, 41, 59, 0.1);
+    }
+
+    .filter-container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .filter-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 40px;
+    }
+
+    .filter-title-group {
+        max-width: 500px;
+    }
+
+    .filter-label {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--gold);
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        margin-bottom: 15px;
+    }
+
+    .filter-label::before {
+        content: '';
+        width: 30px;
+        height: 2px;
+        background: var(--gold);
+    }
+
+    .filter-title {
+        font-size: 2.5rem;
+        color: var(--charcoal);
+        line-height: 1.2;
+    }
+
+    .filter-tabs {
+        display: flex;
+        gap: 10px;
+    }
+
+    .filter-btn {
+        padding: 14px 28px;
+        background: transparent;
+        border: 1px solid var(--muted-light);
+        color: var(--muted);
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        font-weight: 500;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s ease;
+    }
+
+    .filter-btn::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--gold);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+    }
+
+    .filter-btn:hover {
+        border-color: var(--slate);
+        color: var(--charcoal);
+    }
+
+    .filter-btn:hover::before {
+        transform: scaleX(1);
+    }
+
+    .filter-btn.active {
+        background: var(--slate);
+        border-color: var(--slate);
+        color: var(--warm-white);
+    }
+
+    .filter-btn.active::before {
+        background: var(--gold);
+        transform: scaleX(1);
+    }
+
+    /* ========================================
+       Projects Grid
+    ======================================== */
+
+    .portfolio-grid-section {
+        padding: 80px 40px 120px;
+        background: var(--warm-white-dark);
+    }
+
+    .grid-container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .project-card {
+        position: relative;
+        overflow: hidden;
+        background: var(--warm-white);
+        box-shadow: var(--shadow-subtle);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-card:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    .project-card:hover {
+        box-shadow: var(--shadow-strong);
+        transform: translateY(-8px);
+    }
+
+    .project-image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: 350px;
+        overflow: hidden;
+    }
+
+    .project-card:nth-child(1) .project-image {
+        min-height: 100%;
+    }
+
+    .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-card:hover .project-image img {
+        transform: scale(1.08);
+    }
+
+    .project-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            180deg,
+            transparent 0%,
+            transparent 40%,
+            rgba(15, 23, 42, 0.95) 100%
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 35px;
+        opacity: 0.9;
+        transition: all 0.4s ease;
+    }
+
+    .project-card:hover .project-overlay {
+        opacity: 1;
+        background: linear-gradient(
+            180deg,
+            rgba(201, 169, 98, 0.1) 0%,
+            transparent 30%,
+            rgba(15, 23, 42, 0.98) 100%
+        );
+    }
+
+    .project-category {
+        display: inline-block;
+        padding: 6px 14px;
+        background: var(--gold);
+        color: var(--charcoal);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 15px;
+        width: fit-content;
+    }
+
+    .project-info h3 {
+        font-size: 1.5rem;
+        color: var(--warm-white);
+        margin-bottom: 10px;
+        transition: color 0.3s ease;
+    }
+
+    .project-card:nth-child(1) .project-info h3 {
+        font-size: 2rem;
+    }
+
+    .project-card:hover .project-info h3 {
+        color: var(--gold-light);
+    }
+
+    .project-info p {
+        font-size: 0.95rem;
+        color: var(--muted-light);
+        line-height: 1.6;
+        margin-bottom: 20px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.4s ease;
+    }
+
+    .project-card:hover .project-info p {
+        max-height: 100px;
+        opacity: 1;
+    }
+
+    .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--gold);
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        transition: all 0.3s ease;
+    }
+
+    .project-link i {
+        transition: transform 0.3s ease;
+    }
+
+    .project-link:hover {
+        color: var(--gold-light);
+    }
+
+    .project-link:hover i {
+        transform: translateX(5px);
+    }
+
+    /* ========================================
+       Featured Project
+    ======================================== */
+
+    .portfolio-featured {
+        padding: 120px 40px;
+        background: var(--slate);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .portfolio-featured::before {
+        content: 'FEATURED';
+        position: absolute;
+        top: 50%;
+        right: -5%;
+        transform: translateY(-50%) rotate(-90deg);
+        font-family: var(--font-display);
+        font-size: clamp(6rem, 15vw, 12rem);
+        font-weight: 700;
+        color: var(--slate-light);
+        opacity: 0.3;
+        pointer-events: none;
+    }
+
+    .featured-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 80px;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .featured-image {
+        position: relative;
+    }
+
+    .featured-image img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        box-shadow: var(--shadow-strong);
+    }
+
+    .featured-image-frame {
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        right: 20px;
+        bottom: 20px;
+        border: 2px solid var(--gold);
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .featured-badge {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        padding: 12px 24px;
+        background: var(--gold);
+        color: var(--charcoal);
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+
+    .featured-content {
+        padding-right: 40px;
+    }
+
+    .featured-label {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--gold);
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        margin-bottom: 20px;
+    }
+
+    .featured-label::before {
+        content: '';
+        width: 30px;
+        height: 2px;
+        background: var(--gold);
+    }
+
+    .featured-title {
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+        color: var(--warm-white);
+        line-height: 1.2;
+        margin-bottom: 25px;
+    }
+
+    .featured-title em {
+        font-style: italic;
+        color: var(--gold);
+    }
+
+    .featured-desc {
+        font-size: 1.1rem;
+        color: var(--muted-light);
+        line-height: 1.9;
+        margin-bottom: 30px;
+    }
+
+    .featured-details {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 40px;
+        padding: 25px 0;
+        border-top: 1px solid var(--slate-light);
+        border-bottom: 1px solid var(--slate-light);
+    }
+
+    .featured-detail {
+        text-align: left;
+    }
+
+    .featured-detail-label {
+        font-size: 0.8rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 5px;
+    }
+
+    .featured-detail-value {
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        color: var(--warm-white);
+    }
+
+    .btn-featured {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 35px;
+        background: var(--gold);
+        color: var(--charcoal);
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-featured::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .btn-featured:hover::before {
+        left: 100%;
+    }
+
+    .btn-featured:hover {
+        background: var(--gold-light);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px var(--gold-glow);
+    }
+
+    /* ========================================
+       CTA Section
+    ======================================== */
+
+    .portfolio-cta {
+        padding: 120px 40px;
+        background: var(--warm-white);
+        position: relative;
+    }
+
+    .portfolio-cta::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--muted-light), transparent);
+    }
+
+    .cta-container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .cta-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+        color: var(--gold);
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        margin-bottom: 20px;
+    }
+
+    .cta-label::before,
+    .cta-label::after {
+        content: '';
+        width: 40px;
+        height: 1px;
+        background: var(--gold);
+    }
+
+    .cta-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        color: var(--charcoal);
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+
+    .cta-title em {
+        font-style: italic;
+        color: var(--gold-dark);
+    }
+
+    .cta-text {
+        font-size: 1.15rem;
+        color: var(--muted);
+        max-width: 550px;
+        margin: 0 auto 40px;
+        line-height: 1.8;
+    }
+
+    .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .btn-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 40px;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.4s ease;
+    }
+
+    .btn-cta.primary {
+        background: var(--slate);
+        color: var(--warm-white);
+    }
+
+    .btn-cta.primary:hover {
+        background: var(--charcoal);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-medium);
+    }
+
+    .btn-cta.secondary {
+        background: transparent;
+        color: var(--charcoal);
+        border: 2px solid var(--muted-light);
+    }
+
+    .btn-cta.secondary:hover {
+        border-color: var(--gold);
+        color: var(--gold-dark);
+        transform: translateY(-3px);
+    }
+
+    /* ========================================
+       Responsive Design
+    ======================================== */
+
+    @media (max-width: 1200px) {
+        .projects-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .project-card:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        .featured-container {
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+
+        .featured-content {
+            padding-right: 0;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .filter-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .filter-tabs {
+            flex-wrap: wrap;
+        }
+
+        .stats-container {
+            gap: 40px;
+        }
+
+        .stat-item::after {
+            right: -20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .portfolio-hero {
+            min-height: 60vh;
+        }
+
+        .portfolio-hero-content {
+            padding: 0 20px;
+        }
+
+        .portfolio-filter,
+        .portfolio-grid-section,
+        .portfolio-featured,
+        .portfolio-cta {
+            padding: 60px 20px;
+        }
+
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .project-card:nth-child(1) {
+            grid-column: span 1;
+        }
+
+        .stats-container {
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .stat-item::after {
+            display: none;
+        }
+
+        .featured-image img {
+            height: 350px;
+        }
+
+        .featured-image-frame {
+            display: none;
+        }
+
+        .featured-details {
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .cta-buttons {
+            flex-direction: column;
+        }
+
+        .btn-cta {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-title {
+            font-size: 2.8rem;
+        }
+
+        .filter-title {
+            font-size: 2rem;
+        }
+
+        .filter-btn {
+            padding: 12px 20px;
+            font-size: 0.85rem;
+        }
+
+        .project-image {
+            min-height: 280px;
+        }
+    }
+</style>
+
+<div class="portfolio-page">
+    <!-- Hero Section -->
+    <section class="portfolio-hero">
+        <div class="portfolio-hero-bg"></div>
+        <div class="portfolio-hero-overlay"></div>
+
+        <div class="portfolio-hero-content">
+            <div class="hero-eyebrow">Our Portfolio</div>
+            <h1 class="hero-title">Crafted with <em>Excellence</em></h1>
+            <p class="hero-subtitle">
+                Every project tells a story of dedication, precision, and the pursuit of perfection.
+                Explore our work across Central Texas.
+            </p>
         </div>
-        
-        <div class="projects-grid">
-            <% projects.forEach(project => { %>
-                <div class="project-card animate-on-scroll" data-category="<%= project.category %>">
-                    <div class="project-image">
-                        <img src="<%= project.thumbnail %>" alt="<%= project.title %>">
-                        <div class="project-overlay">
-                            <div class="project-info">
-                                <h3><%= project.title %></h3>
-                                <p><%= project.description %></p>
-                                <a href="/projects/<%= project.id %>" class="btn btn-outline">View Details</a>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="portfolio-stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number"><%= projects.length %>+</div>
+                <div class="stat-label">Featured Projects</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Cities Served</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="portfolio-filter">
+        <div class="filter-container">
+            <div class="filter-header">
+                <div class="filter-title-group">
+                    <div class="filter-label">Browse Work</div>
+                    <h2 class="filter-title">Project Gallery</h2>
+                </div>
+
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="roofing">Roofing</button>
+                    <button class="filter-btn" data-filter="construction">Construction</button>
+                    <button class="filter-btn" data-filter="remodeling">Remodeling</button>
+                    <button class="filter-btn" data-filter="solar">Solar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="portfolio-grid-section">
+        <div class="grid-container">
+            <div class="projects-grid">
+                <% projects.forEach(project => { %>
+                    <div class="project-card" data-category="<%= project.category %>">
+                        <div class="project-image">
+                            <img src="<%= project.thumbnail %>" alt="<%= project.title %>">
+                            <div class="project-overlay">
+                                <span class="project-category"><%= project.category %></span>
+                                <div class="project-info">
+                                    <h3><%= project.title %></h3>
+                                    <p><%= project.description %></p>
+                                    <a href="/projects/<%= project.id %>" class="project-link">
+                                        View Project <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            <% }) %>
-            
-            <!-- Additional Projects -->
-            <div class="project-card animate-on-scroll" data-category="roofing">
-                <div class="project-image">
-                    <img src="/images/gallery1.jpg" alt="Residential Roofing">
-                    <div class="project-overlay">
-                        <div class="project-info">
-                            <h3>Residential Roofing</h3>
-                            <p>Complete roof replacement with GAF Timberline HDZ shingles</p>
-                            <a href="/projects/5" class="btn btn-outline">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="project-card animate-on-scroll" data-category="construction">
-                <div class="project-image">
-                    <img src="/images/projects/project1.jpg" alt="Commercial Construction">
-                    <div class="project-overlay">
-                        <div class="project-info">
-                            <h3>Commercial Construction</h3>
-                            <p>New commercial building construction</p>
-                            <a href="/projects/6" class="btn btn-outline">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="project-card animate-on-scroll" data-category="construction">
-                <div class="project-image">
-                    <img src="/images/projects/project2.jpg" alt="Custom Home Build">
-                    <div class="project-overlay">
-                        <div class="project-info">
-                            <h3>Custom Home Build</h3>
-                            <p>Luxury custom home construction</p>
-                            <a href="/projects/7" class="btn btn-outline">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="project-card animate-on-scroll" data-category="roofing">
-                <div class="project-image">
-                    <img src="/images/gallery2.jpg" alt="Metal Roofing Installation">
-                    <div class="project-overlay">
-                        <div class="project-info">
-                            <h3>Metal Roofing Installation</h3>
-                            <p>Standing seam metal roof installation</p>
-                            <a href="/projects/8" class="btn btn-outline">View Details</a>
-                        </div>
-                    </div>
-                </div>
+                <% }) %>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- CTA Section -->
-<section class="section cta-section">
-    <div class="container">
-        <div class="cta-content">
-            <h2>Ready to Start Your Project?</h2>
-            <p>Let's discuss how we can bring your vision to life</p>
-            <a href="/contact" class="btn btn-primary">Get In Touch</a>
+    <!-- Featured Project -->
+    <section class="portfolio-featured">
+        <div class="featured-container">
+            <div class="featured-image">
+                <img src="/images/projects/anderson-hero.jpg" alt="Featured Project">
+                <div class="featured-image-frame"></div>
+                <div class="featured-badge">Featured Project</div>
+            </div>
+
+            <div class="featured-content">
+                <div class="featured-label">Spotlight</div>
+                <h2 class="featured-title">Old Anderson Mill <em>Historic Home</em></h2>
+                <p class="featured-desc">
+                    A meticulous restoration of a historic Central Texas home, preserving its
+                    original character while seamlessly integrating modern amenities. This project
+                    showcases our commitment to craftsmanship and attention to detail.
+                </p>
+
+                <div class="featured-details">
+                    <div class="featured-detail">
+                        <div class="featured-detail-label">Category</div>
+                        <div class="featured-detail-value">Remodeling</div>
+                    </div>
+                    <div class="featured-detail">
+                        <div class="featured-detail-label">Location</div>
+                        <div class="featured-detail-value">Anderson Mill, TX</div>
+                    </div>
+                    <div class="featured-detail">
+                        <div class="featured-detail-label">Duration</div>
+                        <div class="featured-detail-value">4 Months</div>
+                    </div>
+                </div>
+
+                <a href="/projects/2" class="btn-featured">
+                    <i class="fas fa-eye"></i>
+                    Explore This Project
+                </a>
+            </div>
         </div>
-    </div>
-</section> 
+    </section>
+
+    <!-- CTA Section -->
+    <section class="portfolio-cta">
+        <div class="cta-container">
+            <div class="cta-label">Start Your Project</div>
+            <h2 class="cta-title">Ready to Build <em>Together</em>?</h2>
+            <p class="cta-text">
+                Your project could be our next success story. Let's discuss how we can
+                bring your vision to life with the same dedication and craftsmanship.
+            </p>
+            <div class="cta-buttons">
+                <a href="/contact/quote" class="btn-cta primary">
+                    <i class="fas fa-paper-plane"></i>
+                    Request a Quote
+                </a>
+                <a href="/contact" class="btn-cta secondary">
+                    <i class="fas fa-phone-alt"></i>
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+
+                // Filter projects
+                projectCards.forEach(card => {
+                    const category = card.dataset.category;
+
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeInUp 0.5s ease forwards';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe project cards
+        projectCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+
+        // Observe featured section
+        const featuredContent = document.querySelector('.featured-content');
+        if (featuredContent) {
+            featuredContent.style.opacity = '0';
+            featuredContent.style.transform = 'translateX(40px)';
+            featuredContent.style.transition = 'all 0.8s ease';
+            observer.observe(featuredContent);
+        }
+    });
+</script>

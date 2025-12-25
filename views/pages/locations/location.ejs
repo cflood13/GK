@@ -1,8 +1,113 @@
-<section class="page-hero" style="background-image: url('/images/services/roofing.jpg');">
+<section class="page-hero" style="background-image: url('/images/services/roofing-aerial.jpg');">
     <div class="page-hero-overlay"></div>
     <div class="page-hero-content">
         <h1 class="animate-on-scroll"><%= city %> Roofing & Construction</h1>
         <p class="animate-on-scroll">GAF & Owens Corning certified roofing in <%= city %> with free estimates</p>
+    </div>
+</section>
+
+<!-- Location Map Section -->
+<section class="location-map-section">
+    <div class="container">
+        <div class="section-title animate-on-scroll">
+            <h2>Serving <%= city %> & Central Texas</h2>
+            <p>Click the card to explore our service area</p>
+        </div>
+
+        <div class="location-map-card" data-location="<%= city %>, TX" data-coordinates="<%= typeof coordinates !== 'undefined' ? coordinates : '30.5083° N, 97.8530° W' %>">
+            <div class="location-map-inner">
+                <!-- Grid pattern (collapsed) -->
+                <div class="map-grid-pattern">
+                    <svg width="100%" height="100%">
+                        <defs>
+                            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="white" stroke-width="0.5" />
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid)" />
+                    </svg>
+                </div>
+
+                <!-- Map visualization (expanded) -->
+                <div class="map-visualization">
+                    <div class="map-background"></div>
+
+                    <!-- Roads -->
+                    <div class="map-roads">
+                        <svg width="100%" height="100%" preserveAspectRatio="none">
+                            <line class="map-road main" x1="0%" y1="35%" x2="100%" y2="35%" />
+                            <line class="map-road main" x1="0%" y1="65%" x2="100%" y2="65%" />
+                            <line class="map-road secondary" x1="30%" y1="0%" x2="30%" y2="100%" />
+                            <line class="map-road secondary" x1="70%" y1="0%" x2="70%" y2="100%" />
+                            <line class="map-road secondary" x1="0%" y1="20%" x2="100%" y2="20%" />
+                            <line class="map-road secondary" x1="0%" y1="50%" x2="100%" y2="50%" />
+                            <line class="map-road secondary" x1="0%" y1="80%" x2="100%" y2="80%" />
+                            <line class="map-road secondary" x1="15%" y1="0%" x2="15%" y2="100%" />
+                            <line class="map-road secondary" x1="50%" y1="0%" x2="50%" y2="100%" />
+                            <line class="map-road secondary" x1="85%" y1="0%" x2="85%" y2="100%" />
+                        </svg>
+                    </div>
+
+                    <!-- Buildings -->
+                    <div class="map-buildings">
+                        <div class="map-building"></div>
+                        <div class="map-building"></div>
+                        <div class="map-building"></div>
+                        <div class="map-building"></div>
+                        <div class="map-building"></div>
+                    </div>
+
+                    <!-- Location Pin -->
+                    <div class="map-pin">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#ff6600" />
+                            <circle cx="12" cy="9" r="2.5" fill="white" />
+                        </svg>
+                    </div>
+
+                    <!-- Fade overlay -->
+                    <div class="map-fade"></div>
+                </div>
+
+                <!-- Content -->
+                <div class="map-content">
+                    <div class="map-top">
+                        <div class="map-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" />
+                                <line x1="9" x2="9" y1="3" y2="18" />
+                                <line x1="15" x2="15" y1="6" y2="21" />
+                            </svg>
+                        </div>
+                        <div class="map-status">
+                            <div class="status-dot"></div>
+                            <span class="status-text">Serving</span>
+                        </div>
+                    </div>
+
+                    <div class="map-bottom">
+                        <h3 class="map-location-name"><%= city %>, TX</h3>
+                        <p class="map-coordinates"><%= typeof coordinates !== 'undefined' ? coordinates : '30.5083° N, 97.8530° W' %></p>
+                        <div class="map-underline"></div>
+                    </div>
+                </div>
+            </div>
+            <p class="map-hint">Click to expand</p>
+        </div>
+
+        <!-- Service Area Pills -->
+        <div class="service-area-pills">
+            <a href="/locations/leander" class="area-pill<%= city === 'Leander' ? ' active' : '' %>">Leander</a>
+            <a href="/locations/liberty-hill" class="area-pill<%= city === 'Liberty Hill' ? ' active' : '' %>">Liberty Hill</a>
+            <a href="/locations/georgetown" class="area-pill<%= city === 'Georgetown' ? ' active' : '' %>">Georgetown</a>
+            <a href="/locations/cedar-park" class="area-pill<%= city === 'Cedar Park' ? ' active' : '' %>">Cedar Park</a>
+            <a href="/locations/round-rock" class="area-pill<%= city === 'Round Rock' ? ' active' : '' %>">Round Rock</a>
+            <a href="/locations/pflugerville" class="area-pill<%= city === 'Pflugerville' ? ' active' : '' %>">Pflugerville</a>
+            <a href="/locations/jonestown" class="area-pill<%= city === 'Jonestown' ? ' active' : '' %>">Jonestown</a>
+            <a href="/locations/lago-vista" class="area-pill<%= city === 'Lago Vista' ? ' active' : '' %>">Lago Vista</a>
+            <a href="/locations/burnet" class="area-pill<%= city === 'Burnet' ? ' active' : '' %>">Burnet</a>
+            <a href="/locations/lake-travis" class="area-pill<%= city === 'Lake Travis' ? ' active' : '' %>">Lake Travis</a>
+        </div>
     </div>
 </section>
 
@@ -16,7 +121,7 @@
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-image">
-                    <img src="/images/services/roofing.jpg" alt="Roof Replacement <%= city %>">
+                    <img src="/images/projects/roof-aerial-1.jpg" alt="Roof Replacement <%= city %>">
                 </div>
                 <div class="service-content">
                     <h3>Roof Replacement</h3>
@@ -32,7 +137,7 @@
 
             <div class="service-card">
                 <div class="service-image">
-                    <img src="/images/services/roofing.jpg" alt="Roof Repair <%= city %>">
+                    <img src="/images/projects/roof-aerial-2.jpg" alt="Roof Repair <%= city %>">
                 </div>
                 <div class="service-content">
                     <h3>Roof Repair</h3>
@@ -81,23 +186,35 @@
         <section class="section" style="background:#f8f9fa;">
             <div class="container">
                 <div class="section-title">
-                    <h2>Owens Corning & GAF Shingle Options</h2>
-                    <p>Find the right look and performance for your home</p>
+                    <h2>Premium Roofing Materials</h2>
+                    <p>GAF & Owens Corning certified products for lasting protection</p>
                 </div>
-                <div class="oc-widget" style="margin-bottom:2rem;">
-                    <div
-                        class="oc_shingle_view"
-                        data-shingle="trudefinition-duration"
-                        data-view="shingle"
-                        data-layout="stacked"
-                        data-style="ranch">
+                <div class="shingle-showcase" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div class="shingle-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        <img src="/images/hero-aerial.jpg" alt="Premium GAF Roofing Installation" style="width: 100%; height: 220px; object-fit: cover;">
+                        <div style="padding: 1.5rem;">
+                            <h3 style="margin-bottom: 0.5rem; color: #1a1a1a;">GAF Timberline HDZ®</h3>
+                            <p style="color: #666; margin-bottom: 1rem;">America's #1 selling shingle with LayerLock™ technology and StainGuard Plus™ protection.</p>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li style="padding: 0.25rem 0;"><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>130 MPH Wind Warranty</li>
+                                <li style="padding: 0.25rem 0;"><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Lifetime Limited Warranty</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="shingle-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        <img src="/images/projects/lakedillon-roof.jpg" alt="Owens Corning Duration Shingles" style="width: 100%; height: 220px; object-fit: cover;">
+                        <div style="padding: 1.5rem;">
+                            <h3 style="margin-bottom: 0.5rem; color: #1a1a1a;">Owens Corning Duration®</h3>
+                            <p style="color: #666; margin-bottom: 1rem;">TruDefinition® color technology with SureNail® strip for superior holding power.</p>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li style="padding: 0.25rem 0;"><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>130 MPH Wind Resistance</li>
+                                <li style="padding: 0.25rem 0;"><i class="fas fa-check" style="color: #ff6600; margin-right: 8px;"></i>Limited Lifetime Warranty</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="gaf-widget">
-                    <div style='position: relative;width: auto;padding: 0 0 56%;height: 0;'>
-                        <iframe allowfullscreen src='https://view.ceros.com/gaf/widget-1-timberline-hdz-shingles-1-1-1-2' style='position: absolute;top: 0;left: 0;bottom: 0;right: 0;margin: 0;padding: 0;border: 0 none;height: 100%;width: 100%;' frameborder='0' class='ceros-experience' title='GAF Shingle Widget' scrolling='no'></iframe>
-                    </div>
-                    <script type="text/javascript" src="https://view.ceros.com/scroll-proxy.min.js" data-ceros-origin-domains="view.ceros.com"></script>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="/contact/quote" class="btn btn-primary">Get Your Free Estimate</a>
                 </div>
             </div>
         </section>

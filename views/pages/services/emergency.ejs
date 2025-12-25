@@ -1,0 +1,1719 @@
+<!-- Emergency Services Page - "Urgent Response" Aesthetic -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+    /* ========================================
+       URGENT RESPONSE - Emergency Aesthetic
+       Bold reds, pulsing alerts, rapid action
+    ======================================== */
+
+    :root {
+        --emergency-red: #DC2626;
+        --emergency-red-dark: #B91C1C;
+        --emergency-red-glow: rgba(220, 38, 38, 0.4);
+        --urgent-orange: #F97316;
+        --urgent-orange-dark: #EA580C;
+        --urgent-amber: #FBBF24;
+        --charcoal: #1C1917;
+        --charcoal-light: #292524;
+        --charcoal-lighter: #44403C;
+        --smoke: #78716C;
+        --ash: #A8A29E;
+        --white: #FAFAF9;
+        --cream: #F5F5F4;
+
+        --font-display: 'Oswald', sans-serif;
+        --font-body: 'Source Sans 3', sans-serif;
+
+        --shadow-urgent: 0 4px 30px rgba(220, 38, 38, 0.3);
+        --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    /* ========================================
+       Reset & Base
+    ======================================== */
+
+    .emergency-page * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .emergency-page {
+        font-family: var(--font-body);
+        background: var(--charcoal);
+        color: var(--white);
+        overflow-x: hidden;
+    }
+
+    .emergency-page h1,
+    .emergency-page h2,
+    .emergency-page h3,
+    .emergency-page h4 {
+        font-family: var(--font-display);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+    }
+
+    /* ========================================
+       Emergency Alert Banner
+    ======================================== */
+
+    .emergency-alert-banner {
+        background: linear-gradient(90deg, var(--emergency-red) 0%, var(--urgent-orange) 50%, var(--emergency-red) 100%);
+        background-size: 200% 100%;
+        animation: alertPulse 2s ease-in-out infinite;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    @keyframes alertPulse {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+
+    .emergency-alert-banner::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        animation: alertShine 3s ease-in-out infinite;
+    }
+
+    @keyframes alertShine {
+        0% { left: -100%; }
+        50%, 100% { left: 100%; }
+    }
+
+    .alert-icon {
+        font-size: 1.2rem;
+        animation: iconPulse 1s ease-in-out infinite;
+    }
+
+    @keyframes iconPulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+
+    .alert-text {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .alert-phone {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--white);
+        text-decoration: none;
+        background: rgba(0,0,0,0.2);
+        padding: 6px 16px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+
+    .alert-phone:hover {
+        background: rgba(0,0,0,0.4);
+        transform: scale(1.05);
+    }
+
+    /* ========================================
+       Hero Section
+    ======================================== */
+
+    .emergency-hero {
+        position: relative;
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .emergency-hero-bg {
+        position: absolute;
+        inset: 0;
+        background: url('/images/services/roofing-aerial.jpg') center center/cover no-repeat;
+        transform: scale(1.1);
+        animation: heroZoom 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroZoom {
+        0% { transform: scale(1.1); }
+        100% { transform: scale(1.0); }
+    }
+
+    .emergency-hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(28, 25, 23, 0.95) 0%,
+            rgba(28, 25, 23, 0.8) 40%,
+            rgba(220, 38, 38, 0.3) 100%
+        );
+    }
+
+    .emergency-hero-pattern {
+        position: absolute;
+        inset: 0;
+        background-image:
+            repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 35px,
+                rgba(220, 38, 38, 0.03) 35px,
+                rgba(220, 38, 38, 0.03) 70px
+            );
+        animation: patternMove 30s linear infinite;
+    }
+
+    @keyframes patternMove {
+        0% { background-position: 0 0; }
+        100% { background-position: 100px 100px; }
+    }
+
+    .emergency-hero-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+    }
+
+    .hero-text {
+        animation: slideInLeft 1s ease-out;
+    }
+
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-60px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .emergency-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--emergency-red);
+        color: var(--white);
+        padding: 10px 20px;
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 25px;
+        position: relative;
+        overflow: hidden;
+        animation: badgePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes badgePulse {
+        0%, 100% { box-shadow: 0 0 0 0 var(--emergency-red-glow); }
+        50% { box-shadow: 0 0 0 10px transparent; }
+    }
+
+    .emergency-badge i {
+        animation: iconPulse 1s ease-in-out infinite;
+    }
+
+    .hero-title {
+        font-size: clamp(3rem, 6vw, 5rem);
+        line-height: 1.05;
+        color: var(--white);
+        margin-bottom: 20px;
+    }
+
+    .hero-title .highlight {
+        color: var(--emergency-red);
+        position: relative;
+        display: inline-block;
+    }
+
+    .hero-title .highlight::after {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: var(--urgent-orange);
+        opacity: 0.6;
+        z-index: -1;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+        color: var(--ash);
+        line-height: 1.7;
+        margin-bottom: 35px;
+        max-width: 540px;
+    }
+
+    .hero-actions {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .btn-emergency {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 35px;
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-emergency.primary {
+        background: var(--emergency-red);
+        color: var(--white);
+        box-shadow: var(--shadow-urgent);
+    }
+
+    .btn-emergency.primary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .btn-emergency.primary:hover::before {
+        left: 100%;
+    }
+
+    .btn-emergency.primary:hover {
+        background: var(--emergency-red-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 40px rgba(220, 38, 38, 0.5);
+    }
+
+    .btn-emergency.secondary {
+        background: transparent;
+        color: var(--white);
+        border: 2px solid var(--charcoal-lighter);
+    }
+
+    .btn-emergency.secondary:hover {
+        border-color: var(--urgent-orange);
+        color: var(--urgent-orange);
+        transform: translateY(-3px);
+    }
+
+    /* Hero Stats */
+    .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        animation: slideInRight 1s ease-out 0.3s both;
+    }
+
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(60px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .stat-card {
+        background: rgba(28, 25, 23, 0.9);
+        border: 1px solid var(--charcoal-lighter);
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s ease;
+    }
+
+    .stat-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--emergency-red);
+        transition: width 0.3s ease;
+    }
+
+    .stat-card:hover::before {
+        width: 100%;
+        opacity: 0.1;
+    }
+
+    .stat-card.featured {
+        grid-column: span 2;
+        background: linear-gradient(135deg, var(--emergency-red) 0%, var(--urgent-orange) 100%);
+        border: none;
+    }
+
+    .stat-card.featured::before {
+        display: none;
+    }
+
+    .stat-card.featured .stat-number {
+        color: var(--white);
+    }
+
+    .stat-card.featured .stat-label {
+        color: rgba(255,255,255,0.9);
+    }
+
+    .stat-icon {
+        font-size: 1.5rem;
+        color: var(--emergency-red);
+        margin-bottom: 15px;
+    }
+
+    .stat-card.featured .stat-icon {
+        color: var(--white);
+    }
+
+    .stat-number {
+        font-family: var(--font-display);
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1;
+        margin-bottom: 8px;
+    }
+
+    .stat-label {
+        font-size: 0.95rem;
+        color: var(--ash);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    /* ========================================
+       Services Section
+    ======================================== */
+
+    .emergency-services {
+        padding: 120px 40px;
+        background: var(--charcoal);
+        position: relative;
+    }
+
+    .emergency-services::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--charcoal-lighter), transparent);
+    }
+
+    .services-container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 80px;
+    }
+
+    .section-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--emergency-red);
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        margin-bottom: 20px;
+    }
+
+    .section-tag::before,
+    .section-tag::after {
+        content: '';
+        width: 40px;
+        height: 2px;
+        background: var(--emergency-red);
+    }
+
+    .section-title {
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+        color: var(--white);
+        margin-bottom: 20px;
+    }
+
+    .section-subtitle {
+        font-size: 1.15rem;
+        color: var(--ash);
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.7;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .service-card {
+        background: var(--charcoal-light);
+        border: 1px solid var(--charcoal-lighter);
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+    }
+
+    .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--emergency-red), var(--urgent-orange));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+    }
+
+    .service-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .service-card::after {
+        content: '';
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, rgba(220, 38, 38, 0.1));
+        transition: bottom 0.4s ease;
+    }
+
+    .service-card:hover::after {
+        bottom: 0;
+    }
+
+    .service-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--emergency-red);
+        box-shadow: var(--shadow-urgent);
+    }
+
+    .service-icon-wrap {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, var(--emergency-red), var(--urgent-orange));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+        position: relative;
+        z-index: 1;
+        clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+    }
+
+    .service-icon-wrap i {
+        font-size: 1.8rem;
+        color: var(--white);
+    }
+
+    .service-card-title {
+        font-size: 1.4rem;
+        color: var(--white);
+        margin-bottom: 15px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .service-card-desc {
+        font-size: 1rem;
+        color: var(--ash);
+        line-height: 1.7;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .service-card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--emergency-red);
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        text-decoration: none;
+        position: relative;
+        z-index: 1;
+        transition: all 0.3s ease;
+    }
+
+    .service-card-link i {
+        transition: transform 0.3s ease;
+    }
+
+    .service-card:hover .service-card-link {
+        color: var(--urgent-orange);
+    }
+
+    .service-card:hover .service-card-link i {
+        transform: translateX(5px);
+    }
+
+    /* ========================================
+       Process Section
+    ======================================== */
+
+    .emergency-process {
+        padding: 120px 40px;
+        background: linear-gradient(180deg, var(--charcoal) 0%, var(--charcoal-light) 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .process-bg-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: var(--font-display);
+        font-size: clamp(8rem, 20vw, 20rem);
+        font-weight: 700;
+        color: var(--charcoal-light);
+        text-transform: uppercase;
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0.3;
+    }
+
+    .process-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    .process-timeline {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        margin-top: 80px;
+        position: relative;
+    }
+
+    .process-timeline::before {
+        content: '';
+        position: absolute;
+        top: 50px;
+        left: 12.5%;
+        right: 12.5%;
+        height: 4px;
+        background: var(--charcoal-lighter);
+    }
+
+    .process-timeline::after {
+        content: '';
+        position: absolute;
+        top: 50px;
+        left: 12.5%;
+        width: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--emergency-red), var(--urgent-orange));
+        animation: processLine 3s ease-out forwards;
+        animation-delay: 0.5s;
+    }
+
+    @keyframes processLine {
+        to { width: 75%; }
+    }
+
+    .process-step {
+        text-align: center;
+        position: relative;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: stepReveal 0.6s ease-out forwards;
+    }
+
+    .process-step:nth-child(1) { animation-delay: 0.2s; }
+    .process-step:nth-child(2) { animation-delay: 0.4s; }
+    .process-step:nth-child(3) { animation-delay: 0.6s; }
+    .process-step:nth-child(4) { animation-delay: 0.8s; }
+
+    @keyframes stepReveal {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .step-number {
+        width: 100px;
+        height: 100px;
+        background: var(--charcoal);
+        border: 4px solid var(--charcoal-lighter);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 30px;
+        position: relative;
+        transition: all 0.4s ease;
+    }
+
+    .step-number span {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--smoke);
+        transition: all 0.4s ease;
+    }
+
+    .process-step:hover .step-number {
+        border-color: var(--emergency-red);
+        background: var(--emergency-red);
+        transform: scale(1.1);
+        box-shadow: 0 0 30px var(--emergency-red-glow);
+    }
+
+    .process-step:hover .step-number span {
+        color: var(--white);
+    }
+
+    .step-title {
+        font-size: 1.3rem;
+        color: var(--white);
+        margin-bottom: 12px;
+    }
+
+    .step-desc {
+        font-size: 0.95rem;
+        color: var(--ash);
+        line-height: 1.6;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+
+    .step-time {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 6px 14px;
+        background: rgba(220, 38, 38, 0.2);
+        color: var(--emergency-red);
+        font-family: var(--font-display);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    /* ========================================
+       Trust Section
+    ======================================== */
+
+    .emergency-trust {
+        padding: 100px 40px;
+        background: var(--emergency-red);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .emergency-trust::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 10px,
+                rgba(0,0,0,0.05) 10px,
+                rgba(0,0,0,0.05) 20px
+            );
+    }
+
+    .trust-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .trust-item {
+        text-align: center;
+        padding: 30px;
+        transition: all 0.3s ease;
+    }
+
+    .trust-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .trust-icon {
+        width: 80px;
+        height: 80px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        transition: all 0.3s ease;
+    }
+
+    .trust-item:hover .trust-icon {
+        background: var(--white);
+    }
+
+    .trust-icon i {
+        font-size: 2rem;
+        color: var(--white);
+        transition: all 0.3s ease;
+    }
+
+    .trust-item:hover .trust-icon i {
+        color: var(--emergency-red);
+    }
+
+    .trust-title {
+        font-size: 1.3rem;
+        color: var(--white);
+        margin-bottom: 8px;
+    }
+
+    .trust-desc {
+        font-size: 0.95rem;
+        color: rgba(255,255,255,0.8);
+    }
+
+    /* ========================================
+       Projects Showcase
+    ======================================== */
+
+    .emergency-projects {
+        padding: 120px 40px;
+        background: var(--charcoal);
+    }
+
+    .projects-container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        margin-top: 80px;
+    }
+
+    .project-card {
+        position: relative;
+        height: 450px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .project-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.6s ease;
+    }
+
+    .project-card:hover img {
+        transform: scale(1.1);
+    }
+
+    .project-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            180deg,
+            transparent 0%,
+            rgba(28, 25, 23, 0.4) 50%,
+            rgba(28, 25, 23, 0.95) 100%
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 40px;
+        transition: all 0.4s ease;
+    }
+
+    .project-card:hover .project-overlay {
+        background: linear-gradient(
+            180deg,
+            rgba(220, 38, 38, 0.2) 0%,
+            rgba(28, 25, 23, 0.6) 50%,
+            rgba(28, 25, 23, 0.98) 100%
+        );
+    }
+
+    .project-tag {
+        display: inline-block;
+        padding: 6px 14px;
+        background: var(--emergency-red);
+        color: var(--white);
+        font-family: var(--font-display);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 15px;
+        width: fit-content;
+    }
+
+    .project-title {
+        font-size: 1.8rem;
+        color: var(--white);
+        margin-bottom: 10px;
+    }
+
+    .project-desc {
+        font-size: 1rem;
+        color: var(--ash);
+        line-height: 1.6;
+        margin-bottom: 20px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.4s ease;
+    }
+
+    .project-card:hover .project-desc {
+        max-height: 100px;
+        opacity: 1;
+    }
+
+    .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--emergency-red);
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .project-link:hover {
+        color: var(--urgent-orange);
+    }
+
+    .project-link i {
+        transition: transform 0.3s ease;
+    }
+
+    .project-link:hover i {
+        transform: translateX(5px);
+    }
+
+    /* ========================================
+       Service Areas
+    ======================================== */
+
+    .emergency-areas {
+        padding: 100px 40px;
+        background: var(--charcoal-light);
+        position: relative;
+    }
+
+    .areas-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .areas-content {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 60px;
+        align-items: center;
+        margin-top: 60px;
+    }
+
+    .areas-text h3 {
+        font-size: 2rem;
+        color: var(--white);
+        margin-bottom: 20px;
+    }
+
+    .areas-text p {
+        font-size: 1.1rem;
+        color: var(--ash);
+        line-height: 1.7;
+        margin-bottom: 25px;
+    }
+
+    .areas-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--emergency-red);
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .areas-cta:hover {
+        color: var(--urgent-orange);
+    }
+
+    .areas-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .area-tag {
+        padding: 12px 24px;
+        background: var(--charcoal);
+        border: 1px solid var(--charcoal-lighter);
+        color: var(--white);
+        font-family: var(--font-display);
+        font-size: 0.95rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .area-tag:hover {
+        border-color: var(--emergency-red);
+        background: var(--emergency-red);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-urgent);
+    }
+
+    /* ========================================
+       CTA Section
+    ======================================== */
+
+    .emergency-cta {
+        padding: 120px 40px;
+        background: var(--charcoal);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .emergency-cta::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, var(--emergency-red-glow), transparent 70%);
+        animation: ctaGlow 4s ease-in-out infinite;
+    }
+
+    @keyframes ctaGlow {
+        0%, 100% { opacity: 0.5; transform: scale(1); }
+        50% { opacity: 0.8; transform: scale(1.1); }
+    }
+
+    .cta-container {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .cta-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--emergency-red);
+        color: var(--white);
+        padding: 10px 25px;
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 30px;
+        animation: badgePulse 2s ease-in-out infinite;
+    }
+
+    .cta-badge i {
+        animation: iconPulse 1s ease-in-out infinite;
+    }
+
+    .cta-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        color: var(--white);
+        margin-bottom: 20px;
+    }
+
+    .cta-subtitle {
+        font-size: 1.2rem;
+        color: var(--ash);
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.7;
+    }
+
+    .cta-phone {
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 700;
+        color: var(--emergency-red);
+        text-decoration: none;
+        margin-bottom: 40px;
+        transition: all 0.3s ease;
+    }
+
+    .cta-phone:hover {
+        color: var(--urgent-orange);
+        transform: scale(1.05);
+    }
+
+    .cta-phone i {
+        animation: phonePulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes phonePulse {
+        0%, 100% { transform: rotate(0deg); }
+        10% { transform: rotate(-10deg); }
+        20% { transform: rotate(10deg); }
+        30% { transform: rotate(-10deg); }
+        40% { transform: rotate(10deg); }
+        50%, 100% { transform: rotate(0deg); }
+    }
+
+    .cta-actions {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    /* ========================================
+       Responsive Design
+    ======================================== */
+
+    @media (max-width: 1200px) {
+        .emergency-hero-content {
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+
+        .hero-stats {
+            max-width: 500px;
+        }
+
+        .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .process-timeline {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .process-timeline::before,
+        .process-timeline::after {
+            display: none;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .trust-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .areas-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .areas-tags {
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .emergency-alert-banner {
+            flex-direction: column;
+            gap: 10px;
+            padding: 15px 20px;
+        }
+
+        .emergency-hero {
+            min-height: 100vh;
+        }
+
+        .emergency-hero-content {
+            padding: 0 20px;
+        }
+
+        .hero-stats {
+            grid-template-columns: 1fr;
+        }
+
+        .stat-card.featured {
+            grid-column: span 1;
+        }
+
+        .hero-actions {
+            flex-direction: column;
+        }
+
+        .btn-emergency {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .process-timeline {
+            grid-template-columns: 1fr;
+        }
+
+        .trust-container {
+            grid-template-columns: 1fr;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .emergency-services,
+        .emergency-process,
+        .emergency-projects,
+        .emergency-cta {
+            padding: 80px 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-title {
+            font-size: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .cta-phone {
+            font-size: 1.8rem;
+        }
+
+        .area-tag {
+            padding: 10px 18px;
+            font-size: 0.85rem;
+        }
+    }
+</style>
+
+<div class="emergency-page">
+    <!-- Emergency Alert Banner -->
+    <div class="emergency-alert-banner">
+        <i class="fas fa-exclamation-triangle alert-icon"></i>
+        <span class="alert-text">24/7 Emergency Response Available</span>
+        <a href="tel:+15127018090" class="alert-phone">
+            <i class="fas fa-phone-alt"></i> (512) 701-8090
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="emergency-hero">
+        <div class="emergency-hero-bg"></div>
+        <div class="emergency-hero-overlay"></div>
+        <div class="emergency-hero-pattern"></div>
+
+        <div class="emergency-hero-content">
+            <div class="hero-text">
+                <div class="emergency-badge">
+                    <i class="fas fa-bolt"></i>
+                    Rapid Response Team
+                </div>
+                <h1 class="hero-title">
+                    <span class="highlight">Emergency</span><br>
+                    Roofing Services
+                </h1>
+                <p class="hero-subtitle">
+                    When disaster strikes, every minute counts. Our emergency response team is
+                    available 24/7 to protect your home from further damage with rapid tarping,
+                    temporary repairs, and full restoration services.
+                </p>
+                <div class="hero-actions">
+                    <a href="tel:+15127018090" class="btn-emergency primary">
+                        <i class="fas fa-phone-alt"></i>
+                        Call Now: (512) 701-8090
+                    </a>
+                    <a href="/contact/quote" class="btn-emergency secondary">
+                        <i class="fas fa-file-alt"></i>
+                        Request Assessment
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-card featured">
+                    <i class="fas fa-clock stat-icon"></i>
+                    <div class="stat-number" data-target="24" data-suffix="/7">24/7</div>
+                    <div class="stat-label">Emergency Response</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-stopwatch stat-icon"></i>
+                    <div class="stat-number" data-target="2" data-suffix=" hrs">&lt;2 hrs</div>
+                    <div class="stat-label">Average Response</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-award stat-icon"></i>
+                    <div class="stat-number" data-target="19" data-suffix="+">19+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-shield-alt stat-icon"></i>
+                    <div class="stat-number" data-target="100" data-suffix="%">100%</div>
+                    <div class="stat-label">Licensed & Insured</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="emergency-services">
+        <div class="services-container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <span>Emergency Services</span>
+                </div>
+                <h2 class="section-title">Rapid Response Solutions</h2>
+                <p class="section-subtitle">
+                    From storm damage to sudden leaks, our emergency team provides immediate
+                    protection and comprehensive repair solutions.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon-wrap">
+                        <i class="fas fa-cloud-showers-heavy"></i>
+                    </div>
+                    <h3 class="service-card-title">Storm Damage</h3>
+                    <p class="service-card-desc">
+                        Severe weather can strike without warning. We respond immediately to assess
+                        damage, prevent water intrusion, and begin restoration.
+                    </p>
+                    <a href="/contact/quote" class="service-card-link">
+                        Get Help Now <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon-wrap">
+                        <i class="fas fa-tarp"></i>
+                    </div>
+                    <h3 class="service-card-title">Emergency Tarping</h3>
+                    <p class="service-card-desc">
+                        Professional tarping services to immediately stop water damage. We secure
+                        your roof until permanent repairs can be completed.
+                    </p>
+                    <a href="/contact/quote" class="service-card-link">
+                        Get Help Now <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon-wrap">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3 class="service-card-title">Leak Repair</h3>
+                    <p class="service-card-desc">
+                        Active leaks require immediate attention. Our team locates and repairs
+                        leaks quickly to prevent mold, rot, and structural damage.
+                    </p>
+                    <a href="/contact/quote" class="service-card-link">
+                        Get Help Now <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon-wrap">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3 class="service-card-title">Wind Damage</h3>
+                    <p class="service-card-desc">
+                        High winds can lift shingles, damage flashing, and expose your home.
+                        We restore wind-damaged roofs to full protection.
+                    </p>
+                    <a href="/contact/quote" class="service-card-link">
+                        Get Help Now <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon-wrap">
+                        <i class="fas fa-icicles"></i>
+                    </div>
+                    <h3 class="service-card-title">Hail Damage</h3>
+                    <p class="service-card-desc">
+                        Texas hailstorms cause significant roof damage. We document damage for
+                        insurance claims and provide complete restoration services.
+                    </p>
+                    <a href="/contact/quote" class="service-card-link">
+                        Get Help Now <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon-wrap">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3 class="service-card-title">Tree Damage</h3>
+                    <p class="service-card-desc">
+                        Fallen trees and branches can cause catastrophic roof damage. We coordinate
+                        removal and repair to restore your home's integrity.
+                    </p>
+                    <a href="/contact/quote" class="service-card-link">
+                        Get Help Now <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="emergency-process">
+        <div class="process-bg-text">RAPID</div>
+        <div class="process-container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <span>Our Process</span>
+                </div>
+                <h2 class="section-title">How We Respond</h2>
+                <p class="section-subtitle">
+                    Our streamlined emergency response process ensures fast action and clear communication.
+                </p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number"><span>1</span></div>
+                    <h3 class="step-title">Your Call</h3>
+                    <p class="step-desc">Call our 24/7 emergency line. A real person answers immediately.</p>
+                    <span class="step-time">Immediate</span>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number"><span>2</span></div>
+                    <h3 class="step-title">Dispatch</h3>
+                    <p class="step-desc">Our emergency crew is dispatched to your location right away.</p>
+                    <span class="step-time">&lt; 2 Hours</span>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number"><span>3</span></div>
+                    <h3 class="step-title">Secure</h3>
+                    <p class="step-desc">We assess damage and secure your roof to prevent further damage.</p>
+                    <span class="step-time">Same Day</span>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number"><span>4</span></div>
+                    <h3 class="step-title">Restore</h3>
+                    <p class="step-desc">Complete repairs and restoration with insurance coordination.</p>
+                    <span class="step-time">As Scheduled</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="emergency-trust">
+        <div class="trust-container">
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3 class="trust-title">Fully Licensed</h3>
+                <p class="trust-desc">Texas licensed contractor</p>
+            </div>
+
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="trust-title">Fully Insured</h3>
+                <p class="trust-desc">Complete liability coverage</p>
+            </div>
+
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                </div>
+                <h3 class="trust-title">Insurance Experts</h3>
+                <p class="trust-desc">We work with all carriers</p>
+            </div>
+
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="trust-title">Rapid Response</h3>
+                <p class="trust-desc">2-hour average response</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="emergency-projects">
+        <div class="projects-container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <span>Recent Work</span>
+                </div>
+                <h2 class="section-title">Emergency Repairs</h2>
+                <p class="section-subtitle">
+                    See how we've helped homeowners recover from roofing emergencies across Central Texas.
+                </p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="/images/projects/roof-aerial-1.jpg" alt="Storm damage repair project">
+                    <div class="project-overlay">
+                        <span class="project-tag">Storm Damage</span>
+                        <h3 class="project-title">Cedar Park Recovery</h3>
+                        <p class="project-desc">
+                            Complete roof replacement after severe hail damage. Insurance claim
+                            coordinated and approved within 2 weeks.
+                        </p>
+                        <a href="/projects" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="/images/projects/roof-aerial-2.jpg" alt="Emergency tarping project">
+                    <div class="project-overlay">
+                        <span class="project-tag">Emergency Tarping</span>
+                        <h3 class="project-title">Leander Response</h3>
+                        <p class="project-desc">
+                            Same-day tarping after tree damage. Full restoration completed
+                            within one week of initial call.
+                        </p>
+                        <a href="/projects" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Areas -->
+    <section class="emergency-areas">
+        <div class="areas-container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <span>Coverage Area</span>
+                </div>
+                <h2 class="section-title">We Serve Central Texas</h2>
+            </div>
+
+            <div class="areas-content">
+                <div class="areas-text">
+                    <h3>Emergency Service Coverage</h3>
+                    <p>
+                        Our emergency response teams are strategically located throughout
+                        Central Texas to ensure rapid response times to all service areas.
+                    </p>
+                    <a href="/contact" class="areas-cta">
+                        Check Your Area <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="areas-tags">
+                    <a href="/locations/leander" class="area-tag">Leander</a>
+                    <a href="/locations/liberty-hill" class="area-tag">Liberty Hill</a>
+                    <a href="/locations/georgetown" class="area-tag">Georgetown</a>
+                    <a href="/locations/cedar-park" class="area-tag">Cedar Park</a>
+                    <a href="/locations/round-rock" class="area-tag">Round Rock</a>
+                    <a href="/locations/pflugerville" class="area-tag">Pflugerville</a>
+                    <a href="/locations/jonestown" class="area-tag">Jonestown</a>
+                    <a href="/locations/lago-vista" class="area-tag">Lago Vista</a>
+                    <a href="/locations/burnet" class="area-tag">Burnet</a>
+                    <a href="/locations/lake-travis" class="area-tag">Lake Travis</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="emergency-cta">
+        <div class="cta-container">
+            <div class="cta-badge">
+                <i class="fas fa-exclamation-triangle"></i>
+                Need Help Now?
+            </div>
+            <h2 class="cta-title">Don't Wait—Call Now</h2>
+            <p class="cta-subtitle">
+                Roof damage gets worse with time. Every hour of delay can mean more water damage,
+                mold growth, and costly repairs. Our emergency team is standing by.
+            </p>
+            <a href="tel:+15127018090" class="cta-phone">
+                <i class="fas fa-phone-alt"></i>
+                (512) 701-8090
+            </a>
+            <div class="cta-actions">
+                <a href="tel:+15127018090" class="btn-emergency primary">
+                    <i class="fas fa-phone-alt"></i>
+                    Call Emergency Line
+                </a>
+                <a href="/contact/quote" class="btn-emergency secondary">
+                    <i class="fas fa-file-alt"></i>
+                    Submit Online Request
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    // Intersection Observer for scroll animations
+    document.addEventListener('DOMContentLoaded', () => {
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards
+        document.querySelectorAll('.service-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+
+        // Observe project cards
+        document.querySelectorAll('.project-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.6s ease ${index * 0.2}s`;
+            observer.observe(card);
+        });
+
+        // Animate stat numbers
+        const animateStats = () => {
+            document.querySelectorAll('.stat-number[data-target]').forEach(stat => {
+                const target = parseInt(stat.dataset.target);
+                const suffix = stat.dataset.suffix || '';
+                const duration = 2000;
+                const startTime = performance.now();
+
+                const updateNumber = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easeOut = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.floor(easeOut * target);
+                    stat.textContent = current + suffix;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateNumber);
+                    }
+                };
+
+                requestAnimationFrame(updateNumber);
+            });
+        };
+
+        // Trigger stat animation when hero is visible
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    heroObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const heroStats = document.querySelector('.hero-stats');
+        if (heroStats) {
+            heroObserver.observe(heroStats);
+        }
+    });
+</script>

@@ -392,6 +392,100 @@ document.addEventListener('DOMContentLoaded', () => {
     enableSmoothScrolling();
 });
 
+// ========================================
+// Container Scroll Animation (3D Perspective)
+// ========================================
+class ContainerScrollAnimation {
+    constructor(container) {
+        this.container = container;
+        this.header = container.querySelector('.container-scroll-header');
+        this.card = container.querySelector('.container-scroll-card');
+        this.isMobile = window.innerWidth <= 768;
+        this.ticking = false;
+
+        this.init();
+    }
+
+    init() {
+        // Check for reduced motion preference
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            return;
+        }
+
+        window.addEventListener('scroll', () => this.onScroll(), { passive: true });
+        window.addEventListener('resize', () => this.onResize());
+
+        // Initial calculation
+        this.calculate();
+    }
+
+    onResize() {
+        this.isMobile = window.innerWidth <= 768;
+    }
+
+    onScroll() {
+        if (!this.ticking) {
+            requestAnimationFrame(() => {
+                this.calculate();
+                this.ticking = false;
+            });
+            this.ticking = true;
+        }
+    }
+
+    calculate() {
+        const rect = this.container.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const containerHeight = rect.height;
+
+        // Calculate scroll progress (0 to 1) based on container position
+        const scrollStart = windowHeight;
+        const scrollEnd = -containerHeight;
+        const scrollRange = scrollStart - scrollEnd;
+        const currentPosition = rect.top;
+
+        // Progress from 0 (container just entering viewport) to 1 (container left viewport)
+        let progress = (scrollStart - currentPosition) / scrollRange;
+        progress = Math.max(0, Math.min(1, progress));
+
+        // Apply transforms
+        this.applyTransforms(progress);
+    }
+
+    applyTransforms(progress) {
+        // Rotation: starts at 20deg, ends at 0deg
+        const rotate = 20 - (progress * 20);
+
+        // Scale dimensions based on mobile/desktop
+        const scaleStart = this.isMobile ? 0.7 : 1.05;
+        const scaleEnd = this.isMobile ? 0.9 : 1;
+        const scale = scaleStart + (progress * (scaleEnd - scaleStart));
+
+        // Header translation: moves up as scroll progresses
+        const translateY = -progress * 100;
+
+        // Apply to card
+        if (this.card) {
+            this.card.style.transform = `rotateX(${rotate}deg) scale(${scale})`;
+        }
+
+        // Apply to header
+        if (this.header) {
+            this.header.style.transform = `translateY(${translateY}px)`;
+        }
+    }
+}
+
+// Initialize container scroll animations
+function initContainerScrollAnimations() {
+    const containers = document.querySelectorAll('.container-scroll');
+    containers.forEach(container => {
+        new ContainerScrollAnimation(container);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initContainerScrollAnimations);
+
 // Service Worker Registration (for PWA)
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -399,4 +493,196 @@ if ('serviceWorker' in navigator) {
             .then(registration => console.log('ServiceWorker registered'))
             .catch(err => console.log('ServiceWorker registration failed'));
     });
-} 
+}
+
+// Circular Gallery - Scroll Triggered
+class CircularGallery {
+    constructor(section) {
+        this.section = section;
+        this.container = section.querySelector('.circular-gallery-container');
+        this.gallery = section.querySelector('.circular-gallery');
+        this.items = section.querySelectorAll('.gallery-item');
+        this.totalItems = this.items.length;
+        this.radius = 320; // Radius of the circle
+        this.rotationOffset = 0;
+        this.ticking = false;
+
+        this.init();
+    }
+
+    init() {
+        this.setupItems();
+        this.setupScrollListener();
+        this.updatePositions(0);
+    }
+
+    setupItems() {
+        // Initial positioning
+        this.items.forEach((item, index) => {
+            item.style.transformOrigin = 'center center';
+        });
+    }
+
+    setupScrollListener() {
+        window.addEventListener('scroll', () => {
+            if (!this.ticking) {
+                requestAnimationFrame(() => {
+                    this.onScroll();
+                    this.ticking = false;
+                });
+                this.ticking = true;
+            }
+        }, { passive: true });
+    }
+
+    onScroll() {
+        const rect = this.section.getBoundingClientRect();
+        const sectionHeight = this.section.offsetHeight;
+        const viewportHeight = window.innerHeight;
+
+        // Calculate scroll progress within the section (0 to 1)
+        const scrollStart = rect.top;
+        const scrollEnd = rect.bottom - viewportHeight;
+        const scrollRange = sectionHeight - viewportHeight;
+
+        let progress = 0;
+        if (scrollStart <= 0 && scrollEnd >= 0) {
+            progress = Math.abs(scrollStart) / scrollRange;
+            progress = Math.max(0, Math.min(1, progress));
+        }
+
+        // Add/remove scrolled class for scroll indicator
+        if (progress > 0.05) {
+            this.section.classList.add('scrolled');
+        } else {
+            this.section.classList.remove('scrolled');
+        }
+
+        this.updatePositions(progress);
+    }
+
+    updatePositions(progress) {
+        // Rotate items through full circle based on scroll
+        const baseRotation = progress * 360 * 1.5; // 1.5 full rotations through scroll
+        const angleStep = 360 / this.totalItems;
+
+        this.items.forEach((item, index) => {
+            const angle = (angleStep * index) + baseRotation;
+            const radian = (angle * Math.PI) / 180;
+
+            // Calculate position on circle
+            const x = Math.sin(radian) * this.radius;
+            const y = Math.cos(radian) * this.radius * 0.15; // Slight vertical offset for depth
+            const z = Math.cos(radian); // Z for depth sorting
+
+            // Scale and opacity based on position (front items larger)
+            const normalizedZ = (z + 1) / 2; // 0 to 1, where 1 is front
+            const scale = 0.5 + (normalizedZ * 0.5);
+            const opacity = 0.3 + (normalizedZ * 0.7);
+
+            // Apply transforms
+            item.style.transform = `translateX(${x}px) translateY(${y}px) scale(${scale})`;
+            item.style.opacity = opacity;
+            item.style.zIndex = Math.round(normalizedZ * 10);
+        });
+    }
+}
+
+// Initialize Circular Gallery
+document.addEventListener('DOMContentLoaded', () => {
+    const gallerySection = document.getElementById('circularGallerySection');
+    if (gallerySection) {
+        new CircularGallery(gallerySection);
+    }
+});
+
+// Location Map Card - Interactive Component
+class LocationMapCard {
+    constructor(element) {
+        this.card = element;
+        this.inner = element.querySelector('.location-map-inner');
+        this.isExpanded = false;
+        this.mouseX = 0;
+        this.mouseY = 0;
+        this.targetRotateX = 0;
+        this.targetRotateY = 0;
+        this.currentRotateX = 0;
+        this.currentRotateY = 0;
+
+        this.init();
+    }
+
+    init() {
+        this.setupEventListeners();
+        this.animate();
+    }
+
+    setupEventListeners() {
+        // Mouse move for 3D tilt effect
+        this.card.addEventListener('mousemove', (e) => this.handleMouseMove(e));
+        this.card.addEventListener('mouseenter', () => this.handleMouseEnter());
+        this.card.addEventListener('mouseleave', () => this.handleMouseLeave());
+
+        // Click to expand/collapse
+        this.card.addEventListener('click', () => this.toggleExpanded());
+
+        // Touch support
+        this.card.addEventListener('touchstart', (e) => {
+            this.handleMouseEnter();
+        });
+        this.card.addEventListener('touchend', () => {
+            this.toggleExpanded();
+            this.handleMouseLeave();
+        });
+    }
+
+    handleMouseMove(e) {
+        if (!this.inner) return;
+
+        const rect = this.card.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const mouseX = e.clientX - centerX;
+        const mouseY = e.clientY - centerY;
+
+        // Calculate rotation (subtle effect)
+        this.targetRotateX = (mouseY / (rect.height / 2)) * -8;
+        this.targetRotateY = (mouseX / (rect.width / 2)) * 8;
+    }
+
+    handleMouseEnter() {
+        this.card.classList.add('hovered');
+    }
+
+    handleMouseLeave() {
+        this.card.classList.remove('hovered');
+        this.targetRotateX = 0;
+        this.targetRotateY = 0;
+    }
+
+    toggleExpanded() {
+        this.isExpanded = !this.isExpanded;
+        this.card.classList.toggle('expanded', this.isExpanded);
+    }
+
+    animate() {
+        // Smooth interpolation for rotation
+        this.currentRotateX += (this.targetRotateX - this.currentRotateX) * 0.1;
+        this.currentRotateY += (this.targetRotateY - this.currentRotateY) * 0.1;
+
+        if (this.inner) {
+            this.inner.style.transform = `rotateX(${this.currentRotateX}deg) rotateY(${this.currentRotateY}deg)`;
+        }
+
+        requestAnimationFrame(() => this.animate());
+    }
+}
+
+// Initialize Location Map Cards
+document.addEventListener('DOMContentLoaded', () => {
+    const mapCards = document.querySelectorAll('.location-map-card');
+    mapCards.forEach(card => {
+        new LocationMapCard(card);
+    });
+}); 

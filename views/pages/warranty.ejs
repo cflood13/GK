@@ -1,0 +1,1660 @@
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   WARRANTY PAGE - "Protection & Assurance" Aesthetic
+   Sophisticated, trustworthy design conveying security and peace of mind
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --warranty-navy: #1E3A5F;
+    --warranty-navy-dark: #152A45;
+    --warranty-blue: #3B82F6;
+    --warranty-blue-light: #60A5FA;
+    --warranty-platinum: #E5E7EB;
+    --warranty-white: #FFFFFF;
+    --warranty-gold: #D4AF37;
+    --warranty-gold-light: #E5C453;
+    --warranty-charcoal: #1F2937;
+    --warranty-gray: #6B7280;
+    --warranty-success: #10B981;
+}
+
+.warranty-page {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--warranty-white);
+    color: var(--warranty-charcoal);
+    overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.warranty-hero {
+    position: relative;
+    min-height: 85vh;
+    background: linear-gradient(135deg, var(--warranty-navy) 0%, var(--warranty-navy-dark) 100%);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.warranty-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+/* Animated shield pattern background */
+.warranty-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5L45 12V28C45 38 38 46 30 50C22 46 15 38 15 28V12L30 5Z' stroke='%233B82F6' stroke-width='0.5' fill='none' opacity='0.08'/%3E%3C/svg%3E");
+    background-size: 80px 80px;
+    opacity: 0.5;
+    animation: patternDrift 60s linear infinite;
+}
+
+@keyframes patternDrift {
+    from { background-position: 0 0; }
+    to { background-position: 80px 80px; }
+}
+
+.warranty-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 120px 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.warranty-hero-text {
+    animation: heroFadeIn 1s ease-out;
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.warranty-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 10px 20px;
+    border-radius: 50px;
+    margin-bottom: 30px;
+    animation: badgePulse 3s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.3); }
+    50% { box-shadow: 0 0 20px 5px rgba(212, 175, 55, 0.15); }
+}
+
+.warranty-hero-badge i {
+    color: var(--warranty-gold);
+    font-size: 1rem;
+}
+
+.warranty-hero-badge span {
+    color: var(--warranty-gold);
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.warranty-hero h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 700;
+    color: var(--warranty-white);
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.warranty-hero h1 span {
+    display: block;
+    color: var(--warranty-gold);
+    font-style: italic;
+}
+
+.warranty-hero-description {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 540px;
+}
+
+.warranty-hero-stats {
+    display: flex;
+    gap: 50px;
+}
+
+.warranty-stat {
+    text-align: left;
+}
+
+.warranty-stat-number {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--warranty-gold);
+    line-height: 1;
+}
+
+.warranty-stat-label {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 8px;
+}
+
+/* Hero Shield Visual */
+.warranty-hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: heroVisualFadeIn 1.2s ease-out 0.3s both;
+}
+
+@keyframes heroVisualFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.warranty-shield-container {
+    position: relative;
+    width: 400px;
+    height: 450px;
+}
+
+.warranty-shield {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 320px;
+    background: linear-gradient(180deg, var(--warranty-blue) 0%, var(--warranty-navy) 100%);
+    clip-path: polygon(50% 0%, 100% 15%, 100% 60%, 50% 100%, 0% 60%, 0% 15%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: shieldFloat 6s ease-in-out infinite;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        inset 0 0 80px rgba(255, 255, 255, 0.1);
+}
+
+@keyframes shieldFloat {
+    0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+    50% { transform: translate(-50%, -50%) translateY(-15px); }
+}
+
+.warranty-shield::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 2px solid rgba(212, 175, 55, 0.5);
+    clip-path: polygon(50% 0%, 100% 15%, 100% 60%, 50% 100%, 0% 60%, 0% 15%);
+}
+
+.warranty-shield-inner {
+    text-align: center;
+    color: var(--warranty-white);
+}
+
+.warranty-shield-inner i {
+    font-size: 4rem;
+    color: var(--warranty-gold);
+    margin-bottom: 15px;
+    display: block;
+    animation: checkPulse 2s ease-in-out infinite;
+}
+
+@keyframes checkPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.warranty-shield-inner span {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    display: block;
+    line-height: 1;
+}
+
+.warranty-shield-inner small {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    opacity: 0.8;
+}
+
+/* Orbiting elements */
+.warranty-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 380px;
+    height: 380px;
+    border: 1px dashed rgba(59, 130, 246, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: orbitSpin 30s linear infinite;
+}
+
+@keyframes orbitSpin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.warranty-orbit-item {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--warranty-navy);
+    border: 2px solid var(--warranty-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--warranty-gold);
+    font-size: 1.2rem;
+    animation: orbitItemSpin 30s linear infinite reverse;
+}
+
+.warranty-orbit-item:nth-child(1) { top: -25px; left: 50%; transform: translateX(-50%); }
+.warranty-orbit-item:nth-child(2) { top: 50%; right: -25px; transform: translateY(-50%); }
+.warranty-orbit-item:nth-child(3) { bottom: -25px; left: 50%; transform: translateX(-50%); }
+.warranty-orbit-item:nth-child(4) { top: 50%; left: -25px; transform: translateY(-50%); }
+
+@keyframes orbitItemSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   WARRANTY TIERS SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.warranty-tiers {
+    padding: 120px 5%;
+    background: var(--warranty-white);
+}
+
+.warranty-tiers-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 80px;
+}
+
+.warranty-section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--warranty-blue);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.warranty-section-tag::before,
+.warranty-section-tag::after {
+    content: '';
+    width: 30px;
+    height: 2px;
+    background: var(--warranty-blue);
+}
+
+.warranty-tiers h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    color: var(--warranty-navy);
+    margin-bottom: 20px;
+}
+
+.warranty-tiers-description {
+    font-size: 1.15rem;
+    color: var(--warranty-gray);
+    line-height: 1.7;
+}
+
+.warranty-tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.warranty-tier-card {
+    background: var(--warranty-white);
+    border: 1px solid var(--warranty-platinum);
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
+    position: relative;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.warranty-tier-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--warranty-platinum);
+    transition: background 0.4s ease;
+}
+
+.warranty-tier-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(30, 58, 95, 0.15);
+    border-color: transparent;
+}
+
+.warranty-tier-card.featured {
+    background: linear-gradient(180deg, var(--warranty-navy) 0%, var(--warranty-navy-dark) 100%);
+    border: none;
+    transform: scale(1.05);
+}
+
+.warranty-tier-card.featured::before {
+    background: linear-gradient(90deg, var(--warranty-gold), var(--warranty-gold-light));
+    height: 6px;
+}
+
+.warranty-tier-card.featured:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+.warranty-tier-badge {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: linear-gradient(135deg, var(--warranty-gold), var(--warranty-gold-light));
+    color: var(--warranty-navy);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.warranty-tier-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 30px;
+    background: var(--warranty-platinum);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.warranty-tier-card.featured .warranty-tier-icon {
+    background: rgba(59, 130, 246, 0.2);
+}
+
+.warranty-tier-icon i {
+    font-size: 2.5rem;
+    color: var(--warranty-navy);
+}
+
+.warranty-tier-card.featured .warranty-tier-icon i {
+    color: var(--warranty-gold);
+}
+
+.warranty-tier-icon::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px dashed var(--warranty-platinum);
+    border-radius: 50%;
+    animation: iconDashSpin 20s linear infinite;
+}
+
+.warranty-tier-card.featured .warranty-tier-icon::after {
+    border-color: rgba(212, 175, 55, 0.4);
+}
+
+@keyframes iconDashSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.warranty-tier-name {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.5rem;
+    color: var(--warranty-navy);
+    margin-bottom: 10px;
+}
+
+.warranty-tier-card.featured .warranty-tier-name {
+    color: var(--warranty-white);
+}
+
+.warranty-tier-years {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--warranty-blue);
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.warranty-tier-card.featured .warranty-tier-years {
+    color: var(--warranty-gold);
+}
+
+.warranty-tier-years span {
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.warranty-tier-description {
+    font-size: 0.95rem;
+    color: var(--warranty-gray);
+    margin: 20px 0 30px;
+    line-height: 1.6;
+}
+
+.warranty-tier-card.featured .warranty-tier-description {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.warranty-tier-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px;
+    text-align: left;
+}
+
+.warranty-tier-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--warranty-platinum);
+    font-size: 0.95rem;
+    color: var(--warranty-charcoal);
+}
+
+.warranty-tier-card.featured .warranty-tier-features li {
+    border-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.warranty-tier-features li:last-child {
+    border-bottom: none;
+}
+
+.warranty-tier-features li i {
+    color: var(--warranty-success);
+    font-size: 1rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.warranty-tier-card.featured .warranty-tier-features li i {
+    color: var(--warranty-gold);
+}
+
+.warranty-tier-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: var(--warranty-navy);
+    color: var(--warranty-white);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.warranty-tier-card.featured .warranty-tier-cta {
+    background: linear-gradient(135deg, var(--warranty-gold), var(--warranty-gold-light));
+    color: var(--warranty-navy);
+}
+
+.warranty-tier-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(30, 58, 95, 0.3);
+}
+
+.warranty-tier-card.featured .warranty-tier-cta:hover {
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MANUFACTURER PARTNERS SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.warranty-manufacturers {
+    padding: 100px 5%;
+    background: var(--warranty-platinum);
+    position: relative;
+}
+
+.warranty-manufacturers::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0v40M0 20h40' stroke='%23D1D5DB' stroke-width='1'/%3E%3C/svg%3E");
+    opacity: 0.5;
+}
+
+.warranty-manufacturers-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.warranty-manufacturers h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    color: var(--warranty-navy);
+    margin-bottom: 20px;
+}
+
+.warranty-manufacturers-description {
+    font-size: 1.1rem;
+    color: var(--warranty-gray);
+    max-width: 600px;
+    margin: 0 auto 60px;
+}
+
+.warranty-manufacturers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.warranty-manufacturer-card {
+    background: var(--warranty-white);
+    border-radius: 20px;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+}
+
+.warranty-manufacturer-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.warranty-manufacturer-logo {
+    height: 60px;
+    margin-bottom: 25px;
+    object-fit: contain;
+    filter: grayscale(0);
+    transition: filter 0.3s ease;
+}
+
+.warranty-manufacturer-card h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.4rem;
+    color: var(--warranty-navy);
+    margin-bottom: 15px;
+}
+
+.warranty-manufacturer-card p {
+    font-size: 0.95rem;
+    color: var(--warranty-gray);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.warranty-manufacturer-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.warranty-manufacturer-feature {
+    background: var(--warranty-platinum);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--warranty-navy);
+    font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   WARRANTY PROCESS TIMELINE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.warranty-process {
+    padding: 120px 5%;
+    background: var(--warranty-white);
+}
+
+.warranty-process-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 80px;
+}
+
+.warranty-process h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    color: var(--warranty-navy);
+    margin-bottom: 20px;
+}
+
+.warranty-process-description {
+    font-size: 1.15rem;
+    color: var(--warranty-gray);
+    line-height: 1.7;
+}
+
+.warranty-timeline {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.warranty-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--warranty-blue), var(--warranty-gold));
+    transform: translateX(-50%);
+    border-radius: 3px;
+}
+
+.warranty-timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.warranty-timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.warranty-timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.warranty-timeline-content {
+    flex: 1;
+    background: var(--warranty-white);
+    border: 1px solid var(--warranty-platinum);
+    border-radius: 16px;
+    padding: 35px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.warranty-timeline-content:hover {
+    box-shadow: 0 15px 40px rgba(30, 58, 95, 0.1);
+    border-color: var(--warranty-blue);
+}
+
+.warranty-timeline-step {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--warranty-blue);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.warranty-timeline-content h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.4rem;
+    color: var(--warranty-navy);
+    margin-bottom: 12px;
+}
+
+.warranty-timeline-content p {
+    font-size: 1rem;
+    color: var(--warranty-gray);
+    line-height: 1.6;
+}
+
+.warranty-timeline-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--warranty-navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--warranty-gold);
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    box-shadow: 0 10px 30px rgba(30, 58, 95, 0.3);
+}
+
+.warranty-timeline-spacer {
+    flex: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FAQ ACCORDION SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.warranty-faq {
+    padding: 120px 5%;
+    background: linear-gradient(180deg, var(--warranty-platinum) 0%, var(--warranty-white) 100%);
+}
+
+.warranty-faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.warranty-faq-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.warranty-faq h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    color: var(--warranty-navy);
+    margin-bottom: 20px;
+}
+
+.warranty-faq-description {
+    font-size: 1.15rem;
+    color: var(--warranty-gray);
+}
+
+.warranty-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.warranty-accordion-item {
+    background: var(--warranty-white);
+    border: 1px solid var(--warranty-platinum);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.warranty-accordion-item:hover {
+    border-color: var(--warranty-blue);
+}
+
+.warranty-accordion-item.active {
+    border-color: var(--warranty-blue);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+}
+
+.warranty-accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 30px;
+    cursor: pointer;
+    gap: 20px;
+}
+
+.warranty-accordion-header h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.15rem;
+    color: var(--warranty-navy);
+    margin: 0;
+    font-weight: 400;
+}
+
+.warranty-accordion-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--warranty-platinum);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--warranty-navy);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.warranty-accordion-item.active .warranty-accordion-icon {
+    background: var(--warranty-blue);
+    color: var(--warranty-white);
+    transform: rotate(180deg);
+}
+
+.warranty-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.warranty-accordion-item.active .warranty-accordion-content {
+    max-height: 500px;
+}
+
+.warranty-accordion-body {
+    padding: 0 30px 24px;
+    font-size: 1rem;
+    color: var(--warranty-gray);
+    line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TRUST BADGES SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.warranty-trust {
+    padding: 100px 5%;
+    background: var(--warranty-navy);
+    position: relative;
+    overflow: hidden;
+}
+
+.warranty-trust::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 10% 50%, rgba(59, 130, 246, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 90% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.warranty-trust-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.warranty-trust h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    color: var(--warranty-white);
+    margin-bottom: 60px;
+}
+
+.warranty-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.warranty-trust-item {
+    text-align: center;
+}
+
+.warranty-trust-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--warranty-gold);
+    font-size: 2rem;
+    transition: all 0.3s ease;
+}
+
+.warranty-trust-item:hover .warranty-trust-icon {
+    background: rgba(212, 175, 55, 0.2);
+    border-color: var(--warranty-gold);
+    transform: scale(1.1);
+}
+
+.warranty-trust-item h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.2rem;
+    color: var(--warranty-white);
+    margin-bottom: 10px;
+}
+
+.warranty-trust-item p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CTA SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.warranty-cta {
+    padding: 120px 5%;
+    background: var(--warranty-white);
+    text-align: center;
+}
+
+.warranty-cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.warranty-cta-shield {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 30px;
+    background: linear-gradient(135deg, var(--warranty-blue), var(--warranty-navy));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--warranty-gold);
+    font-size: 2.5rem;
+    box-shadow: 0 15px 40px rgba(30, 58, 95, 0.25);
+    animation: ctaShieldPulse 3s ease-in-out infinite;
+}
+
+@keyframes ctaShieldPulse {
+    0%, 100% { box-shadow: 0 15px 40px rgba(30, 58, 95, 0.25), 0 0 0 0 rgba(59, 130, 246, 0.3); }
+    50% { box-shadow: 0 15px 40px rgba(30, 58, 95, 0.25), 0 0 0 20px rgba(59, 130, 246, 0); }
+}
+
+.warranty-cta h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    color: var(--warranty-navy);
+    margin-bottom: 20px;
+}
+
+.warranty-cta h2 span {
+    color: var(--warranty-gold);
+}
+
+.warranty-cta-description {
+    font-size: 1.2rem;
+    color: var(--warranty-gray);
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.warranty-cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.warranty-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 36px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.warranty-cta-btn.primary {
+    background: linear-gradient(135deg, var(--warranty-navy), var(--warranty-navy-dark));
+    color: var(--warranty-white);
+}
+
+.warranty-cta-btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(30, 58, 95, 0.35);
+}
+
+.warranty-cta-btn.secondary {
+    background: var(--warranty-platinum);
+    color: var(--warranty-navy);
+}
+
+.warranty-cta-btn.secondary:hover {
+    background: var(--warranty-navy);
+    color: var(--warranty-white);
+    transform: translateY(-3px);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+    .warranty-hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 60px;
+    }
+
+    .warranty-hero-stats {
+        justify-content: center;
+    }
+
+    .warranty-shield-container {
+        width: 320px;
+        height: 380px;
+    }
+
+    .warranty-shield {
+        width: 220px;
+        height: 260px;
+    }
+
+    .warranty-orbit {
+        width: 300px;
+        height: 300px;
+    }
+
+    .warranty-tiers-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .warranty-tier-card.featured {
+        transform: scale(1);
+        order: -1;
+    }
+
+    .warranty-tier-card.featured:hover {
+        transform: translateY(-10px);
+    }
+
+    .warranty-manufacturers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .warranty-timeline::before {
+        left: 35px;
+    }
+
+    .warranty-timeline-item,
+    .warranty-timeline-item:nth-child(even) {
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .warranty-timeline-spacer {
+        display: none;
+    }
+
+    .warranty-timeline-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .warranty-trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 640px) {
+    .warranty-hero {
+        min-height: auto;
+    }
+
+    .warranty-hero-content {
+        padding: 100px 5% 80px;
+    }
+
+    .warranty-hero-stats {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .warranty-stat {
+        text-align: center;
+    }
+
+    .warranty-shield-container {
+        width: 260px;
+        height: 320px;
+    }
+
+    .warranty-shield {
+        width: 180px;
+        height: 220px;
+    }
+
+    .warranty-shield-inner span {
+        font-size: 2.5rem;
+    }
+
+    .warranty-shield-inner i {
+        font-size: 3rem;
+    }
+
+    .warranty-orbit {
+        width: 250px;
+        height: 250px;
+    }
+
+    .warranty-orbit-item {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .warranty-tiers,
+    .warranty-process,
+    .warranty-faq,
+    .warranty-cta {
+        padding: 80px 5%;
+    }
+
+    .warranty-tier-card {
+        padding: 40px 25px;
+    }
+
+    .warranty-timeline-content {
+        padding: 25px;
+    }
+
+    .warranty-accordion-header {
+        padding: 20px;
+    }
+
+    .warranty-accordion-header h3 {
+        font-size: 1rem;
+    }
+
+    .warranty-trust-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .warranty-cta-buttons {
+        flex-direction: column;
+    }
+
+    .warranty-cta-btn {
+        justify-content: center;
+    }
+}
+</style>
+
+<div class="warranty-page">
+    <!-- Hero Section -->
+    <section class="warranty-hero">
+        <div class="warranty-hero-content">
+            <div class="warranty-hero-text">
+                <div class="warranty-hero-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Industry-Leading Protection</span>
+                </div>
+                <h1>
+                    Protected by
+                    <span>the Best</span>
+                </h1>
+                <p class="warranty-hero-description">
+                    Your roof is one of the most important investments you'll make. That's why we partner
+                    with GAF and Owens Corning to provide comprehensive warranty coverage that protects
+                    your home for decades to come.
+                </p>
+                <div class="warranty-hero-stats">
+                    <div class="warranty-stat">
+                        <div class="warranty-stat-number">50</div>
+                        <div class="warranty-stat-label">Year Warranty</div>
+                    </div>
+                    <div class="warranty-stat">
+                        <div class="warranty-stat-number">100%</div>
+                        <div class="warranty-stat-label">Transferable</div>
+                    </div>
+                    <div class="warranty-stat">
+                        <div class="warranty-stat-number">$0</div>
+                        <div class="warranty-stat-label">Deductible</div>
+                    </div>
+                </div>
+            </div>
+            <div class="warranty-hero-visual">
+                <div class="warranty-shield-container">
+                    <div class="warranty-orbit">
+                        <div class="warranty-orbit-item"><i class="fas fa-home"></i></div>
+                        <div class="warranty-orbit-item"><i class="fas fa-tools"></i></div>
+                        <div class="warranty-orbit-item"><i class="fas fa-certificate"></i></div>
+                        <div class="warranty-orbit-item"><i class="fas fa-handshake"></i></div>
+                    </div>
+                    <div class="warranty-shield">
+                        <div class="warranty-shield-inner">
+                            <i class="fas fa-check"></i>
+                            <span>50</span>
+                            <small>Years</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warranty Tiers Section -->
+    <section class="warranty-tiers">
+        <div class="warranty-tiers-header">
+            <div class="warranty-section-tag">Coverage Options</div>
+            <h2>Choose Your Level of Protection</h2>
+            <p class="warranty-tiers-description">
+                We offer multiple warranty tiers to match your needs and budget. Each provides
+                exceptional coverage backed by America's most trusted manufacturers.
+            </p>
+        </div>
+        <div class="warranty-tiers-grid">
+            <!-- Workmanship Warranty -->
+            <div class="warranty-tier-card">
+                <div class="warranty-tier-icon">
+                    <i class="fas fa-hard-hat"></i>
+                </div>
+                <h3 class="warranty-tier-name">Workmanship</h3>
+                <div class="warranty-tier-years">10<span> Years</span></div>
+                <p class="warranty-tier-description">
+                    Our foundation warranty covering all labor and installation quality.
+                </p>
+                <ul class="warranty-tier-features">
+                    <li><i class="fas fa-check"></i> Labor coverage for 10 years</li>
+                    <li><i class="fas fa-check"></i> Installation defects covered</li>
+                    <li><i class="fas fa-check"></i> No deductible claims</li>
+                    <li><i class="fas fa-check"></i> Fully transferable</li>
+                </ul>
+                <a href="/contact/quote" class="warranty-tier-cta">
+                    Get Started <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- GAF Golden Pledge (Featured) -->
+            <div class="warranty-tier-card featured">
+                <div class="warranty-tier-badge">Most Popular</div>
+                <div class="warranty-tier-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h3 class="warranty-tier-name">GAF Golden Pledge</h3>
+                <div class="warranty-tier-years">50<span> Years</span></div>
+                <p class="warranty-tier-description">
+                    The ultimate protection with comprehensive material and labor coverage.
+                </p>
+                <ul class="warranty-tier-features">
+                    <li><i class="fas fa-check"></i> 50-year material warranty</li>
+                    <li><i class="fas fa-check"></i> 25-year workmanship coverage</li>
+                    <li><i class="fas fa-check"></i> Wind damage up to 130 mph</li>
+                    <li><i class="fas fa-check"></i> 100% material cost coverage</li>
+                    <li><i class="fas fa-check"></i> Tear-off costs included</li>
+                    <li><i class="fas fa-check"></i> Fully transferable</li>
+                </ul>
+                <a href="/contact/quote" class="warranty-tier-cta">
+                    Get Golden Pledge <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- GAF System Plus -->
+            <div class="warranty-tier-card">
+                <div class="warranty-tier-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="warranty-tier-name">GAF System Plus</h3>
+                <div class="warranty-tier-years">25<span> Years</span></div>
+                <p class="warranty-tier-description">
+                    Extended protection with excellent material and workmanship coverage.
+                </p>
+                <ul class="warranty-tier-features">
+                    <li><i class="fas fa-check"></i> 25-year material warranty</li>
+                    <li><i class="fas fa-check"></i> 10-year workmanship coverage</li>
+                    <li><i class="fas fa-check"></i> Wind damage protection</li>
+                    <li><i class="fas fa-check"></i> Prorated material coverage</li>
+                </ul>
+                <a href="/contact/quote" class="warranty-tier-cta">
+                    Learn More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manufacturer Partners Section -->
+    <section class="warranty-manufacturers">
+        <div class="warranty-manufacturers-content">
+            <h2>Backed by Industry Leaders</h2>
+            <p class="warranty-manufacturers-description">
+                As certified contractors for GAF and Owens Corning, we provide factory-backed
+                warranties that only authorized installers can offer.
+            </p>
+            <div class="warranty-manufacturers-grid">
+                <div class="warranty-manufacturer-card">
+                    <img src="/images/logos/gaf-certified.png" alt="GAF Certified" class="warranty-manufacturer-logo">
+                    <h3>GAF Master Elite® Contractor</h3>
+                    <p>
+                        Only 2% of roofing contractors qualify for GAF's highest certification.
+                        This allows us to offer the industry's best warranties with Golden Pledge® coverage.
+                    </p>
+                    <div class="warranty-manufacturer-features">
+                        <span class="warranty-manufacturer-feature">Top 2% Nationwide</span>
+                        <span class="warranty-manufacturer-feature">50-Year Coverage</span>
+                        <span class="warranty-manufacturer-feature">Factory Certified</span>
+                    </div>
+                </div>
+                <div class="warranty-manufacturer-card">
+                    <img src="/images/logos/owens-corning.png" alt="Owens Corning" class="warranty-manufacturer-logo">
+                    <h3>Owens Corning Preferred</h3>
+                    <p>
+                        As a Preferred Contractor, we can offer Owens Corning's comprehensive
+                        warranty programs including their Platinum Protection coverage.
+                    </p>
+                    <div class="warranty-manufacturer-features">
+                        <span class="warranty-manufacturer-feature">Preferred Contractor</span>
+                        <span class="warranty-manufacturer-feature">Lifetime Shingles</span>
+                        <span class="warranty-manufacturer-feature">System Warranty</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warranty Claim Process -->
+    <section class="warranty-process">
+        <div class="warranty-process-header">
+            <div class="warranty-section-tag">Simple Process</div>
+            <h2>How Warranty Claims Work</h2>
+            <p class="warranty-process-description">
+                If you ever need to use your warranty, we make the process simple and stress-free.
+                Here's what to expect.
+            </p>
+        </div>
+        <div class="warranty-timeline">
+            <div class="warranty-timeline-item">
+                <div class="warranty-timeline-content">
+                    <div class="warranty-timeline-step">Step 1</div>
+                    <h3>Contact Us</h3>
+                    <p>Call our office or submit an online form to report your roofing issue. We're available 24/7 for emergencies.</p>
+                </div>
+                <div class="warranty-timeline-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="warranty-timeline-spacer"></div>
+            </div>
+            <div class="warranty-timeline-item">
+                <div class="warranty-timeline-spacer"></div>
+                <div class="warranty-timeline-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="warranty-timeline-content">
+                    <div class="warranty-timeline-step">Step 2</div>
+                    <h3>Free Inspection</h3>
+                    <p>Our certified technician will thoroughly inspect your roof and document any issues covered under warranty.</p>
+                </div>
+            </div>
+            <div class="warranty-timeline-item">
+                <div class="warranty-timeline-content">
+                    <div class="warranty-timeline-step">Step 3</div>
+                    <h3>Claim Filing</h3>
+                    <p>We handle all paperwork and communication with the manufacturer on your behalf—no hassle for you.</p>
+                </div>
+                <div class="warranty-timeline-icon">
+                    <i class="fas fa-file-signature"></i>
+                </div>
+                <div class="warranty-timeline-spacer"></div>
+            </div>
+            <div class="warranty-timeline-item">
+                <div class="warranty-timeline-spacer"></div>
+                <div class="warranty-timeline-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="warranty-timeline-content">
+                    <div class="warranty-timeline-step">Step 4</div>
+                    <h3>Repairs Completed</h3>
+                    <p>Once approved, we complete the repairs quickly and professionally. Most claims are resolved within 2 weeks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="warranty-faq">
+        <div class="warranty-faq-container">
+            <div class="warranty-faq-header">
+                <div class="warranty-section-tag">Questions Answered</div>
+                <h2>Frequently Asked Questions</h2>
+                <p class="warranty-faq-description">
+                    Everything you need to know about our warranty coverage.
+                </p>
+            </div>
+            <div class="warranty-accordion">
+                <div class="warranty-accordion-item active">
+                    <div class="warranty-accordion-header">
+                        <h3>What does the GAF Golden Pledge warranty cover?</h3>
+                        <div class="warranty-accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="warranty-accordion-content">
+                        <div class="warranty-accordion-body">
+                            The GAF Golden Pledge warranty provides comprehensive 50-year coverage on materials and 25 years on workmanship. It includes 100% material cost coverage (non-prorated for the first 10 years), wind coverage up to 130 mph, tear-off costs on eligible claims, and is fully transferable to new homeowners.
+                        </div>
+                    </div>
+                </div>
+                <div class="warranty-accordion-item">
+                    <div class="warranty-accordion-header">
+                        <h3>Can I transfer my warranty to a new owner?</h3>
+                        <div class="warranty-accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="warranty-accordion-content">
+                        <div class="warranty-accordion-body">
+                            Yes! All of our warranties are transferable to subsequent homeowners. For GAF warranties, you simply need to register the transfer within 60 days of the sale. This can add significant value to your home when selling.
+                        </div>
+                    </div>
+                </div>
+                <div class="warranty-accordion-item">
+                    <div class="warranty-accordion-header">
+                        <h3>Does the warranty cover storm damage?</h3>
+                        <div class="warranty-accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="warranty-accordion-content">
+                        <div class="warranty-accordion-body">
+                            GAF warranties include wind damage coverage up to 130 mph when installed as a complete system. However, damage from major storms (hurricanes, tornadoes) is typically covered by your homeowner's insurance. We recommend having both warranty and insurance coverage for complete protection.
+                        </div>
+                    </div>
+                </div>
+                <div class="warranty-accordion-item">
+                    <div class="warranty-accordion-header">
+                        <h3>Why does contractor certification matter for warranties?</h3>
+                        <div class="warranty-accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="warranty-accordion-content">
+                        <div class="warranty-accordion-body">
+                            Manufacturer warranties are only valid when installed by certified contractors. As a GAF Master Elite contractor (top 2% nationwide), we can offer warranty coverage that non-certified contractors cannot. This includes longer coverage periods and additional protections like workmanship coverage.
+                        </div>
+                    </div>
+                </div>
+                <div class="warranty-accordion-item">
+                    <div class="warranty-accordion-header">
+                        <h3>What's not covered under the warranty?</h3>
+                        <div class="warranty-accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="warranty-accordion-content">
+                        <div class="warranty-accordion-body">
+                            Standard exclusions include damage from improper maintenance, unauthorized repairs, structural issues, acts of nature beyond specified wind speeds, and normal wear in traffic areas. We'll explain all terms clearly before installation so there are no surprises.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges Section -->
+    <section class="warranty-trust">
+        <div class="warranty-trust-content">
+            <h2>Why Trust GK Homes with Your Roof</h2>
+            <div class="warranty-trust-grid">
+                <div class="warranty-trust-item">
+                    <div class="warranty-trust-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Certified Excellence</h3>
+                    <p>GAF Master Elite & Owens Corning Preferred contractor</p>
+                </div>
+                <div class="warranty-trust-item">
+                    <div class="warranty-trust-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>19+ Years Experience</h3>
+                    <p>Trusted by Central Texas families since 2006</p>
+                </div>
+                <div class="warranty-trust-item">
+                    <div class="warranty-trust-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>5-Star Rated</h3>
+                    <p>Hundreds of satisfied customers across the region</p>
+                </div>
+                <div class="warranty-trust-item">
+                    <div class="warranty-trust-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Written Guarantee</h3>
+                    <p>Every warranty is documented and registered</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="warranty-cta">
+        <div class="warranty-cta-content">
+            <div class="warranty-cta-shield">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h2>Ready for <span>Peace of Mind?</span></h2>
+            <p class="warranty-cta-description">
+                Get a free consultation and learn which warranty option is best for your home.
+                Our team will explain all coverage details and help you make the right choice.
+            </p>
+            <div class="warranty-cta-buttons">
+                <a href="/contact/quote" class="warranty-cta-btn primary">
+                    <i class="fas fa-calculator"></i>
+                    Get Free Quote
+                </a>
+                <a href="tel:512-564-3679" class="warranty-cta-btn secondary">
+                    <i class="fas fa-phone"></i>
+                    (512) 564-3679
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+// Accordion functionality
+document.querySelectorAll('.warranty-accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const isActive = item.classList.contains('active');
+
+        // Close all items
+        document.querySelectorAll('.warranty-accordion-item').forEach(i => {
+            i.classList.remove('active');
+        });
+
+        // Open clicked item if it wasn't active
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    });
+});
+
+// Scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const animateOnScroll = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Apply animations to sections
+document.querySelectorAll('.warranty-tier-card, .warranty-manufacturer-card, .warranty-timeline-item, .warranty-trust-item').forEach((el, index) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = `all 0.6s ease ${index * 0.1}s`;
+    animateOnScroll.observe(el);
+});
+</script>

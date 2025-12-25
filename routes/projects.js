@@ -8,47 +8,55 @@ const router = express.Router();
                 id: 1,
                 title: 'Amy\'s Daycare',
                 category: 'construction',
-                description: 'Complete daycare facility construction with modern safety features',
-                thumbnail: '/images/projects/amys-daycare-thumb.jpg',
-                images: ['/images/projects/amys-daycare-thumb.jpg', '/images/services/construction.jpg']
+                description: 'Complete commercial daycare facility construction from ground up, featuring modern safety features and durable materials',
+                thumbnail: '/images/projects/daycare-aerial.jpg',
+                images: ['/images/projects/daycare-aerial.jpg', '/images/projects/daycare-framing.jpg', '/images/projects/daycare-progress.jpg']
             },
             {
                 id: 2,
-                title: 'Old Anderson Mill Winn Whittman House',
+                title: 'Old Anderson Mill Historic Home',
                 category: 'remodeling',
-                description: 'Historic home restoration and complete remodeling',
-                thumbnail: '/images/projects/anderson-mill-thumb.jpg',
-                images: ['/images/projects/anderson-mill-thumb.jpg', '/images/projects/anderson1.jpg', '/images/projects/anderson2.jpg', '/images/projects/anderson3.jpg']
+                description: 'Historic home restoration preserving original character while adding modern amenities',
+                thumbnail: '/images/projects/anderson-hero.jpg',
+                images: ['/images/projects/anderson-hero.jpg', '/images/projects/anderson1.jpg', '/images/projects/anderson2.jpg', '/images/projects/anderson3.jpg']
             },
             {
                 id: 3,
-                title: '1000 LaCantera',
+                title: '1000 LaCantera Luxury Remodel',
                 category: 'remodeling',
-                description: 'Luxury home complete remodel with high-end finishes',
-                thumbnail: '/images/services/remodeling.jpg',
-                images: ['/images/services/remodeling.jpg', '/images/projects/lacantera1.jpg', '/images/projects/lacantera2.jpg']
+                description: 'Complete luxury home remodel featuring custom bathrooms, hardwood floors, and high-end finishes',
+                thumbnail: '/images/projects/lacantera-bathroom.jpg',
+                images: ['/images/projects/lacantera-bathroom.jpg', '/images/projects/lacantera-laundry.jpg', '/images/projects/lacantera-closet.jpg', '/images/projects/lacantera1.jpg', '/images/projects/lacantera2.jpg']
             },
             {
                 id: 4,
-                title: 'Solar Roofing Installation',
+                title: 'GAF Timberline Solar Installation',
                 category: 'solar',
-                description: 'GAF Timberline Solar roof installation with energy efficiency',
+                description: 'Innovative solar shingle installation combining roof protection with clean energy generation',
                 thumbnail: '/images/projects/solar-roof-thumb.jpg',
                 images: ['/images/projects/solar-roof-thumb.jpg', '/images/services/solar.jpg']
             },
             {
                 id: 5,
-                title: 'Residential Roof Replacement',
+                title: 'Lake Dillon Roof Replacement',
                 category: 'roofing',
-                description: 'Complete roof replacement with GAF architectural shingles',
-                thumbnail: '/images/services/roofing.jpg',
-                images: ['/images/services/roofing.jpg', '/images/gallery1.jpg', '/images/gallery2.jpg', '/images/gallery3.jpg']
+                description: 'Complete residential roof replacement with premium GAF architectural shingles',
+                thumbnail: '/images/projects/lakedillon-roof.jpg',
+                images: ['/images/projects/lakedillon-roof.jpg', '/images/projects/roof-aerial-1.jpg', '/images/projects/roof-aerial-2.jpg']
             },
             {
                 id: 6,
+                title: 'Luxury Estate Roofing',
+                category: 'roofing',
+                description: 'Premium tile roof installation on luxury estate with precision craftsmanship',
+                thumbnail: '/images/projects/roof-aerial-1.jpg',
+                images: ['/images/projects/roof-aerial-1.jpg', '/images/projects/roof-aerial-2.jpg', '/images/hero-aerial.jpg']
+            },
+            {
+                id: 7,
                 title: 'Custom Home Construction',
                 category: 'construction',
-                description: 'New custom home build from foundation to finish',
+                description: 'New custom home build from foundation to finish with quality materials',
                 thumbnail: '/images/projects/project1.jpg',
                 images: ['/images/projects/project1.jpg', '/images/projects/project2.jpg']
             }
