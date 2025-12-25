@@ -4388,6 +4388,14 @@ a.gallery-item:hover {
     font-size: 1.25rem;
     font-weight: 700;
     font-family: var(--font-display);
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+    cursor: pointer;
+}
+
+.gallery-item-label a.item-title:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
 }
 
 .gallery-item-label .item-subtitle {
