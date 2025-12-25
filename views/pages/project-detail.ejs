@@ -728,7 +728,7 @@
                 <% if (project.images.length > 1) { %>
                 <div class="pd-gallery-thumbs">
                     <% project.images.forEach((image, index) => { %>
-                        <div class="pd-thumb <%= index === 0 ? 'active' : '' %>" onclick="changeImage('<%= image %>', this)">
+                        <div class="pd-thumb <%= index === 0 ? 'active' : '' %>" data-image="<%= image %>">
                             <img src="<%= image %>" alt="<%= project.title %> - Image <%= index + 1 %>">
                         </div>
                     <% }) %>
@@ -866,13 +866,24 @@
 </div>
 
 <script>
-    function changeImage(src, thumb) {
-        // Update main image
-        document.getElementById('mainImage').src = src;
-        document.getElementById('heroImage').src = src;
+    document.addEventListener('DOMContentLoaded', function() {
+        const thumbsContainer = document.querySelector('.pd-gallery-thumbs');
+        if (thumbsContainer) {
+            thumbsContainer.addEventListener('click', function(e) {
+                const thumb = e.target.closest('.pd-thumb');
+                if (thumb) {
+                    const src = thumb.getAttribute('data-image');
+                    if (src) {
+                        // Update main image
+                        document.getElementById('mainImage').src = src;
+                        document.getElementById('heroImage').src = src;
 
-        // Update active thumbnail
-        document.querySelectorAll('.pd-thumb').forEach(t => t.classList.remove('active'));
-        thumb.classList.add('active');
-    }
+                        // Update active thumbnail
+                        document.querySelectorAll('.pd-thumb').forEach(t => t.classList.remove('active'));
+                        thumb.classList.add('active');
+                    }
+                }
+            });
+        }
+    });
 </script>
