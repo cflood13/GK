@@ -1,243 +1,877 @@
-<!-- Project Detail Hero -->
-<section class="page-hero" style="background-image: url('<%= project.images && project.images[0] ? project.images[0] : project.thumbnail %>');">
-    <div class="page-hero-overlay"></div>
-    <div class="page-hero-content">
-        <h1 class="animate-on-scroll"><%= project.title %></h1>
-        <p class="animate-on-scroll"><%= project.category.charAt(0).toUpperCase() + project.category.slice(1) %> Project</p>
-    </div>
-</section>
-
-<!-- Project Details -->
-<section class="section">
-    <div class="container">
-        <div class="project-detail-wrapper">
-            <div class="project-gallery animate-on-scroll">
-                <% if (project.images && project.images.length > 0) { %>
-                    <div class="main-image">
-                        <img id="main-image" src="<%= project.images[0] %>" alt="<%= project.title %>">
-                    </div>
-                    <div class="thumbnail-grid">
-                        <% project.images.forEach((image, index) => { %>
-                            <div class="thumbnail <%= index === 0 ? 'active' : '' %>" onclick="changeMainImage('<%= image %>', this)">
-                                <img src="<%= image %>" alt="<%= project.title %> - Image <%= index + 1 %>">
-                            </div>
-                        <% }) %>
-                    </div>
-                <% } else { %>
-                    <div class="main-image">
-                        <img src="<%= project.thumbnail %>" alt="<%= project.title %>">
-                    </div>
-                <% } %>
-            </div>
-            
-            <div class="project-info animate-on-scroll">
-                <h2><%= project.title %></h2>
-                <p class="project-description"><%= project.description %></p>
-                
-                <% if (project.details) { %>
-                    <div class="project-details">
-                        <h3>Project Details</h3>
-                        <ul>
-                            <% if (project.details.duration) { %>
-                                <li><strong>Duration:</strong> <%= project.details.duration %></li>
-                            <% } %>
-                            <% if (project.details.scope) { %>
-                                <li><strong>Scope:</strong> <%= project.details.scope %></li>
-                            <% } %>
-                            <% if (project.details.location) { %>
-                                <li><strong>Location:</strong> <%= project.details.location %></li>
-                            <% } %>
-                            <% if (project.details.services) { %>
-                                <li><strong>Services:</strong> <%= project.details.services %></li>
-                            <% } %>
-                        </ul>
-                    </div>
-                <% } %>
-                
-                <div class="project-highlights">
-                    <h3>Project Highlights</h3>
-                    <ul>
-                        <li>Professional installation by certified technicians</li>
-                        <li>High-quality materials with manufacturer warranties</li>
-                        <li>Completed on time and within budget</li>
-                        <li>Minimal disruption to daily activities</li>
-                    </ul>
-                </div>
-                
-                <div class="project-cta">
-                    <h3>Start Your Project Today</h3>
-                    <p>Ready to transform your property? Let's discuss your project needs.</p>
-                    <a href="/contact/quote" class="btn btn-primary">Get Free Quote</a>
-                    <a href="/projects" class="btn btn-secondary">View More Projects</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Related Projects -->
-<section class="section" style="background-color: var(--light-color);">
-    <div class="container">
-        <h2 style="text-align: center; margin-bottom: 3rem;">Related Projects</h2>
-        <div class="related-projects">
-            <% const relatedProjects = [
-                { id: 1, title: "Residential Roof Replacement", category: "roofing", thumbnail: "/images/gallery1.jpg" },
-                { id: 2, title: "Kitchen Remodel", category: "remodeling", thumbnail: "/images/services/remodeling.jpg" },
-                { id: 3, title: "Solar Installation", category: "solar", thumbnail: "/images/services/solar.jpg" }
-            ].filter(p => p.category === project.category && p.id != project.id).slice(0, 3); %>
-            
-            <% relatedProjects.forEach(relProject => { %>
-                <div class="project-card animate-on-scroll">
-                    <div class="project-image">
-                        <img src="<%= relProject.thumbnail %>" alt="<%= relProject.title %>">
-                        <div class="project-overlay">
-                            <div class="project-info">
-                                <h3><%= relProject.title %></h3>
-                                <a href="/projects/<%= relProject.id %>" class="btn btn-outline">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <% }) %>
-        </div>
-    </div>
-</section>
-
 <style>
-.project-detail-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl);
-    align-items: start;
-}
+    /* Project Detail Page Styles */
+    /* Portfolio Showcase Aesthetic */
 
-.project-gallery {
-    position: sticky;
-    top: 100px;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;500;600;700&display=swap');
 
-.main-image {
-    width: 100%;
-    margin-bottom: var(--spacing-md);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.main-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.thumbnail-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-sm);
-}
-
-.thumbnail {
-    cursor: pointer;
-    border-radius: 5px;
-    overflow: hidden;
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
-}
-
-.thumbnail.active,
-.thumbnail:hover {
-    opacity: 1;
-}
-
-.thumbnail img {
-    width: 100%;
-    height: 80px;
-    object-fit: cover;
-}
-
-.project-info h2 {
-    margin-bottom: var(--spacing-md);
-    color: var(--dark-color);
-}
-
-.project-description {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    margin-bottom: var(--spacing-lg);
-    color: var(--text-secondary);
-}
-
-.project-details,
-.project-highlights {
-    margin-bottom: var(--spacing-lg);
-}
-
-.project-details h3,
-.project-highlights h3,
-.project-cta h3 {
-    margin-bottom: var(--spacing-md);
-    color: var(--primary-color);
-}
-
-.project-details ul,
-.project-highlights ul {
-    list-style: none;
-}
-
-.project-details ul li,
-.project-highlights ul li {
-    padding: 8px 0;
-    position: relative;
-    padding-left: 25px;
-}
-
-.project-highlights ul li:before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--secondary-color);
-    font-weight: bold;
-}
-
-.project-cta {
-    background: var(--light-color);
-    padding: var(--spacing-lg);
-    border-radius: 10px;
-    text-align: center;
-}
-
-.project-cta p {
-    margin-bottom: var(--spacing-md);
-}
-
-.project-cta .btn {
-    margin: 5px;
-}
-
-.related-projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-}
-
-@media (max-width: 768px) {
-    .project-detail-wrapper {
-        grid-template-columns: 1fr;
+    :root {
+        --pd-charcoal: #1a1a2e;
+        --pd-slate: #16213e;
+        --pd-accent: #e94560;
+        --pd-gold: #d4a574;
+        --pd-cream: #f8f5f1;
+        --pd-white: #ffffff;
+        --pd-text: #4a4a4a;
+        --pd-text-light: #6b6b6b;
+        --pd-border: #e8e8e8;
     }
-    
-    .project-gallery {
-        position: static;
+
+    .project-detail-page {
+        font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--pd-cream);
+        color: var(--pd-text);
     }
-    
-    .thumbnail-grid {
+
+    /* Hero Section */
+    .pd-hero {
+        position: relative;
+        height: 70vh;
+        min-height: 500px;
+        overflow: hidden;
+    }
+
+    .pd-hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        animation: heroZoom 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroZoom {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.1); }
+    }
+
+    .pd-hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            rgba(26, 26, 46, 0.3) 0%,
+            rgba(26, 26, 46, 0.5) 50%,
+            rgba(26, 26, 46, 0.9) 100%
+        );
+    }
+
+    .pd-hero-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 60px 40px;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .pd-category-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--pd-accent);
+        color: var(--pd-white);
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .pd-hero h1 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 700;
+        color: var(--pd-white);
+        margin: 0 0 15px;
+        line-height: 1.1;
+        animation: fadeInUp 0.6s ease 0.1s forwards;
+        opacity: 0;
+    }
+
+    .pd-hero-description {
+        font-size: 1.25rem;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 700px;
+        line-height: 1.6;
+        animation: fadeInUp 0.6s ease 0.2s forwards;
+        opacity: 0;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Quick Stats Bar */
+    .pd-stats-bar {
+        background: var(--pd-charcoal);
+        padding: 0;
+        position: relative;
+        z-index: 10;
+    }
+
+    .pd-stats-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .pd-stat-item {
+        padding: 30px 25px;
+        text-align: center;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .pd-stat-item:last-child {
+        border-right: none;
+    }
+
+    .pd-stat-item:hover {
+        background: rgba(233, 69, 96, 0.1);
+    }
+
+    .pd-stat-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, var(--pd-accent), #ff6b6b);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 15px;
+    }
+
+    .pd-stat-icon i {
+        font-size: 1.25rem;
+        color: var(--pd-white);
+    }
+
+    .pd-stat-value {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--pd-white);
+        margin-bottom: 5px;
+    }
+
+    .pd-stat-label {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.6);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    @media (max-width: 900px) {
+        .pd-stats-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .pd-stat-item:nth-child(2) {
+            border-right: none;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .pd-stats-container {
+            grid-template-columns: 1fr;
+        }
+        .pd-stat-item {
+            border-right: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    }
+
+    /* Main Content */
+    .pd-main {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 60px 40px;
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 60px;
+    }
+
+    @media (max-width: 1100px) {
+        .pd-main {
+            grid-template-columns: 1fr;
+            padding: 40px 20px;
+        }
+    }
+
+    /* Gallery Section */
+    .pd-gallery {
+        margin-bottom: 50px;
+    }
+
+    .pd-gallery-main {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        margin-bottom: 20px;
+    }
+
+    .pd-gallery-main img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+
+    .pd-gallery-main:hover img {
+        transform: scale(1.02);
+    }
+
+    .pd-gallery-thumbs {
+        display: flex;
+        gap: 15px;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .pd-thumb {
+        flex-shrink: 0;
+        width: 120px;
+        height: 80px;
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: all 0.3s ease;
+        border: 3px solid transparent;
+    }
+
+    .pd-thumb.active,
+    .pd-thumb:hover {
+        opacity: 1;
+        border-color: var(--pd-accent);
+    }
+
+    .pd-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Description Section */
+    .pd-description {
+        background: var(--pd-white);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        margin-bottom: 40px;
+    }
+
+    .pd-section-title {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: var(--pd-charcoal);
+        margin: 0 0 25px;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    .pd-section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--pd-accent), var(--pd-gold));
+        border-radius: 2px;
+    }
+
+    .pd-description p {
+        font-size: 1.1rem;
+        line-height: 1.9;
+        color: var(--pd-text);
+        margin: 0;
+    }
+
+    /* Highlights Section */
+    .pd-highlights {
+        background: var(--pd-white);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .pd-highlights-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    @media (max-width: 700px) {
+        .pd-highlights-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .pd-highlight-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 20px;
+        background: var(--pd-cream);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .pd-highlight-item:hover {
+        transform: translateX(5px);
+        box-shadow: 0 5px 20px rgba(233, 69, 96, 0.1);
+    }
+
+    .pd-highlight-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, var(--pd-accent), #ff6b6b);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .pd-highlight-icon i {
+        color: var(--pd-white);
+        font-size: 1rem;
+    }
+
+    .pd-highlight-text {
+        font-size: 1rem;
+        color: var(--pd-text);
+        line-height: 1.5;
+    }
+
+    /* Sidebar */
+    .pd-sidebar {
+        position: sticky;
+        top: 100px;
+        height: fit-content;
+    }
+
+    /* Project Info Card */
+    .pd-info-card {
+        background: var(--pd-white);
+        border-radius: 20px;
+        padding: 35px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        margin-bottom: 30px;
+    }
+
+    .pd-info-card h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--pd-charcoal);
+        margin: 0 0 25px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid var(--pd-border);
+    }
+
+    .pd-info-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .pd-info-list li {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--pd-border);
+    }
+
+    .pd-info-list li:last-child {
+        border-bottom: none;
+    }
+
+    .pd-info-icon {
+        width: 45px;
+        height: 45px;
+        background: var(--pd-cream);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .pd-info-icon i {
+        font-size: 1.1rem;
+        color: var(--pd-accent);
+    }
+
+    .pd-info-content {
+        flex: 1;
+    }
+
+    .pd-info-label {
+        font-size: 0.8rem;
+        color: var(--pd-text-light);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 3px;
+    }
+
+    .pd-info-value {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--pd-charcoal);
+    }
+
+    /* CTA Card */
+    .pd-cta-card {
+        background: linear-gradient(135deg, var(--pd-charcoal) 0%, var(--pd-slate) 100%);
+        border-radius: 20px;
+        padding: 35px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .pd-cta-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(233, 69, 96, 0.15) 0%, transparent 50%);
+        animation: ctaPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes ctaPulse {
+        0%, 100% { transform: scale(1); opacity: 0.5; }
+        50% { transform: scale(1.1); opacity: 1; }
+    }
+
+    .pd-cta-card h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--pd-white);
+        margin: 0 0 15px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .pd-cta-card p {
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0 0 25px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .pd-cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--pd-accent);
+        color: var(--pd-white);
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+    }
+
+    .pd-cta-btn:hover {
+        background: #ff6b6b;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(233, 69, 96, 0.4);
+    }
+
+    .pd-cta-phone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.95rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .pd-cta-phone a {
+        color: var(--pd-gold);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    /* Related Projects */
+    .pd-related {
+        background: var(--pd-white);
+        padding: 80px 40px;
+    }
+
+    .pd-related-container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .pd-related-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .pd-related-header h2 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: var(--pd-charcoal);
+        margin: 0 0 15px;
+    }
+
+    .pd-related-header p {
+        color: var(--pd-text-light);
+        font-size: 1.1rem;
+    }
+
+    .pd-related-grid {
+        display: grid;
         grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
     }
-}
+
+    @media (max-width: 900px) {
+        .pd-related-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .pd-related-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .pd-related-card {
+        background: var(--pd-cream);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        text-decoration: none;
+    }
+
+    .pd-related-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    .pd-related-card-image {
+        position: relative;
+        height: 220px;
+        overflow: hidden;
+    }
+
+    .pd-related-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .pd-related-card:hover .pd-related-card-image img {
+        transform: scale(1.1);
+    }
+
+    .pd-related-card-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: var(--pd-accent);
+        color: var(--pd-white);
+        padding: 5px 15px;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .pd-related-card-content {
+        padding: 25px;
+    }
+
+    .pd-related-card-content h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--pd-charcoal);
+        margin: 0 0 10px;
+    }
+
+    .pd-related-card-content p {
+        color: var(--pd-text-light);
+        font-size: 0.95rem;
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    /* Back Button */
+    .pd-back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--pd-accent);
+        font-weight: 600;
+        text-decoration: none;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+    }
+
+    .pd-back-link:hover {
+        gap: 12px;
+        color: var(--pd-charcoal);
+    }
 </style>
 
+<div class="project-detail-page">
+    <!-- Hero Section -->
+    <section class="pd-hero">
+        <img src="<%= project.images && project.images[0] ? project.images[0] : project.thumbnail %>"
+             alt="<%= project.title %>"
+             class="pd-hero-image"
+             id="heroImage">
+        <div class="pd-hero-overlay"></div>
+        <div class="pd-hero-content">
+            <div class="pd-category-badge">
+                <% if (project.category === 'roofing') { %>
+                    <i class="fas fa-home"></i>
+                <% } else if (project.category === 'remodeling') { %>
+                    <i class="fas fa-paint-roller"></i>
+                <% } else if (project.category === 'construction') { %>
+                    <i class="fas fa-hard-hat"></i>
+                <% } else if (project.category === 'solar') { %>
+                    <i class="fas fa-solar-panel"></i>
+                <% } %>
+                <%= project.category %>
+            </div>
+            <h1><%= project.title %></h1>
+            <p class="pd-hero-description"><%= project.description %></p>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="pd-stats-bar">
+        <div class="pd-stats-container">
+            <div class="pd-stat-item">
+                <div class="pd-stat-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="pd-stat-value"><%= project.details.duration %></div>
+                <div class="pd-stat-label">Duration</div>
+            </div>
+            <div class="pd-stat-item">
+                <div class="pd-stat-icon">
+                    <i class="fas fa-ruler-combined"></i>
+                </div>
+                <div class="pd-stat-value"><%= project.details.squareFootage || 'N/A' %></div>
+                <div class="pd-stat-label">Square Feet</div>
+            </div>
+            <div class="pd-stat-item">
+                <div class="pd-stat-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="pd-stat-value"><%= project.details.location %></div>
+                <div class="pd-stat-label">Location</div>
+            </div>
+            <div class="pd-stat-item">
+                <div class="pd-stat-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="pd-stat-value"><%= project.details.scope %></div>
+                <div class="pd-stat-label">Scope</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="pd-main">
+        <div class="pd-content">
+            <a href="/projects" class="pd-back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to All Projects
+            </a>
+
+            <!-- Gallery -->
+            <% if (project.images && project.images.length > 0) { %>
+            <div class="pd-gallery">
+                <div class="pd-gallery-main">
+                    <img id="mainImage" src="<%= project.images[0] %>" alt="<%= project.title %>">
+                </div>
+                <% if (project.images.length > 1) { %>
+                <div class="pd-gallery-thumbs">
+                    <% project.images.forEach((image, index) => { %>
+                        <div class="pd-thumb <%= index === 0 ? 'active' : '' %>" onclick="changeImage('<%= image %>', this)">
+                            <img src="<%= image %>" alt="<%= project.title %> - Image <%= index + 1 %>">
+                        </div>
+                    <% }) %>
+                </div>
+                <% } %>
+            </div>
+            <% } %>
+
+            <!-- Description -->
+            <div class="pd-description">
+                <h2 class="pd-section-title">Project Overview</h2>
+                <p><%= project.fullDescription || project.description %></p>
+            </div>
+
+            <!-- Highlights -->
+            <% if (project.highlights && project.highlights.length > 0) { %>
+            <div class="pd-highlights">
+                <h2 class="pd-section-title">Project Highlights</h2>
+                <div class="pd-highlights-grid">
+                    <% project.highlights.forEach(highlight => { %>
+                        <div class="pd-highlight-item">
+                            <div class="pd-highlight-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="pd-highlight-text"><%= highlight %></div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+            <% } %>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="pd-sidebar">
+            <div class="pd-info-card">
+                <h3>Project Details</h3>
+                <ul class="pd-info-list">
+                    <li>
+                        <div class="pd-info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="pd-info-content">
+                            <div class="pd-info-label">Duration</div>
+                            <div class="pd-info-value"><%= project.details.duration %></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pd-info-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <div class="pd-info-content">
+                            <div class="pd-info-label">Project Scope</div>
+                            <div class="pd-info-value"><%= project.details.scope %></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pd-info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="pd-info-content">
+                            <div class="pd-info-label">Location</div>
+                            <div class="pd-info-value"><%= project.details.location %></div>
+                        </div>
+                    </li>
+                    <% if (project.details.squareFootage) { %>
+                    <li>
+                        <div class="pd-info-icon">
+                            <i class="fas fa-ruler-combined"></i>
+                        </div>
+                        <div class="pd-info-content">
+                            <div class="pd-info-label">Size</div>
+                            <div class="pd-info-value"><%= project.details.squareFootage %></div>
+                        </div>
+                    </li>
+                    <% } %>
+                    <% if (project.details.services) { %>
+                    <li>
+                        <div class="pd-info-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="pd-info-content">
+                            <div class="pd-info-label">Services</div>
+                            <div class="pd-info-value" style="font-size: 0.9rem; line-height: 1.5;"><%= project.details.services %></div>
+                        </div>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+
+            <div class="pd-cta-card">
+                <h3>Start Your Project</h3>
+                <p>Ready to transform your property? Get a free estimate today.</p>
+                <a href="/contact/quote" class="pd-cta-btn">
+                    <i class="fas fa-file-alt"></i>
+                    Get Free Quote
+                </a>
+                <div class="pd-cta-phone">
+                    <i class="fas fa-phone"></i>
+                    Or call <a href="tel:512-564-3679">512-564-3679</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Related Projects -->
+    <%
+        const relatedProjects = allProjects
+            .filter(p => p.id !== project.id)
+            .slice(0, 3);
+    %>
+    <% if (relatedProjects.length > 0) { %>
+    <section class="pd-related">
+        <div class="pd-related-container">
+            <div class="pd-related-header">
+                <h2>More Projects</h2>
+                <p>Explore more of our quality craftsmanship</p>
+            </div>
+            <div class="pd-related-grid">
+                <% relatedProjects.forEach(relProject => { %>
+                    <a href="/projects/<%= relProject.id %>" class="pd-related-card">
+                        <div class="pd-related-card-image">
+                            <img src="<%= relProject.thumbnail %>" alt="<%= relProject.title %>">
+                            <span class="pd-related-card-badge"><%= relProject.category %></span>
+                        </div>
+                        <div class="pd-related-card-content">
+                            <h3><%= relProject.title %></h3>
+                            <p><%= relProject.details.location %></p>
+                        </div>
+                    </a>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+    <% } %>
+</div>
+
 <script>
-function changeMainImage(src, thumbnail) {
-    document.getElementById('main-image').src = src;
-    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
-    thumbnail.classList.add('active');
-}
-</script> 
+    function changeImage(src, thumb) {
+        // Update main image
+        document.getElementById('mainImage').src = src;
+        document.getElementById('heroImage').src = src;
+
+        // Update active thumbnail
+        document.querySelectorAll('.pd-thumb').forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+    }
+</script>
