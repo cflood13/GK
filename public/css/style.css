@@ -9,6 +9,16 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    max-width: 100%;
+    overscroll-behavior-x: none;
+}
+
 :root {
     /* ========================================
        Modern Craftsman Color Palette
@@ -339,6 +349,7 @@ nav .container {
     /* Offset for fixed header + top bar to prevent hero title from being clipped */
     padding-top: 160px;
     padding-bottom: 2rem;
+    overflow-x: hidden;
 }
 
 .hero-overlay {
@@ -879,6 +890,7 @@ nav .container {
 .section {
     padding: var(--spacing-xxl) 0;
     position: relative;
+    overflow-x: hidden;
 }
 
 .section-title {
@@ -1227,6 +1239,7 @@ nav .container {
     background-size: cover;
     background-position: center;
     margin-top: 100px;
+    overflow-x: hidden;
 }
 
 .page-hero-overlay {
@@ -1488,6 +1501,7 @@ footer {
     background-color: var(--dark-color);
     color: var(--light-color);
     padding: var(--spacing-lg) 0 var(--spacing-md);
+    overflow-x: hidden;
 }
 
 .footer-content {
@@ -4219,6 +4233,7 @@ a:focus-visible {
 /* 9. Page Enter Animation */
 main {
     animation: pageEnter 0.5s ease-out;
+    overflow-x: hidden;
 }
 
 @keyframes pageEnter {
@@ -4281,6 +4296,7 @@ main {
     height: 400vh;
     position: relative;
     background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    overflow-x: hidden;
 }
 
 .circular-gallery-container {
