@@ -1,0 +1,1726 @@
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   FINANCING PAGE - "Financial Empowerment" Aesthetic
+   Clean, approachable design that makes financing feel accessible
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Work+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --finance-forest: #166534;
+    --finance-forest-dark: #14532D;
+    --finance-mint: #10B981;
+    --finance-mint-light: #34D399;
+    --finance-soft-white: #F9FAFB;
+    --finance-slate: #334155;
+    --finance-slate-light: #64748B;
+    --finance-gold: #FBBF24;
+    --finance-gold-dark: #F59E0B;
+    --finance-white: #FFFFFF;
+    --finance-gray: #E5E7EB;
+}
+
+.financing-page {
+    font-family: 'Work Sans', sans-serif;
+    background: var(--finance-soft-white);
+    color: var(--finance-slate);
+    overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.financing-hero {
+    position: relative;
+    min-height: 80vh;
+    background: linear-gradient(165deg, var(--finance-forest) 0%, var(--finance-forest-dark) 60%, #0F4429 100%);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.financing-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse at 30% 20%, rgba(16, 185, 129, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(251, 191, 36, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+/* Decorative shapes */
+.financing-hero::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 80%;
+    height: 200%;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, transparent 60%);
+    transform: rotate(-15deg);
+    pointer-events: none;
+}
+
+.financing-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 120px 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.financing-hero-text {
+    animation: heroSlideIn 0.8s ease-out;
+}
+
+@keyframes heroSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.financing-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    padding: 10px 20px;
+    border-radius: 50px;
+    margin-bottom: 30px;
+}
+
+.financing-hero-badge i {
+    color: var(--finance-mint-light);
+    font-size: 1rem;
+}
+
+.financing-hero-badge span {
+    color: var(--finance-mint-light);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.financing-hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    font-weight: 600;
+    color: var(--finance-white);
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.financing-hero h1 span {
+    color: var(--finance-gold);
+    font-style: italic;
+}
+
+.financing-hero-description {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 520px;
+}
+
+.financing-hero-cta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.financing-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.financing-btn.primary {
+    background: var(--finance-gold);
+    color: var(--finance-forest-dark);
+}
+
+.financing-btn.primary:hover {
+    background: var(--finance-gold-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(251, 191, 36, 0.3);
+}
+
+.financing-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--finance-white);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.financing-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Hero Visual */
+.financing-hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: heroVisualFloat 1s ease-out 0.3s both;
+}
+
+@keyframes heroVisualFloat {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.financing-calculator-visual {
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
+
+.financing-calc-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 320px;
+    background: var(--finance-white);
+    border-radius: 30px;
+    padding: 30px;
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.2),
+        0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: calcFloat 5s ease-in-out infinite;
+}
+
+@keyframes calcFloat {
+    0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+    50% { transform: translate(-50%, -50%) translateY(-12px); }
+}
+
+.financing-calc-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--finance-gray);
+}
+
+.financing-calc-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--finance-forest), var(--finance-mint));
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--finance-white);
+    font-size: 1.5rem;
+}
+
+.financing-calc-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--finance-slate);
+}
+
+.financing-calc-amount {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.financing-calc-amount small {
+    font-size: 0.85rem;
+    color: var(--finance-slate-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.financing-calc-amount .amount {
+    font-family: 'Fraunces', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--finance-forest);
+    display: block;
+    line-height: 1.2;
+}
+
+.financing-calc-amount .amount sup {
+    font-size: 1.5rem;
+    vertical-align: super;
+}
+
+.financing-calc-amount .period {
+    font-size: 1rem;
+    color: var(--finance-slate-light);
+}
+
+.financing-calc-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: var(--finance-soft-white);
+    border-radius: 15px;
+}
+
+.financing-calc-detail {
+    text-align: center;
+}
+
+.financing-calc-detail span {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--finance-slate-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.financing-calc-detail strong {
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    color: var(--finance-slate);
+}
+
+/* Floating elements around calculator */
+.financing-float-element {
+    position: absolute;
+    background: var(--finance-white);
+    border-radius: 15px;
+    padding: 15px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.financing-float-element.approved {
+    top: 10%;
+    right: -10%;
+    animation: floatBounce 4s ease-in-out infinite;
+}
+
+.financing-float-element.rate {
+    bottom: 15%;
+    left: -15%;
+    animation: floatBounce 4s ease-in-out infinite 1s;
+}
+
+@keyframes floatBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.financing-float-element i {
+    width: 40px;
+    height: 40px;
+    background: var(--finance-mint);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--finance-white);
+    font-size: 1rem;
+}
+
+.financing-float-element span {
+    font-weight: 600;
+    color: var(--finance-slate);
+    font-size: 0.9rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BENEFITS SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.financing-benefits {
+    padding: 120px 5%;
+    background: var(--finance-white);
+}
+
+.financing-benefits-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 70px;
+}
+
+.financing-section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--finance-mint);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.financing-section-tag::before,
+.financing-section-tag::after {
+    content: '';
+    width: 25px;
+    height: 2px;
+    background: var(--finance-mint);
+    border-radius: 2px;
+}
+
+.financing-benefits h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.2rem, 4vw, 2.8rem);
+    color: var(--finance-slate);
+    margin-bottom: 18px;
+}
+
+.financing-benefits-description {
+    font-size: 1.1rem;
+    color: var(--finance-slate-light);
+    line-height: 1.7;
+}
+
+.financing-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.financing-benefit-card {
+    background: var(--finance-soft-white);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.financing-benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--finance-gray);
+    transition: background 0.4s ease;
+}
+
+.financing-benefit-card:hover {
+    background: var(--finance-white);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(22, 101, 52, 0.1);
+}
+
+.financing-benefit-card:hover::before {
+    background: linear-gradient(90deg, var(--finance-mint), var(--finance-forest));
+}
+
+.financing-benefit-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 25px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(22, 101, 52, 0.1));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--finance-forest);
+    font-size: 1.8rem;
+    transition: all 0.4s ease;
+}
+
+.financing-benefit-card:hover .financing-benefit-icon {
+    background: linear-gradient(135deg, var(--finance-forest), var(--finance-mint));
+    color: var(--finance-white);
+    transform: scale(1.1);
+}
+
+.financing-benefit-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    color: var(--finance-slate);
+    margin-bottom: 12px;
+}
+
+.financing-benefit-card p {
+    font-size: 0.95rem;
+    color: var(--finance-slate-light);
+    line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FINANCING OPTIONS SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.financing-options {
+    padding: 120px 5%;
+    background: linear-gradient(180deg, var(--finance-soft-white) 0%, var(--finance-white) 100%);
+}
+
+.financing-options-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 70px;
+}
+
+.financing-options h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.2rem, 4vw, 2.8rem);
+    color: var(--finance-slate);
+    margin-bottom: 18px;
+}
+
+.financing-options-description {
+    font-size: 1.1rem;
+    color: var(--finance-slate-light);
+    line-height: 1.7;
+}
+
+.financing-options-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.financing-option-card {
+    background: var(--finance-white);
+    border: 2px solid var(--finance-gray);
+    border-radius: 24px;
+    padding: 45px 35px;
+    position: relative;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.financing-option-card:hover {
+    border-color: var(--finance-mint);
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(22, 101, 52, 0.12);
+}
+
+.financing-option-card.featured {
+    background: var(--finance-forest);
+    border-color: var(--finance-forest);
+    transform: scale(1.03);
+}
+
+.financing-option-card.featured:hover {
+    transform: scale(1.03) translateY(-10px);
+}
+
+.financing-option-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--finance-gold);
+    color: var(--finance-forest-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.financing-option-icon {
+    width: 65px;
+    height: 65px;
+    background: var(--finance-soft-white);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--finance-forest);
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+
+.financing-option-card.featured .financing-option-icon {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--finance-gold);
+}
+
+.financing-option-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    color: var(--finance-slate);
+    margin-bottom: 10px;
+}
+
+.financing-option-card.featured h3 {
+    color: var(--finance-white);
+}
+
+.financing-option-rate {
+    margin-bottom: 20px;
+}
+
+.financing-option-rate .rate {
+    font-family: 'Fraunces', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--finance-forest);
+    line-height: 1;
+}
+
+.financing-option-card.featured .financing-option-rate .rate {
+    color: var(--finance-gold);
+}
+
+.financing-option-rate .label {
+    font-size: 0.9rem;
+    color: var(--finance-slate-light);
+    margin-top: 5px;
+}
+
+.financing-option-card.featured .financing-option-rate .label {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.financing-option-description {
+    font-size: 0.95rem;
+    color: var(--finance-slate-light);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.financing-option-card.featured .financing-option-description {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.financing-option-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px;
+}
+
+.financing-option-features li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 0.95rem;
+    color: var(--finance-slate);
+    border-bottom: 1px solid var(--finance-gray);
+}
+
+.financing-option-card.featured .financing-option-features li {
+    color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.financing-option-features li:last-child {
+    border-bottom: none;
+}
+
+.financing-option-features li i {
+    color: var(--finance-mint);
+    font-size: 1rem;
+}
+
+.financing-option-card.featured .financing-option-features li i {
+    color: var(--finance-gold);
+}
+
+.financing-option-cta {
+    display: block;
+    text-align: center;
+    padding: 14px 28px;
+    background: var(--finance-forest);
+    color: var(--finance-white);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.financing-option-card.featured .financing-option-cta {
+    background: var(--finance-gold);
+    color: var(--finance-forest-dark);
+}
+
+.financing-option-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(22, 101, 52, 0.25);
+}
+
+.financing-option-card.featured .financing-option-cta:hover {
+    box-shadow: 0 10px 30px rgba(251, 191, 36, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   APPLICATION PROCESS SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.financing-process {
+    padding: 120px 5%;
+    background: var(--finance-forest);
+    position: relative;
+    overflow: hidden;
+}
+
+.financing-process::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(16, 185, 129, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(251, 191, 36, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.financing-process-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.financing-process-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.financing-process h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.2rem, 4vw, 2.8rem);
+    color: var(--finance-white);
+    margin-bottom: 18px;
+}
+
+.financing-process-description {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.financing-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    position: relative;
+}
+
+.financing-steps::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 12%;
+    right: 12%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+}
+
+.financing-step {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.financing-step-number {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid rgba(16, 185, 129, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--finance-mint-light);
+    transition: all 0.4s ease;
+}
+
+.financing-step:hover .financing-step-number {
+    background: var(--finance-mint);
+    border-color: var(--finance-mint);
+    color: var(--finance-white);
+    transform: scale(1.1);
+}
+
+.financing-step h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    color: var(--finance-white);
+    margin-bottom: 12px;
+}
+
+.financing-step p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CALCULATOR SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.financing-calculator {
+    padding: 120px 5%;
+    background: var(--finance-white);
+}
+
+.financing-calculator-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.financing-calculator-text h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.2rem, 4vw, 2.8rem);
+    color: var(--finance-slate);
+    margin-bottom: 20px;
+}
+
+.financing-calculator-text h2 span {
+    color: var(--finance-forest);
+}
+
+.financing-calculator-text p {
+    font-size: 1.1rem;
+    color: var(--finance-slate-light);
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.financing-calculator-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    background: var(--finance-soft-white);
+    border-radius: 15px;
+    border-left: 4px solid var(--finance-mint);
+}
+
+.financing-calculator-note i {
+    color: var(--finance-mint);
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+.financing-calculator-note span {
+    font-size: 0.95rem;
+    color: var(--finance-slate-light);
+    line-height: 1.6;
+}
+
+.financing-calculator-display {
+    background: var(--finance-soft-white);
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+}
+
+.financing-calc-example {
+    text-align: center;
+}
+
+.financing-calc-example-label {
+    font-size: 0.9rem;
+    color: var(--finance-slate-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.financing-calc-example-amount {
+    font-family: 'Fraunces', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--finance-forest);
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.financing-calc-example-period {
+    font-size: 1.1rem;
+    color: var(--finance-slate-light);
+    margin-bottom: 30px;
+}
+
+.financing-calc-breakdown {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 25px;
+    background: var(--finance-white);
+    border-radius: 16px;
+}
+
+.financing-calc-breakdown-item {
+    text-align: center;
+    padding: 15px;
+}
+
+.financing-calc-breakdown-item span {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--finance-slate-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.financing-calc-breakdown-item strong {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    color: var(--finance-slate);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TRUST SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.financing-trust {
+    padding: 80px 5%;
+    background: var(--finance-soft-white);
+}
+
+.financing-trust-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.financing-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.financing-trust-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--finance-white);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--finance-forest);
+    font-size: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.financing-trust-text h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    color: var(--finance-slate);
+    margin-bottom: 3px;
+}
+
+.financing-trust-text span {
+    font-size: 0.9rem;
+    color: var(--finance-slate-light);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FAQ SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.financing-faq {
+    padding: 120px 5%;
+    background: var(--finance-white);
+}
+
+.financing-faq-container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.financing-faq-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.financing-faq h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.2rem, 4vw, 2.8rem);
+    color: var(--finance-slate);
+    margin-bottom: 18px;
+}
+
+.financing-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.financing-accordion-item {
+    background: var(--finance-soft-white);
+    border: 2px solid transparent;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.financing-accordion-item:hover {
+    border-color: var(--finance-mint);
+}
+
+.financing-accordion-item.active {
+    border-color: var(--finance-forest);
+    background: var(--finance-white);
+    box-shadow: 0 10px 30px rgba(22, 101, 52, 0.08);
+}
+
+.financing-accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 28px;
+    cursor: pointer;
+    gap: 20px;
+}
+
+.financing-accordion-header h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    color: var(--finance-slate);
+    margin: 0;
+    font-weight: 500;
+}
+
+.financing-accordion-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--finance-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--finance-forest);
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.financing-accordion-item.active .financing-accordion-icon {
+    background: var(--finance-forest);
+    color: var(--finance-white);
+    transform: rotate(180deg);
+}
+
+.financing-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.financing-accordion-item.active .financing-accordion-content {
+    max-height: 400px;
+}
+
+.financing-accordion-body {
+    padding: 0 28px 22px;
+    font-size: 1rem;
+    color: var(--finance-slate-light);
+    line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CTA SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.financing-cta {
+    padding: 120px 5%;
+    background: linear-gradient(135deg, var(--finance-soft-white) 0%, #ECFDF5 100%);
+    text-align: center;
+}
+
+.financing-cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.financing-cta-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 30px;
+    background: linear-gradient(135deg, var(--finance-forest), var(--finance-mint));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--finance-white);
+    font-size: 2.5rem;
+    box-shadow: 0 15px 40px rgba(22, 101, 52, 0.25);
+}
+
+.financing-cta h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.2rem, 4vw, 2.8rem);
+    color: var(--finance-slate);
+    margin-bottom: 18px;
+}
+
+.financing-cta h2 span {
+    color: var(--finance-forest);
+}
+
+.financing-cta-description {
+    font-size: 1.15rem;
+    color: var(--finance-slate-light);
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.financing-cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.financing-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 36px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.financing-cta-btn.primary {
+    background: var(--finance-forest);
+    color: var(--finance-white);
+}
+
+.financing-cta-btn.primary:hover {
+    background: var(--finance-forest-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(22, 101, 52, 0.3);
+}
+
+.financing-cta-btn.secondary {
+    background: var(--finance-white);
+    color: var(--finance-forest);
+    border: 2px solid var(--finance-gray);
+}
+
+.financing-cta-btn.secondary:hover {
+    border-color: var(--finance-forest);
+    transform: translateY(-3px);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+    .financing-hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 60px;
+    }
+
+    .financing-hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .financing-hero-cta {
+        justify-content: center;
+    }
+
+    .financing-calculator-visual {
+        width: 320px;
+        height: 350px;
+    }
+
+    .financing-calc-main {
+        width: 240px;
+        height: 280px;
+    }
+
+    .financing-benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .financing-options-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .financing-option-card.featured {
+        transform: scale(1);
+        order: -1;
+    }
+
+    .financing-steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+
+    .financing-steps::before {
+        display: none;
+    }
+
+    .financing-calculator-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .financing-hero {
+        min-height: auto;
+    }
+
+    .financing-hero-content {
+        padding: 100px 5% 80px;
+    }
+
+    .financing-calculator-visual {
+        width: 280px;
+        height: 300px;
+    }
+
+    .financing-calc-main {
+        width: 220px;
+        height: 260px;
+        padding: 20px;
+    }
+
+    .financing-float-element {
+        display: none;
+    }
+
+    .financing-benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .financing-steps {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .financing-trust-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .financing-calc-breakdown {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .financing-cta-buttons {
+        flex-direction: column;
+    }
+
+    .financing-cta-btn {
+        justify-content: center;
+    }
+
+    .financing-benefits,
+    .financing-options,
+    .financing-calculator,
+    .financing-faq,
+    .financing-cta {
+        padding: 80px 5%;
+    }
+}
+</style>
+
+<div class="financing-page">
+    <!-- Hero Section -->
+    <section class="financing-hero">
+        <div class="financing-hero-content">
+            <div class="financing-hero-text">
+                <div class="financing-hero-badge">
+                    <i class="fas fa-percentage"></i>
+                    <span>Flexible Payment Options</span>
+                </div>
+                <h1>
+                    Make Your Dream Project
+                    <span>a Reality</span>
+                </h1>
+                <p class="financing-hero-description">
+                    Don't let budget concerns hold back your home improvement dreams. Our flexible
+                    financing options make it easy to invest in your home today with affordable
+                    monthly payments.
+                </p>
+                <div class="financing-hero-cta">
+                    <a href="/contact/quote" class="financing-btn primary">
+                        <i class="fas fa-calculator"></i>
+                        Get Pre-Approved
+                    </a>
+                    <a href="tel:512-564-3679" class="financing-btn secondary">
+                        <i class="fas fa-phone"></i>
+                        Call to Discuss
+                    </a>
+                </div>
+            </div>
+            <div class="financing-hero-visual">
+                <div class="financing-calculator-visual">
+                    <div class="financing-float-element approved">
+                        <i class="fas fa-check"></i>
+                        <span>Quick Approval</span>
+                    </div>
+                    <div class="financing-float-element rate">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Low Rates</span>
+                    </div>
+                    <div class="financing-calc-main">
+                        <div class="financing-calc-header">
+                            <div class="financing-calc-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <span class="financing-calc-title">Payment Estimate</span>
+                        </div>
+                        <div class="financing-calc-amount">
+                            <small>As Low As</small>
+                            <span class="amount"><sup>$</sup>189</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <div class="financing-calc-details">
+                            <div class="financing-calc-detail">
+                                <span>Project</span>
+                                <strong>$15K</strong>
+                            </div>
+                            <div class="financing-calc-detail">
+                                <span>Term</span>
+                                <strong>84 mo</strong>
+                            </div>
+                            <div class="financing-calc-detail">
+                                <span>APR</span>
+                                <strong>6.99%</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="financing-benefits">
+        <div class="financing-benefits-header">
+            <div class="financing-section-tag">Why Finance With Us</div>
+            <h2>Financing Made Simple</h2>
+            <p class="financing-benefits-description">
+                We've partnered with trusted lenders to bring you competitive rates and hassle-free
+                approval processes.
+            </p>
+        </div>
+        <div class="financing-benefits-grid">
+            <div class="financing-benefit-card">
+                <div class="financing-benefit-icon">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <h3>Low Monthly Payments</h3>
+                <p>Spread the cost over time with affordable payments that fit your budget.</p>
+            </div>
+            <div class="financing-benefit-card">
+                <div class="financing-benefit-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Quick Approval</h3>
+                <p>Get approved in minutes with our streamlined online application process.</p>
+            </div>
+            <div class="financing-benefit-card">
+                <div class="financing-benefit-icon">
+                    <i class="fas fa-sliders-h"></i>
+                </div>
+                <h3>Flexible Terms</h3>
+                <p>Choose from 12 to 144 month terms to find the right fit for your needs.</p>
+            </div>
+            <div class="financing-benefit-card">
+                <div class="financing-benefit-icon">
+                    <i class="fas fa-ban"></i>
+                </div>
+                <h3>No Prepayment Penalty</h3>
+                <p>Pay off your loan early anytime without additional fees or penalties.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financing Options Section -->
+    <section class="financing-options">
+        <div class="financing-options-header">
+            <div class="financing-section-tag">Financing Programs</div>
+            <h2>Choose Your Option</h2>
+            <p class="financing-options-description">
+                We offer multiple financing programs to fit different needs and credit profiles.
+            </p>
+        </div>
+        <div class="financing-options-grid">
+            <!-- 0% Intro APR -->
+            <div class="financing-option-card">
+                <div class="financing-option-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3>Same-As-Cash</h3>
+                <div class="financing-option-rate">
+                    <span class="rate">0%</span>
+                    <p class="label">APR for 12 months</p>
+                </div>
+                <p class="financing-option-description">
+                    Perfect for those who want to pay off quickly without interest charges.
+                </p>
+                <ul class="financing-option-features">
+                    <li><i class="fas fa-check"></i> No interest if paid in full</li>
+                    <li><i class="fas fa-check"></i> 12-month promotional period</li>
+                    <li><i class="fas fa-check"></i> Minimum 640 credit score</li>
+                </ul>
+                <a href="/contact/quote" class="financing-option-cta">Apply Now</a>
+            </div>
+
+            <!-- Low Fixed Rate (Featured) -->
+            <div class="financing-option-card featured">
+                <div class="financing-option-badge">Most Popular</div>
+                <div class="financing-option-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Low Fixed Rate</h3>
+                <div class="financing-option-rate">
+                    <span class="rate">6.99%</span>
+                    <p class="label">APR fixed rate</p>
+                </div>
+                <p class="financing-option-description">
+                    Our most flexible option with predictable monthly payments for any budget.
+                </p>
+                <ul class="financing-option-features">
+                    <li><i class="fas fa-check"></i> Fixed rate, never changes</li>
+                    <li><i class="fas fa-check"></i> Terms from 24-144 months</li>
+                    <li><i class="fas fa-check"></i> Finance up to $100,000</li>
+                    <li><i class="fas fa-check"></i> No prepayment penalty</li>
+                </ul>
+                <a href="/contact/quote" class="financing-option-cta">Apply Now</a>
+            </div>
+
+            <!-- Home Equity -->
+            <div class="financing-option-card">
+                <div class="financing-option-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Home Equity</h3>
+                <div class="financing-option-rate">
+                    <span class="rate">5.49%</span>
+                    <p class="label">APR starting rate</p>
+                </div>
+                <p class="financing-option-description">
+                    Leverage your home's equity for larger projects with the lowest rates available.
+                </p>
+                <ul class="financing-option-features">
+                    <li><i class="fas fa-check"></i> Lowest available rates</li>
+                    <li><i class="fas fa-check"></i> Tax-deductible interest*</li>
+                    <li><i class="fas fa-check"></i> Higher loan amounts</li>
+                </ul>
+                <a href="/contact/quote" class="financing-option-cta">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process Section -->
+    <section class="financing-process">
+        <div class="financing-process-content">
+            <div class="financing-process-header">
+                <div class="financing-section-tag" style="color: rgba(255,255,255,0.8);">How It Works</div>
+                <h2>Simple 4-Step Process</h2>
+                <p class="financing-process-description">
+                    Getting approved is fast and easy. Most applications are decided within minutes.
+                </p>
+            </div>
+            <div class="financing-steps">
+                <div class="financing-step">
+                    <div class="financing-step-number">1</div>
+                    <h3>Apply Online</h3>
+                    <p>Complete our quick online application in just a few minutes.</p>
+                </div>
+                <div class="financing-step">
+                    <div class="financing-step-number">2</div>
+                    <h3>Get Approved</h3>
+                    <p>Receive a decision in minutes with instant pre-qualification.</p>
+                </div>
+                <div class="financing-step">
+                    <div class="financing-step-number">3</div>
+                    <h3>Choose Terms</h3>
+                    <p>Select the payment plan that works best for your budget.</p>
+                </div>
+                <div class="financing-step">
+                    <div class="financing-step-number">4</div>
+                    <h3>Start Project</h3>
+                    <p>Once approved, we schedule your project and get to work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="financing-calculator">
+        <div class="financing-calculator-container">
+            <div class="financing-calculator-text">
+                <div class="financing-section-tag">Payment Estimator</div>
+                <h2>See What <span>You Could Pay</span></h2>
+                <p>
+                    Our financing makes major home improvements surprisingly affordable. Here's
+                    an example of how a $15,000 roofing project could break down into manageable
+                    monthly payments.
+                </p>
+                <div class="financing-calculator-note">
+                    <i class="fas fa-info-circle"></i>
+                    <span>
+                        Actual rates and terms depend on credit approval. Contact us for a
+                        personalized quote tailored to your specific project and financial situation.
+                    </span>
+                </div>
+            </div>
+            <div class="financing-calculator-display">
+                <div class="financing-calc-example">
+                    <div class="financing-calc-example-label">Example Monthly Payment</div>
+                    <div class="financing-calc-example-amount">$189</div>
+                    <div class="financing-calc-example-period">per month for 84 months</div>
+                    <div class="financing-calc-breakdown">
+                        <div class="financing-calc-breakdown-item">
+                            <span>Project Total</span>
+                            <strong>$15,000</strong>
+                        </div>
+                        <div class="financing-calc-breakdown-item">
+                            <span>Interest Rate</span>
+                            <strong>6.99% APR</strong>
+                        </div>
+                        <div class="financing-calc-breakdown-item">
+                            <span>Total Interest</span>
+                            <strong>$876</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="financing-trust">
+        <div class="financing-trust-content">
+            <div class="financing-trust-item">
+                <div class="financing-trust-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="financing-trust-text">
+                    <h4>Secure Application</h4>
+                    <span>256-bit SSL encryption</span>
+                </div>
+            </div>
+            <div class="financing-trust-item">
+                <div class="financing-trust-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <div class="financing-trust-text">
+                    <h4>Privacy Protected</h4>
+                    <span>Your data is never shared</span>
+                </div>
+            </div>
+            <div class="financing-trust-item">
+                <div class="financing-trust-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="financing-trust-text">
+                    <h4>BBB Accredited</h4>
+                    <span>A+ Rating</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="financing-faq">
+        <div class="financing-faq-container">
+            <div class="financing-faq-header">
+                <div class="financing-section-tag">Common Questions</div>
+                <h2>Financing FAQs</h2>
+            </div>
+            <div class="financing-accordion">
+                <div class="financing-accordion-item active">
+                    <div class="financing-accordion-header">
+                        <h3>What credit score do I need to qualify?</h3>
+                        <div class="financing-accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="financing-accordion-content">
+                        <div class="financing-accordion-body">
+                            We work with multiple lenders to accommodate various credit profiles. While our best rates are available to those with scores of 700+, we have options for customers with scores as low as 580. The specific terms and rates will vary based on your credit profile.
+                        </div>
+                    </div>
+                </div>
+                <div class="financing-accordion-item">
+                    <div class="financing-accordion-header">
+                        <h3>How long does the approval process take?</h3>
+                        <div class="financing-accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="financing-accordion-content">
+                        <div class="financing-accordion-body">
+                            Most applicants receive an instant decision within minutes of submitting their application. In some cases, additional documentation may be required, which can extend the process to 1-2 business days.
+                        </div>
+                    </div>
+                </div>
+                <div class="financing-accordion-item">
+                    <div class="financing-accordion-header">
+                        <h3>Does applying affect my credit score?</h3>
+                        <div class="financing-accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="financing-accordion-content">
+                        <div class="financing-accordion-body">
+                            Our initial pre-qualification uses a soft credit pull, which does not affect your credit score. A hard inquiry only occurs once you formally accept a loan offer and proceed with the application.
+                        </div>
+                    </div>
+                </div>
+                <div class="financing-accordion-item">
+                    <div class="financing-accordion-header">
+                        <h3>Can I pay off my loan early?</h3>
+                        <div class="financing-accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="financing-accordion-content">
+                        <div class="financing-accordion-body">
+                            Yes! All of our financing options come with no prepayment penalties. You can pay off your balance early at any time without incurring additional fees, potentially saving money on interest charges.
+                        </div>
+                    </div>
+                </div>
+                <div class="financing-accordion-item">
+                    <div class="financing-accordion-header">
+                        <h3>What projects can be financed?</h3>
+                        <div class="financing-accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="financing-accordion-content">
+                        <div class="financing-accordion-body">
+                            Our financing covers all the services we offer, including roofing installation and repair, solar roofing, home remodeling, new construction, and more. The minimum loan amount is typically $1,000, with maximums up to $100,000 depending on the program.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="financing-cta">
+        <div class="financing-cta-content">
+            <div class="financing-cta-icon">
+                <i class="fas fa-hand-holding-usd"></i>
+            </div>
+            <h2>Ready to <span>Get Started?</span></h2>
+            <p class="financing-cta-description">
+                Take the first step toward your dream home improvement project. Get pre-approved
+                today with no impact to your credit score.
+            </p>
+            <div class="financing-cta-buttons">
+                <a href="/contact/quote" class="financing-cta-btn primary">
+                    <i class="fas fa-paper-plane"></i>
+                    Apply for Financing
+                </a>
+                <a href="tel:512-564-3679" class="financing-cta-btn secondary">
+                    <i class="fas fa-phone"></i>
+                    (512) 564-3679
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+// Accordion functionality
+document.querySelectorAll('.financing-accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const isActive = item.classList.contains('active');
+
+        // Close all items
+        document.querySelectorAll('.financing-accordion-item').forEach(i => {
+            i.classList.remove('active');
+        });
+
+        // Open clicked item if it wasn't active
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    });
+});
+
+// Scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const animateOnScroll = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Apply animations to cards and sections
+document.querySelectorAll('.financing-benefit-card, .financing-option-card, .financing-step, .financing-trust-item').forEach((el, index) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = `all 0.6s ease ${index * 0.1}s`;
+    animateOnScroll.observe(el);
+});
+</script>

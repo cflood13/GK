@@ -4229,6 +4229,37 @@ a.gallery-item:hover {
     }
 }
 
+@media (max-width: 480px) {
+    .circular-gallery-section {
+        height: 250vh;
+    }
+
+    .circular-gallery-header h2 {
+        font-size: 1.75rem;
+    }
+
+    .circular-gallery-header p {
+        font-size: 0.9rem;
+    }
+
+    .gallery-item {
+        width: 160px;
+        height: 220px;
+    }
+
+    .gallery-item-label {
+        padding: 0.75rem;
+    }
+
+    .gallery-item-label .item-title {
+        font-size: 0.9rem;
+    }
+
+    .gallery-item-label .item-subtitle {
+        font-size: 0.7rem;
+    }
+}
+
 /* 14. Trust Badges - Infinite Scroll */
 .trust-badges-section {
     padding-top: 3rem;
@@ -5689,6 +5720,120 @@ a.gallery-item:hover {
     .area-pill {
         padding: 0.4rem 0.8rem;
         font-size: 0.8rem;
+    }
+
+    .service-area-pills {
+        gap: 0.5rem;
+        justify-content: center;
+    }
+
+    .location-map-section {
+        padding: 3rem 0;
+    }
+
+    .location-map-section .section-title h2 {
+        font-size: 1.75rem;
+    }
+}
+
+/* Extra small mobile screens */
+@media (max-width: 480px) {
+    .location-map-inner {
+        width: 200px;
+        height: 120px;
+    }
+
+    .location-map-card.expanded .location-map-inner {
+        width: 280px;
+        height: 220px;
+    }
+
+    .map-location-name {
+        font-size: 12px;
+    }
+
+    .map-coordinates {
+        font-size: 9px;
+    }
+
+    .area-pill {
+        padding: 0.35rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .service-area-pills {
+        gap: 0.4rem;
+        padding: 0 0.5rem;
+    }
+
+    .location-map-section .section-title h2 {
+        font-size: 1.5rem;
+    }
+
+    .location-map-section .section-title p {
+        font-size: 0.9rem;
+    }
+
+    /* Location page hero mobile */
+    .page-hero {
+        min-height: 50vh;
+    }
+
+    .page-hero-content h1 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+    }
+
+    .page-hero-content p {
+        font-size: 0.9rem;
+    }
+
+    /* Location service cards mobile */
+    .section-intro h2 {
+        font-size: 1.5rem;
+    }
+
+    .section-intro .lead {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    /* Benefits grid mobile */
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .benefit-item {
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .benefit-item i {
+        font-size: 2rem;
+    }
+
+    .benefit-item h4 {
+        font-size: 1.1rem;
+    }
+
+    /* Shingle showcase mobile */
+    .shingle-showcase {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .shingle-card img {
+        height: 180px !important;
+    }
+
+    /* CTA section mobile */
+    .cta-section .cta-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta-section .cta-content p {
+        font-size: 0.95rem;
     }
 }
 
