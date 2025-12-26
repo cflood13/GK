@@ -1,268 +1,1152 @@
-<!-- Services Hero -->
-<section class="page-hero" style="background-image: url('/images/services/roofing.jpg');">
-    <div class="page-hero-overlay"></div>
-    <div class="page-hero-content">
-        <h1 class="animate-on-scroll">Our Services</h1>
-        <p class="animate-on-scroll">Comprehensive Construction Solutions</p>
+<!-- Services Page - Premium Redesign -->
+<style>
+/* ========================================
+   Services Page - Refined Industrial Luxury
+   ======================================== */
+
+/* Import distinctive display font */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables */
+:root {
+    --srv-charcoal: #1a1a1a;
+    --srv-slate: #2d2d2d;
+    --srv-graphite: #404040;
+    --srv-steel: #6b6b6b;
+    --srv-silver: #9a9a9a;
+    --srv-cream: #faf8f5;
+    --srv-warm-white: #fffefb;
+    --srv-terracotta: #c45d3a;
+    --srv-copper: #d4764e;
+    --srv-amber: #d97706;
+    --srv-gold: #b8860b;
+}
+
+/* Hero Section */
+.srv-hero {
+    position: relative;
+    min-height: 85vh;
+    background: var(--srv-charcoal);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.srv-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.7) 50%, rgba(26, 26, 26, 0.4) 100%),
+        url('/images/services/roofing.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Architectural grid pattern overlay */
+.srv-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+}
+
+.srv-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+    width: 100%;
+}
+
+.srv-hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--srv-copper);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: srv-fadeUp 0.8s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.srv-hero-label::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--srv-copper);
+}
+
+.srv-hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 12vw, 10rem);
+    font-weight: 400;
+    line-height: 0.9;
+    color: var(--srv-warm-white);
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: srv-fadeUp 0.8s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.srv-hero-title span {
+    display: block;
+    color: var(--srv-copper);
+    font-size: 0.6em;
+}
+
+.srv-hero-description {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--srv-silver);
+    max-width: 560px;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: srv-fadeUp 0.8s ease forwards;
+    animation-delay: 0.6s;
+}
+
+.srv-hero-stats {
+    display: flex;
+    gap: 4rem;
+    opacity: 0;
+    animation: srv-fadeUp 0.8s ease forwards;
+    animation-delay: 0.8s;
+}
+
+.srv-stat {
+    position: relative;
+}
+
+.srv-stat::after {
+    content: '';
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 60%;
+    background: var(--srv-graphite);
+}
+
+.srv-stat:last-child::after {
+    display: none;
+}
+
+.srv-stat-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: var(--srv-warm-white);
+    line-height: 1;
+}
+
+.srv-stat-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--srv-steel);
+    margin-top: 0.5rem;
+}
+
+/* Floating accent element */
+.srv-hero-accent {
+    position: absolute;
+    right: 8%;
+    bottom: 15%;
+    width: 300px;
+    height: 300px;
+    border: 1px solid var(--srv-graphite);
+    opacity: 0.4;
+    transform: rotate(45deg);
+    animation: srv-float 6s ease-in-out infinite;
+}
+
+.srv-hero-accent::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border: 1px solid var(--srv-copper);
+    opacity: 0.6;
+}
+
+/* Scroll indicator */
+.srv-scroll-indicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--srv-steel);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: srv-fadeUp 0.8s ease forwards;
+    animation-delay: 1s;
+}
+
+.srv-scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--srv-copper), transparent);
+    animation: srv-scrollPulse 2s ease-in-out infinite;
+}
+
+/* Services Introduction */
+.srv-intro {
+    background: var(--srv-cream);
+    padding: 8rem 5%;
+    position: relative;
+}
+
+.srv-intro-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.srv-intro-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--srv-terracotta);
+    margin-bottom: 1.5rem;
+}
+
+.srv-intro-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--srv-charcoal);
+    line-height: 1;
+    margin-bottom: 2rem;
+}
+
+.srv-intro-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--srv-steel);
+}
+
+.srv-expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.srv-expertise-item {
+    background: var(--srv-warm-white);
+    padding: 2.5rem;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+
+.srv-expertise-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--srv-terracotta);
+    transition: height 0.4s ease;
+}
+
+.srv-expertise-item:hover::before {
+    height: 100%;
+}
+
+.srv-expertise-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+.srv-expertise-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--srv-terracotta), var(--srv-copper));
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.srv-expertise-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.srv-expertise-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--srv-charcoal);
+    margin-bottom: 0.5rem;
+}
+
+.srv-expertise-desc {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.875rem;
+    color: var(--srv-steel);
+    line-height: 1.6;
+}
+
+/* Services Grid Section */
+.srv-services {
+    background: var(--srv-charcoal);
+    padding: 8rem 5%;
+    position: relative;
+}
+
+.srv-services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--srv-graphite), transparent);
+}
+
+.srv-services-header {
+    max-width: 1400px;
+    margin: 0 auto 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.srv-services-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    color: var(--srv-warm-white);
+    line-height: 1;
+}
+
+.srv-services-subtitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.875rem;
+    color: var(--srv-steel);
+    max-width: 400px;
+    text-align: right;
+}
+
+.srv-services-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.srv-card {
+    background: var(--srv-slate);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 420px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.srv-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+.srv-card:nth-child(even) {
+    grid-template-columns: 1fr 1fr;
+}
+
+.srv-card:nth-child(even) .srv-card-image {
+    order: 2;
+}
+
+.srv-card:nth-child(even) .srv-card-content {
+    order: 1;
+}
+
+.srv-card-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.srv-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.srv-card:hover .srv-card-image img {
+    transform: scale(1.08);
+}
+
+.srv-card-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 50%, rgba(26,26,26,0.3) 100%);
+    pointer-events: none;
+}
+
+.srv-card-number {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    color: rgba(255,255,255,0.1);
+    line-height: 1;
+    z-index: 2;
+}
+
+.srv-card-content {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.srv-card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--srv-copper);
+    margin-bottom: 1rem;
+}
+
+.srv-card-badge i {
+    font-size: 0.875rem;
+}
+
+.srv-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--srv-warm-white);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.srv-card-desc {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--srv-silver);
+    margin-bottom: 1.5rem;
+}
+
+.srv-card-features {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.srv-card-features li {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.875rem;
+    color: var(--srv-steel);
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    border-bottom: 1px solid var(--srv-graphite);
+}
+
+.srv-card-features li:last-child {
+    border-bottom: none;
+}
+
+.srv-card-features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--srv-copper);
+    border-radius: 1px;
+}
+
+.srv-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--srv-copper);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.srv-card-link::after {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: var(--srv-copper);
+    transition: width 0.3s ease;
+}
+
+.srv-card-link:hover::after {
+    width: 50px;
+}
+
+.srv-card-link:hover {
+    color: var(--srv-warm-white);
+}
+
+/* Why Choose Us Section */
+.srv-why {
+    background: var(--srv-warm-white);
+    padding: 8rem 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.srv-why::before {
+    content: 'EXCELLENCE';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20vw;
+    color: rgba(0,0,0,0.02);
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.srv-why-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.srv-why-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.srv-why-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--srv-terracotta);
+    margin-bottom: 1rem;
+}
+
+.srv-why-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--srv-charcoal);
+    line-height: 1;
+}
+
+.srv-why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.srv-why-item {
+    text-align: center;
+    padding: 3rem 2rem;
+    position: relative;
+}
+
+.srv-why-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--srv-terracotta), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.srv-why-item:hover::before {
+    opacity: 1;
+}
+
+.srv-why-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: var(--srv-cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.srv-why-icon::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px solid var(--srv-terracotta);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.srv-why-item:hover .srv-why-icon::before {
+    opacity: 1;
+    inset: -8px;
+}
+
+.srv-why-icon i {
+    font-size: 1.75rem;
+    color: var(--srv-terracotta);
+}
+
+.srv-why-item-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--srv-charcoal);
+    margin-bottom: 0.75rem;
+}
+
+.srv-why-item-desc {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--srv-steel);
+}
+
+/* CTA Section */
+.srv-cta {
+    background: var(--srv-charcoal);
+    padding: 8rem 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.srv-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--srv-terracotta) 0%, transparent 70%);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.srv-cta-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.srv-cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 7vw, 5rem);
+    color: var(--srv-warm-white);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+}
+
+.srv-cta-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.125rem;
+    color: var(--srv-silver);
+    margin-bottom: 3rem;
+}
+
+.srv-cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.srv-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1.25rem 2.5rem;
+    background: var(--srv-terracotta);
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.srv-btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1));
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+}
+
+.srv-btn-primary:hover::before {
+    transform: translateX(0);
+}
+
+.srv-btn-primary:hover {
+    background: var(--srv-copper);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(196, 93, 58, 0.3);
+}
+
+.srv-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1.25rem 2.5rem;
+    background: transparent;
+    color: var(--srv-warm-white);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--srv-graphite);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.srv-btn-secondary:hover {
+    border-color: var(--srv-copper);
+    color: var(--srv-copper);
+    transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes srv-fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes srv-float {
+    0%, 100% {
+        transform: rotate(45deg) translateY(0);
+    }
+    50% {
+        transform: rotate(45deg) translateY(-15px);
+    }
+}
+
+@keyframes srv-scrollPulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scaleY(0.8);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .srv-intro-inner {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .srv-services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .srv-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .srv-card:nth-child(even) .srv-card-image,
+    .srv-card:nth-child(even) .srv-card-content {
+        order: unset;
+    }
+
+    .srv-card-image {
+        height: 280px;
+    }
+
+    .srv-why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .srv-hero {
+        min-height: 100vh;
+    }
+
+    .srv-hero-stats {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .srv-stat::after {
+        display: none;
+    }
+
+    .srv-hero-accent {
+        display: none;
+    }
+
+    .srv-expertise-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .srv-services-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .srv-services-subtitle {
+        text-align: left;
+    }
+
+    .srv-why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .srv-cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .srv-intro,
+    .srv-services,
+    .srv-why,
+    .srv-cta {
+        padding: 5rem 5%;
+    }
+
+    .srv-card-content {
+        padding: 2rem;
+    }
+
+    .srv-card-title {
+        font-size: 2rem;
+    }
+}
+</style>
+
+<!-- Hero Section -->
+<section class="srv-hero">
+    <div class="srv-hero-content">
+        <span class="srv-hero-label">Central Texas Premier Contractor</span>
+        <h1 class="srv-hero-title">
+            Our Services
+            <span>Craftsmanship. Quality. Excellence.</span>
+        </h1>
+        <p class="srv-hero-description">
+            From conception to completion, our team of estimators, designers, and project managers
+            deliver exceptional results using time-proven practices and cutting-edge techniques.
+        </p>
+        <div class="srv-hero-stats">
+            <div class="srv-stat">
+                <div class="srv-stat-value">19+</div>
+                <div class="srv-stat-label">Years Experience</div>
+            </div>
+            <div class="srv-stat">
+                <div class="srv-stat-value">2,500+</div>
+                <div class="srv-stat-label">Projects Completed</div>
+            </div>
+            <div class="srv-stat">
+                <div class="srv-stat-value">100%</div>
+                <div class="srv-stat-label">Satisfaction</div>
+            </div>
+        </div>
+    </div>
+    <div class="srv-hero-accent"></div>
+    <div class="srv-scroll-indicator">
+        <span>Explore Services</span>
+        <div class="srv-scroll-line"></div>
     </div>
 </section>
 
-<!-- Services Introduction -->
-<section class="section">
-    <div class="container">
-        <div class="section-intro">
-            <h2>Full-Service Construction & Roofing</h2>
-            <p class="lead">From conception to completion, our entire team of estimators, designers, project managers and experienced executives make our clients' needs a priority. We have experience in a wide variety of projects and delivery methods, and use both time-proven practices and cutting-edge techniques to make sure our customers' projects meet their maximum potential.</p>
-            <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 3rem; flex-wrap: wrap;">
-                <div style="text-align: center;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; box-shadow: var(--shadow-lg);">
-                        <i class="fas fa-home" style="font-size: 2rem; color: white;"></i>
-                    </div>
-                    <h4 style="margin-bottom: 0.5rem;">Residential</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Custom homes & renovations</p>
+<!-- Introduction Section -->
+<section class="srv-intro">
+    <div class="srv-intro-inner">
+        <div class="srv-intro-left">
+            <span class="srv-intro-label">Full-Service Solutions</span>
+            <h2 class="srv-intro-title">Construction & Roofing Excellence</h2>
+            <p class="srv-intro-text">
+                We have experience in a wide variety of projects and delivery methods, ensuring
+                our customers' projects meet their maximum potential. Whether residential or
+                commercial, we bring the same dedication to quality and precision.
+            </p>
+        </div>
+        <div class="srv-expertise-grid">
+            <div class="srv-expertise-item">
+                <div class="srv-expertise-icon">
+                    <i class="fas fa-home"></i>
                 </div>
-                <div style="text-align: center;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--secondary-color), var(--secondary-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; box-shadow: var(--shadow-lg);">
-                        <i class="fas fa-building" style="font-size: 2rem; color: white;"></i>
-                    </div>
-                    <h4 style="margin-bottom: 0.5rem;">Commercial</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Office buildings & retail</p>
+                <h3 class="srv-expertise-title">Residential</h3>
+                <p class="srv-expertise-desc">Custom homes & complete renovations</p>
+            </div>
+            <div class="srv-expertise-item">
+                <div class="srv-expertise-icon">
+                    <i class="fas fa-building"></i>
                 </div>
-                <div style="text-align: center;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; box-shadow: var(--shadow-lg);">
-                        <i class="fas fa-tools" style="font-size: 2rem; color: white;"></i>
-                    </div>
-                    <h4 style="margin-bottom: 0.5rem;">Renovations</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Complete transformations</p>
+                <h3 class="srv-expertise-title">Commercial</h3>
+                <p class="srv-expertise-desc">Office buildings & retail spaces</p>
+            </div>
+            <div class="srv-expertise-item">
+                <div class="srv-expertise-icon">
+                    <i class="fas fa-tools"></i>
                 </div>
+                <h3 class="srv-expertise-title">Renovations</h3>
+                <p class="srv-expertise-desc">Complete transformations</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Services Grid -->
-<section class="section" style="background-color: var(--light-color);">
-    <div class="container">
-        <div class="services-grid">
-            <div class="service-card animate-on-scroll">
-                <div class="service-image">
-                    <img src="/images/services/roofing.jpg" alt="Roofing Services">
-                </div>
-                <div class="service-content">
-                    <h3>Roofing Services</h3>
-                    <p>Complete roofing solutions including installation, repair, and maintenance for residential and commercial properties. GAF certified contractors.</p>
-                    <ul>
-                        <li>Asphalt Shingle Roofing</li>
-                        <li>Metal Roofing Systems</li>
-                        <li>Tile & Slate Roofing</li>
-                        <li>Flat Roof Solutions</li>
-                        <li>Emergency Repairs</li>
-                    </ul>
-                    <a href="/services/roofing" class="btn btn-primary">Learn More</a>
-                </div>
+<section class="srv-services">
+    <div class="srv-services-header">
+        <h2 class="srv-services-title">What We Offer</h2>
+        <p class="srv-services-subtitle">
+            Comprehensive construction solutions tailored to your specific needs and vision.
+        </p>
+    </div>
+    <div class="srv-services-grid">
+        <!-- Roofing -->
+        <div class="srv-card">
+            <div class="srv-card-image">
+                <span class="srv-card-number">01</span>
+                <img src="/images/services/roofing.jpg" alt="Professional Roofing Services">
             </div>
-
-            <div class="service-card animate-on-scroll">
-                <div class="service-image">
-                    <img src="/images/services/solar.jpg" alt="Solar Roofing">
-                </div>
-                <div class="service-content">
-                    <h3>GAF Solar Roofing</h3>
-                    <p>Innovative Timberline Solar™ shingles that protect your home while generating clean energy. GAF Energy certified installers.</p>
-                    <ul>
-                        <li>Timberline Solar™ Installation</li>
-                        <li>Integrated Solar Solutions</li>
-                        <li>Energy Savings Analysis</li>
-                        <li>25-Year Warranty</li>
-                        <li>Net Metering Support</li>
-                    </ul>
-                    <a href="/services/solar" class="btn btn-primary">Learn More</a>
-                </div>
+            <div class="srv-card-content">
+                <span class="srv-card-badge"><i class="fas fa-certificate"></i> GAF Certified</span>
+                <h3 class="srv-card-title">Roofing Services</h3>
+                <p class="srv-card-desc">
+                    Complete roofing solutions including installation, repair, and maintenance
+                    for residential and commercial properties.
+                </p>
+                <ul class="srv-card-features">
+                    <li>Asphalt Shingle Roofing</li>
+                    <li>Metal Roofing Systems</li>
+                    <li>Tile & Slate Roofing</li>
+                    <li>Emergency Repairs</li>
+                </ul>
+                <a href="/services/roofing" class="srv-card-link">Explore Roofing</a>
             </div>
+        </div>
 
-            <div class="service-card animate-on-scroll">
-                <div class="service-image">
-                    <img src="/images/services/remodeling.jpg" alt="Home Remodeling">
-                </div>
-                <div class="service-content">
-                    <h3>Home Remodeling</h3>
-                    <p>Transform your space with our expert remodeling services for kitchens, bathrooms, and whole-home renovations.</p>
-                    <ul>
-                        <li>Kitchen Renovations</li>
-                        <li>Bathroom Remodeling</li>
-                        <li>Room Additions</li>
-                        <li>Interior Updates</li>
-                        <li>Exterior Renovations</li>
-                    </ul>
-                    <a href="/services/remodeling" class="btn btn-primary">Learn More</a>
-                </div>
+        <!-- Solar -->
+        <div class="srv-card">
+            <div class="srv-card-image">
+                <span class="srv-card-number">02</span>
+                <img src="/images/services/solar.jpg" alt="GAF Solar Roofing">
             </div>
+            <div class="srv-card-content">
+                <span class="srv-card-badge"><i class="fas fa-sun"></i> GAF Energy</span>
+                <h3 class="srv-card-title">Solar Roofing</h3>
+                <p class="srv-card-desc">
+                    Innovative Timberline Solar shingles that protect your home while
+                    generating clean, renewable energy.
+                </p>
+                <ul class="srv-card-features">
+                    <li>Timberline Solar Installation</li>
+                    <li>Energy Savings Analysis</li>
+                    <li>25-Year Warranty</li>
+                    <li>Net Metering Support</li>
+                </ul>
+                <a href="/services/solar" class="srv-card-link">Explore Solar</a>
+            </div>
+        </div>
 
-            <div class="service-card animate-on-scroll">
-                <div class="service-image">
-                    <img src="/images/services/construction.jpg" alt="New Construction">
-                </div>
-                <div class="service-content">
-                    <h3>New Construction</h3>
-                    <p>From custom homes to commercial buildings, we bring your vision to life with quality construction.</p>
-                    <ul>
-                        <li>Custom Home Building</li>
-                        <li>Commercial Construction</li>
-                        <li>Design-Build Services</li>
-                        <li>Project Management</li>
-                        <li>Site Development</li>
-                    </ul>
-                    <a href="/services/construction" class="btn btn-primary">Learn More</a>
-                </div>
+        <!-- Remodeling -->
+        <div class="srv-card">
+            <div class="srv-card-image">
+                <span class="srv-card-number">03</span>
+                <img src="/images/services/remodeling.jpg" alt="Home Remodeling">
+            </div>
+            <div class="srv-card-content">
+                <span class="srv-card-badge"><i class="fas fa-paint-roller"></i> Design-Build</span>
+                <h3 class="srv-card-title">Home Remodeling</h3>
+                <p class="srv-card-desc">
+                    Transform your space with our expert remodeling services for kitchens,
+                    bathrooms, and whole-home renovations.
+                </p>
+                <ul class="srv-card-features">
+                    <li>Kitchen Renovations</li>
+                    <li>Bathroom Remodeling</li>
+                    <li>Room Additions</li>
+                    <li>Interior Updates</li>
+                </ul>
+                <a href="/services/remodeling" class="srv-card-link">Explore Remodeling</a>
+            </div>
+        </div>
+
+        <!-- Construction -->
+        <div class="srv-card">
+            <div class="srv-card-image">
+                <span class="srv-card-number">04</span>
+                <img src="/images/services/construction.jpg" alt="New Construction">
+            </div>
+            <div class="srv-card-content">
+                <span class="srv-card-badge"><i class="fas fa-hard-hat"></i> Full Service</span>
+                <h3 class="srv-card-title">New Construction</h3>
+                <p class="srv-card-desc">
+                    From custom homes to commercial buildings, we bring your vision to
+                    life with quality construction.
+                </p>
+                <ul class="srv-card-features">
+                    <li>Custom Home Building</li>
+                    <li>Commercial Construction</li>
+                    <li>Design-Build Services</li>
+                    <li>Project Management</li>
+                </ul>
+                <a href="/services/construction" class="srv-card-link">Explore Construction</a>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Why Choose Us -->
-<section class="section">
-    <div class="container">
-        <h2 style="text-align: center; margin-bottom: 3rem;">Why Choose GK Homes and Roofing?</h2>
-        <div class="benefits-grid">
-            <div class="benefit-item animate-on-scroll">
-                <i class="fas fa-certificate"></i>
-                <h4>GAF Certified</h4>
-                <p>Master Elite contractor status ensures superior installation and warranty coverage</p>
+<section class="srv-why">
+    <div class="srv-why-inner">
+        <div class="srv-why-header">
+            <span class="srv-why-label">The GK Difference</span>
+            <h2 class="srv-why-title">Why Choose Us</h2>
+        </div>
+        <div class="srv-why-grid">
+            <div class="srv-why-item">
+                <div class="srv-why-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3 class="srv-why-item-title">GAF Certified</h3>
+                <p class="srv-why-item-desc">
+                    Master Elite contractor status ensures superior installation and warranty coverage
+                </p>
             </div>
-            <div class="benefit-item animate-on-scroll">
-                <i class="fas fa-clock"></i>
-                <h4>19+ Years Experience</h4>
-                <p>Proven roofing and construction expertise serving Central Texas</p>
+            <div class="srv-why-item">
+                <div class="srv-why-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3 class="srv-why-item-title">19+ Years Experience</h3>
+                <p class="srv-why-item-desc">
+                    Proven roofing and construction expertise serving Central Texas
+                </p>
             </div>
-            <div class="benefit-item animate-on-scroll">
-                <i class="fas fa-shield-alt"></i>
-                <h4>Fully Insured</h4>
-                <p>Complete liability and workers' compensation coverage for your protection</p>
+            <div class="srv-why-item">
+                <div class="srv-why-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="srv-why-item-title">Fully Insured</h3>
+                <p class="srv-why-item-desc">
+                    Complete liability and workers' compensation coverage for your protection
+                </p>
             </div>
-            <div class="benefit-item animate-on-scroll">
-                <i class="fas fa-award"></i>
-                <h4>Award Winning</h4>
-                <p>BBB A+ rating and Angi Super Service Award winner</p>
+            <div class="srv-why-item">
+                <div class="srv-why-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3 class="srv-why-item-title">Award Winning</h3>
+                <p class="srv-why-item-desc">
+                    BBB A+ rating and Angi Super Service Award winner
+                </p>
             </div>
-            <div class="benefit-item animate-on-scroll">
-                <i class="fas fa-hand-holding-usd"></i>
-                <h4>Financing Available</h4>
-                <p>Flexible payment options to make your project affordable</p>
+            <div class="srv-why-item">
+                <div class="srv-why-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <h3 class="srv-why-item-title">Financing Available</h3>
+                <p class="srv-why-item-desc">
+                    Flexible payment options to make your project affordable
+                </p>
             </div>
-            <div class="benefit-item animate-on-scroll">
-                <i class="fas fa-handshake"></i>
-                <h4>Warranty Protection</h4>
-                <p>Industry-leading warranties on materials and workmanship</p>
+            <div class="srv-why-item">
+                <div class="srv-why-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3 class="srv-why-item-title">Warranty Protection</h3>
+                <p class="srv-why-item-desc">
+                    Industry-leading warranties on materials and workmanship
+                </p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- CTA Section -->
-<section class="section cta-section">
-    <div class="container">
-        <div class="cta-content">
-            <h2>Ready to Start Your Project?</h2>
-            <p>Get a free consultation and estimate from our experts</p>
-            <div>
-                <a href="/contact/quote" class="btn btn-primary">Get Free Quote</a>
-                <a href="/contact" class="btn btn-secondary" style="margin-left: 1rem;">Contact Us</a>
-            </div>
+<section class="srv-cta">
+    <div class="srv-cta-inner">
+        <h2 class="srv-cta-title">Ready to Start Your Project?</h2>
+        <p class="srv-cta-text">
+            Get a free consultation and estimate from our team of experts
+        </p>
+        <div class="srv-cta-buttons">
+            <a href="/contact/quote" class="srv-btn-primary">
+                <i class="fas fa-file-alt"></i>
+                Get Free Quote
+            </a>
+            <a href="/contact" class="srv-btn-secondary">
+                <i class="fas fa-phone"></i>
+                Contact Us
+            </a>
         </div>
     </div>
 </section>
-
-<style>
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: var(--spacing-lg);
-}
-
-.service-card {
-    background: var(--white);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-
-.service-image {
-    height: 250px;
-    overflow: hidden;
-}
-
-.service-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.service-card:hover .service-image img {
-    transform: scale(1.05);
-}
-
-.service-content {
-    padding: var(--spacing-lg);
-}
-
-.service-content h3 {
-    margin-bottom: var(--spacing-sm);
-    color: var(--primary-color);
-}
-
-.service-content ul {
-    list-style: none;
-    margin: var(--spacing-md) 0;
-}
-
-.service-content ul li {
-    padding: 5px 0;
-    padding-left: 20px;
-    position: relative;
-}
-
-.service-content ul li:before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--secondary-color);
-    font-weight: bold;
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-lg);
-}
-
-.benefit-item {
-    text-align: center;
-}
-
-.benefit-item i {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: var(--spacing-md);
-}
-
-.benefit-item h4 {
-    margin-bottom: var(--spacing-sm);
-}
-
-@media (max-width: 768px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .benefits-grid {
-        grid-template-columns: 1fr;
-    }
-}
-</style> 
